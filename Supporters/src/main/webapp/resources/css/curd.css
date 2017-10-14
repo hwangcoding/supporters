@@ -1,0 +1,12 @@
+
+/* 게시글작성 */
+#write_table{ background-color:#F8F8F8; height:33px; font-size:15px; }
+#write_table>tbody>tr{height:0px; }
+#write_table>tbody>tr>td{height:50px;}
+
+
+
+
+#contents{width: 100%;border:none; border-left:1px solid #c1c1c1; border-right:1px solid #c1c1c1;resize: none;overflow-y: hidden;padding: 1.1em; padding-bottom: 0.2em;line-height: 1.6; }
+#title{height:30px;width:50%;border:none; border-bottom:1px solid #c1c1c1; color:#666666;}
+#writer{height:30px;width:50%;border:none; border-bottom:1px solid #c1c1c1; color:#666666;}

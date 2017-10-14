@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+
+  
+  <mapper namespace="studentMapper">
+
+	<!-- 회원리스트 -->
+	<select id="list" parameterType="StudentVO" resultType="StudentVO">
+		
+		Select
+				*
+		From
+				 student as a 
+				 inner join minor_code_administrator as b
+				 on a.minor_cd = b.minor_cd
+		<where> 
+        	<choose> 
+        	<when test="searchFiled == ''"> AND 1=1 </when> 
+        	<when test="searchFiled == 'user_num'"> AND user_num like CONCAT('%', #{searchValue} , '%') </when> 
+	    	<when test="searchFiled == 'user_nm'"> AND user_nm like CONCAT('%', #{searchValue} , '%')</when>
+		    <when test="searchFiled == 'user_atten'"> AND user_atten like CONCAT('%', #{searchValue} , '%') </when> 
+        	 </choose>
+        	  </where>
+		order by user_num
+		limit #{limitNo},#{pageSize}				
+				
+	</select>
+	
+	<!-- 회원카운트 -->
+	<select id="list_count" parameterType="StudentVO" resultType="int">
+		<!-- searchFiled = 조회조건, searchValue = 검색어 -->
+		
+		Select
+				 count(*) as totalCount
+		From
+				 student
+        	<where> 
+        	<choose> 
+        	<when test="searchFiled == ''"> AND 1=1 </when> 
+        	<when test="searchFiled == 'user_num'"> AND user_num like CONCAT('%', #{searchValue} , '%') </when> 
+	    	<when test="searchFiled == 'user_nm'"> AND user_nm like CONCAT('%', #{searchValue} , '%')</when>
+		    <when test="searchFiled == 'user_atten'"> AND user_atten like CONCAT('%', #{searchValue} , '%') </when> 
+        	 </choose>
+        	  </where>
+
+
+				 
+	</select>
+	
+	<!-- 회원삭제 -->
+	<delete id="delete" parameterType="StudentVO">
+	<![CDATA[
+		Delete From student where user_num=#{user_num}
+		]]> 
+	</delete>
+	
+	
+	<!-- 회원가입 -->
+	<insert id="list_add"  parameterType="StudentVO">
+		
+		INSERT INTO student (user_num,user_pw,user_gender,user_nm,user_phone,user_email,user_birth)
+		VALUES (#{user_num},#{user_pw},#{user_gender},#{user_nm},#{user_phone},#{user_email},#{user_birth});
+				 
+	</insert>
+	
+	<select id="search"  parameterType="StudentVO" resultType="int">
+		<![CDATA[
+		Select
+				 count(*)
+		From
+				 student
+		Where
+				user_num=${user_num}
+				 ]]> 
+	</select>
+	
+	
+	
+</mapper>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+
+  
+  <mapper namespace="statisticsMapper">
+
+	<!-- 일주일치 회원 수 -->
+	<select id="join_week" parameterType="StatisticsVO" resultType="StatisticsVO">
+		<![CDATA[
+		SELECT substring(`user_joindate`,1,10) as  date , count(substring(`user_joindate`,1,10)) as week_cnt
+		FROM student 
+		WHERE 
+				 user_joindate >=#{date}	AND user_joindate <=(select curdate())
+		GROUP BY substring(`user_joindate`,1,10)
+				 ]]> 
+	</select> 
+	
+	
+	<!-- 일주일치 방문자 수 -->
+	<select id="visited_week" parameterType="StatisticsVO" resultType="StatisticsVO">
+		<![CDATA[
+		SELECT date_cnt_date as date , date_cnt_d_cnt as week_cnt
+		FROM date_cnt 
+		WHERE 
+					date_cnt_date >=#{date} AND date_cnt_date <=(select curdate()) 
+		group by date_cnt_date
+				 ]]> 
+	</select>
+	
+	<!-- 총 방문자 수  -->
+	<select id="visited_count" resultType="int">
+		<![CDATA[
+		Select sum(date_cnt_d_cnt) 
+		From date_cnt
+				 ]]> 
+	</select>
+	
+	
+	
+	
+</mapper>

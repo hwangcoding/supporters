@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+
+  
+  <mapper namespace="loginMapper">
+
+
+	<update id="datelogin" parameterType="LoginVO">
+		<![CDATA[
+		UPDATE administrator SET administrator_lastlogin = #{administrator_lastlogin} WHERE administrator_id = #{administrator_id}
+
+		 ]]> 
+	</update>
+
+	<!-- 파라미터 값을 받아와서 Where절에 넣고 조회하는 것 --> 
+	<select id="login" parameterType="LoginVO" resultType="LoginVO">
+		<![CDATA[
+		Select
+				*
+		From
+				administrator
+		Where administrator_id = #{administrator_id} and administrator_pw = #{administrator_pw}
+				 ]]> 
+	</select>
+	
+
+	
+</mapper>
