@@ -38,6 +38,24 @@
 									</thead>
 									
 									<tbody align="center">
+									
+									<c:if test="${empty student}">
+										
+										<tr width="100%" >	<!-- db에 따로 시퀀스가 없어 jstl 을 이용 -->
+												<td width="10%" colspan="8">회원정보가 없습니다.</td>
+										</tr>
+										</tbody>
+										<tfoot align="center">
+											
+											<tr>
+												<td colspan="8" class="table_paging"> </td>
+											</tr>
+										</tfoot>
+										
+									</c:if>
+									
+									
+									<c:if test="${student!= '' || student ne null}">
 									<!-- 반복되는부분 -->
 									<c:forEach items="${student}" var="st">
 									
@@ -71,7 +89,7 @@
 											</td>
 										</tr>
 									</tfoot>
-								
+								</c:if>
 								</table>
 							</div>
 						<!-- </div> -->

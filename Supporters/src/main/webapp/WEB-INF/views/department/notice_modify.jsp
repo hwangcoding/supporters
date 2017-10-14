@@ -11,6 +11,8 @@
 			<div class="content_view">
 				<div class="content_view_depth"><h3>학과관리 > 학과공지</h3></div>
 						
+
+						
 							<form name="modify" method="post" enctype="multipart/form-data" action="/department/notice/modifyprocess">
 							<c:forEach items="${view}" var="view" varStatus="status">
 							<!-- 히든으로 게시물의 고유 번호를 숨겨 놨다가 수정하거나 삭제 할 때 값을 넘겨줌 -->

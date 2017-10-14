@@ -6,10 +6,32 @@ $(document).ready(function(){
 	
 	/*글작성하고서브밋*/
 	$(".write_process").click(function(){
-		$(document).write.submit();
+		
+		
+		if(!$("#title").val()){
+			alert("제목을 작성해 주십시오.");
+			return false;
+		}
+		if(!$("#contents").val()){
+			alert("내용을 작성해 주십시오.");
+			return false;
+		}
+		var result = confirm('작성 하시겠습니까?');
+		if(result) { 
+			/*폼안에 있는 것은 서브밋*/ 
+			$(document).write.submit();
+			alert("작성 되었습니다.");
+		}else { 
+		
+			return false;
+		}
+		
+		
 	});
 	/*글수정페이지로서브밋*/
 	$("#modify_button").click(function(){
+		
+		
 		var result = confirm('수정 하시겠습니까?');
 		if(result) { 
 			/*폼의 속성중 action 의 속성 값을 변경*/
@@ -25,7 +47,25 @@ $(document).ready(function(){
 	
 	/*글수정완료서브밋*/
 	$("#modeify_finish").click(function(){
-		$(document).modify.submit();
+		if(!$("#title").val()){
+			alert("제목을 작성해 주십시오.");
+			return false;
+		}
+		if(!$("#contents").val()){
+			alert("내용을 작성해 주십시오.");
+			return false;
+		}
+		var result = confirm('수정 하시겠습니까?');
+		if(result) { 
+			/*폼안에 있는 것은 서브밋*/ 
+			$(document).modify.submit();
+			alert("수정 되었습니다.");
+		}else { 
+			return false;		
+			
+		}
+		
+		
 	});
 	
 	$("#delete_button").click(function(){
@@ -35,6 +75,7 @@ $(document).ready(function(){
 			$(document).write.submit();
 			alert("삭제 되었습니다.");
 		}else { 
+			return false;
 		
 			
 		}

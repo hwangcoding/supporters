@@ -4,7 +4,7 @@
 <!DOCTYPE>
 <html>
 <head>
-	<title>Home</title>
+	<title>재능마당 관리자페이지</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<link rel="stylesheet" href="/css/main.css" type="text/css">
 	<link rel="stylesheet" href="/css/curd.css" type="text/css">
