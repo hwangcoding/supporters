@@ -12,12 +12,12 @@
 				<div class="content_view_depth"><h3>학과관리 > 학과공지</h3></div>
 						
 							<form name="write" method="post" enctype="multipart/form-data" action="/department/notice/writeprocess" >
-								<table width="100%"  id="write_table"  border="0">
+								<table width="100%"  id="write_table"  border="1">
 																	
 									<tbody>
 						                <tr>
 						                    <td >제목</td>
-						                    <td><input type="text" id="title" name="title" ></input></td>
+						                    <td><input type="text" id="title" name="title"  size="20"></input></td>
 						                    <td>작성자</td>
 						                    <td><input type="text" readonly id="writer" name="user_id" value="${ADMIN_ID}"></input></td>
 						                </tr>

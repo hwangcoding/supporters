@@ -9,9 +9,9 @@
 		<!-- 컨텐츠 크기 맞추기 -->
 		<div id="mid">
 			<div class="content_view">
-				<div class="content_view_depth"><h3>학과관리 > 학과공지</h3></div>
+				<div class="content_view_depth"><h3>컨텐츠관리 > 끝말잇기</h3></div>
 						
-							
+							<center>
 								<table width="100%"  id="user_list"  border="0">
 									<thead align="center">
 										<tr style="text-align:right; background:#fff; height:50px; border-top:0px; ">
@@ -26,11 +26,11 @@
 											</td>
 										</tr>
 										<tr width="100%">
-											<td width="10%">번호</td>
-											<td width="50%">내용</td>
-											<td width="15%">작성자</td>
-											<td width="15%">작성일</td>
-											<td width="10%">삭제</td>
+											<th width="10%">번호</th>
+											<th width="50%">내용</th>
+											<th width="15%">작성자</th>>
+											<th width="15%">작성일</th>>
+											<th width="10%">삭제</th>
 										</tr>									
 									</thead>
 									
@@ -52,7 +52,7 @@
 												<c:forEach items="${fiction}" var="fi" varStatus="status"> 
 												
 													<tr width="100%">	<!-- db에 따로 시퀀스가 없어 jstl 을 이용 -->
-														<td width="10%">${fn:length(fiction)-status.index}</td>
+														<td width="10%">${fi.fiction_seq}</td>
 														<td width="50%">${fi.fiction_content}</td>
 														<td width="15%">${fi.user_num }</td>
 														<td width="15%">${fi.fiction_write_datetime}</td>
@@ -93,6 +93,7 @@
 											</tfoot>
 										
 								</table>
+								<center>
 							</div>
 						<!-- </div> -->
 		

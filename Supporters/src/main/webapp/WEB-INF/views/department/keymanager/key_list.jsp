@@ -82,17 +82,18 @@
 		<!-- 컨텐츠 크기 맞추기 -->
 		<div id="mid">
 			<div class="content_view">
-				<div class="content_view_depth"><h3>학과관리 > 학과공지</h3></div>
+				<div class="content_view_depth"><h3>학과관리 > 열쇠관리</h3></div>
 						
 							
 								<table width="100%"  id="user_list"  border="0">
 									<thead align="center">
 										<tr style="text-align:right; background:#fff; height:50px; border-top:0px; ">
-											<td colspan="5"><select class="search_select">
-												 <option value="0">1</option>
-												 <option value="1">2</option>
-												 <option value="2">3</option>
-												 <option value="3">4</option>
+											<td colspan="5">
+												<select class="search_select">
+													 <option value="0">1</option>
+													 <option value="1">2</option>
+													 <option value="2">3</option>
+													 <option value="3">4</option>
 												</select>
 												<input type="text" class="search_text">
 												<button type="button" class="search_button">검색</button>

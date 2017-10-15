@@ -26,14 +26,14 @@
 											</td>
 										</tr>
 										<tr width="100%">
-											<td width="17%">학번</td>
-											<td width="10%">이름</td>
-											<td width="5%">성별</td>
-											<td width="12%">생년월일</td>
-											<td width="15%">핸드폰</td>
-											<td width="10%">상태</td>
-											<td width="26%">이메일</td>
-											<td width="5%">탈퇴</td>
+											<th width="17%">학번</th>
+											<th width="10%">이름</th>
+											<th width="5%">성별</th>
+											<th width="12%">생년월일</th>
+											<th width="15%">핸드폰</th>
+											<th width="10%">상태</th>
+											<th width="26%">이메일</th>
+											<th width="5%">탈퇴</th>
 										</tr>									
 									</thead>
 									

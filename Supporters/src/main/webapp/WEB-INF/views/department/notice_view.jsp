@@ -33,8 +33,9 @@
 										<td width="10%">${view. community_write_datetime}</td>
 										  
 									</tr>
-									<tr height="400px">
-										<td colspan="7" >${ view.community_content }<img src="/img/${ view.community_img}"></td>
+									<tr >
+										<td>내용</td>
+										<td colspan="6" height="400px" >${ view.community_content }<img src="/img/${ view.community_img}"></td>
 									</tr>
 									</c:forEach>
 									<!-- 반복되는부분 --> 

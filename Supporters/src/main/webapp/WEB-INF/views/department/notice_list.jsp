@@ -25,12 +25,12 @@
 												<button type="button" class="search_button">검색</button>
 											</td>
 										</tr>
-										<tr width="100%">
-											<td width="10%">번호</td>
-											<td width="45%">제목</td>
-											<td width="10%">조회수</td>
-											<td width="15%">작성자</td>
-											<td width="20%">작성일</td>
+										<tr width="100%" >
+											<th width="10%">번호</th>
+											<th width="45%">제목</th>
+											<th width="10%">조회수</th>
+											<th width="15%">작성자</th>
+											<th width="20%">작성일</th>
 										</tr>									
 									</thead>
 									
