@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+
+  
+  <mapper namespace="fictionGameMapper">
+
+	<!-- 댓글  리스트 뽑아내기 -->
+	<select id="list" parameterType="FictionGameVO" resultType="FictionGameVO">
+		Select
+				*
+		From
+				fictiongame
+		<where> 
+        	<choose> 
+        	<when test="searchFiled == ''"> AND 1=1 </when> 
+        	<when test="searchFiled == 'user_num'"> AND user_id like CONCAT('%', #{searchValue} , '%') </when> 
+	    	<when test="searchFiled == 'fiction_content'"> AND user_nm like CONCAT('%', #{searchValue} , '%')</when>
+        	 </choose>
+        	  </where>
+		order by fiction_write_datetime desc
+		limit #{limitNo},#{pageSize}				
+	</select>
+	
+	<!-- 댓글  카운트 -->
+	<select id="list_count"  parameterType="FictionGameVO"  resultType="int">
+		Select
+				 count(*) as totalCount
+		From
+				fictiongame
+		
+		<where> 
+        	<choose> 
+        	<when test="searchFiled == ''"> AND 1=1 </when> 
+        	<when test="searchFiled == 'user_num'"> AND user_id like CONCAT('%', #{searchValue} , '%') </when> 
+	    	<when test="searchFiled == 'fiction_content'"> AND user_nm like CONCAT('%', #{searchValue} , '%')</when>
+        	 </choose>
+        	  </where>
+	</select>
+
+	<!-- 댓글 입력하기 -->
+	<insert id="insert" parameterType="CommunityVO">
+    <![CDATA[
+        INSERT INTO fictiongame(user_num,fiction_content) 
+        VALUES (#{user_num},#{fiction_content})
+    ]]>
+</insert>
+
+
+
+
+	<!-- 댓글 삭제하기 -->
+	<delete id="delete" parameterType="CommunityVO">
+	<![CDATA[
+		Delete From fictiongame where fiction_seq=#{fiction_seq}
+		]]> 
+	</delete>
+	
+	
+	 <!-- 댓글 수정하기 -->
+	<update id="modify" parameterType="CommunityVO" >
+		Update community_notice set community_title=#{community_title},community_content=#{community_content}
+		 ,community_img=#{community_img},community_revise_datetime=#{community_revise_datetime}
+		Where community_seq=#{community_seq}
+		
+			
+	</update>
+	
+</mapper>

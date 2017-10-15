@@ -5,11 +5,22 @@ $(document).ready(function(){
 		 if(value=="/department/notice"){
 			 $(".sidebar_menu>ul>li:eq(2)").addClass("open"); /*학과공지*/
 			 $(".sidebar_menu>ul>li>ul>li:eq(0)>a").css("color","#C9182B");
+		 }else if(value=="/department/community/list"){
+			 $(".sidebar_menu>ul>li:eq(2)").addClass("open"); /*학과 > 커뮤니티*/
+			 $(".sidebar_menu>ul>li>ul>li:eq(1)>a").css("color","#C9182B");
+		 }else if(value=="/department/keymanager/list"){
+			 $(".sidebar_menu>ul>li:eq(2)").addClass("open"); /*학과 > 열쇠관리*/
+			 $(".sidebar_menu>ul>li>ul>li:eq(2)>a").css("color","#C9182B");
 		 }else if (value=="/student/list"){
 			 $(".sidebar_menu>ul>li:eq(1)").addClass("open"); /*회원관리*/
 		 }else if (value=="/"){
 			 $(".sidebar_menu>ul>li:eq(0)").addClass("open"); /*홈클릭시*/
+		 }else if(value=="/contents/fictiongame/fiction_list"){
+			 $(".sidebar_menu>ul>li:eq(3)").addClass("open"); /*끝말잇기*/
+			 $(".sidebar_menu>ul>li>ul>li:eq(2)>a").css("color","#C9182B");
 		 }
+		 
+		 
 		 
 	 };
 	

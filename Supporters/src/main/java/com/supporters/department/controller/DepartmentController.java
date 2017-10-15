@@ -92,32 +92,7 @@ public class DepartmentController {
 			
 		}
 		
-		/*학과공지 수정 프로세스*/
-		@RequestMapping(value="notice/modifyprocess",method={RequestMethod.GET, RequestMethod.POST})
-		public String modifyProcess(MultipartHttpServletRequest request,CommunityVO vo,HttpSession session,
-				String seq,
-				String title,
-				String contents) throws Exception {
-			
-			
-			
-			/*데이터베이스에 수정된 날짜 컬럼 부분에 넣기 위해 현재날짜와 시간을 구함*/
-			long time = System.currentTimeMillis(); 
-			SimpleDateFormat dayTime = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-			String str = dayTime.format(new Date());
-			
-			/*파라미터로 넘어온 값을 넣음*/
-			vo.setCommunity_seq(seq);
-			vo.setCommunity_title(title);
-			vo.setCommunity_content(contents);
-			/*서비스단에 설정 해 놓은 메소드를 실행*/
-			vo.setCommunity_img(departmentService.fileInsert(request, session));
-			vo.setCommunity_revise_datetime(str);
-			departmentService.modify(vo);
-			
-			
-			return "redirect:/department/notice?pageseq=1";
-	}
+	
 		
 		
 		
@@ -159,6 +134,31 @@ public class DepartmentController {
 		
 		return "redirect:/department/notice?pageseq=1";
 }
+	/*학과공지 수정 프로세스*/
+	@RequestMapping(value="notice/modifyprocess",method={RequestMethod.GET, RequestMethod.POST})
+	public String modifyProcess(MultipartHttpServletRequest request,CommunityVO vo,HttpSession session,
+			String seq,
+			String title,
+			String contents) throws Exception {
 		
+		
+		
+		/*데이터베이스에 수정된 날짜 컬럼 부분에 넣기 위해 현재날짜와 시간을 구함*/
+		long time = System.currentTimeMillis(); 
+		SimpleDateFormat dayTime = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		String str = dayTime.format(new Date());
+		
+		/*파라미터로 넘어온 값을 넣음*/
+		vo.setCommunity_seq(seq);
+		vo.setCommunity_title(title);
+		vo.setCommunity_content(contents);
+		/*서비스단에 설정 해 놓은 메소드를 실행*/
+		vo.setCommunity_img(departmentService.fileInsert(request, session));
+		vo.setCommunity_revise_datetime(str);
+		departmentService.modify(vo);
+		
+		
+		return "redirect:/department/notice?pageseq=1";
+}
 		
 }

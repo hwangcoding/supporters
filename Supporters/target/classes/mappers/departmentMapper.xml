@@ -27,7 +27,7 @@
 	</select>
 	
 	<!-- 학과 게시물 카운트 -->
-	<select id="list_count"  resultType="int">
+	<select id="list_count" parameterType="CommunityVO" resultType="int">
 		Select
 				 count(*) as totalCount
 		From
