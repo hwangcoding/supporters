@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.web.multipart.MultipartHttpServletRequest;
@@ -13,9 +14,9 @@ import com.supporters.domain.CommunityVO;
 
 
 public interface DepartmentService {
-	
+	 
 	//이미지 업로드
-	public String fileInsert( MultipartHttpServletRequest request,HttpSession session) throws Exception;
+	public String fileInsert( HttpServletRequest request, HttpServletResponse response) throws Exception;
 	//게시글 작성	
 	public void regist(CommunityVO vo) throws Exception;
 	

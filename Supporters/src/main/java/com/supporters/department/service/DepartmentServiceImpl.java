@@ -5,6 +5,7 @@ import java.util.Map;
 
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Service;
@@ -51,7 +52,7 @@ public class DepartmentServiceImpl  implements DepartmentService{
 		// TODO Auto-generated method stub
 		departmentDAO.delete(vo);
 	}
-
+ 
 	@Override
 	public List<CommunityVO> list(CommunityVO vo) throws Exception {
 		// TODO Auto-generated method stub
@@ -64,10 +65,10 @@ public class DepartmentServiceImpl  implements DepartmentService{
 		return departmentDAO.count(vo);
 	}
 	@Override
-	public String fileInsert(MultipartHttpServletRequest request, HttpSession session) throws Exception {
+	public String fileInsert(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		// TODO Auto-generated method stub
 		/*파일업로드 서비스 불러오기*/
-		return fileUpload.parseInsertFileInfo(request,session);
+		return null;
 		
 	}
 

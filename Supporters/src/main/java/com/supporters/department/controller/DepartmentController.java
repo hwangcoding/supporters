@@ -5,6 +5,8 @@ import java.util.Date;
 import java.util.List;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
@@ -116,17 +118,18 @@ public class DepartmentController {
 	
 	/*글 작성하기 프로세스*/
 	@RequestMapping(value="notice/writeprocess",method={RequestMethod.GET, RequestMethod.POST})
-	public String writeProcess(MultipartHttpServletRequest request,CommunityVO vo,HttpSession session,
+	public String writeProcess(HttpServletRequest request, HttpServletResponse response,CommunityVO vo,
 			String user_id,
 			String title,
-			String contents) throws Exception {
+			String smarteditor1) throws Exception {
+		System.out.println(request.getParameter("smarteditor"));
+		System.out.println(smarteditor1);
 		
 		/*학과 공지사항 코드 DBB001을 기본으로 설정*/
 		vo.setMinor_cd("DEB001");
 		vo.setCommunity_title(title);
-		vo.setCommunity_content(contents);
+		vo.setCommunity_content(smarteditor1);
 		vo.setCommunity_user_id(user_id);
-		vo.setCommunity_img(departmentService.fileInsert(request, session));
 		/*후에 등록해준다*/
 		departmentService.regist(vo);
 		
@@ -135,7 +138,7 @@ public class DepartmentController {
 }
 	/*학과공지 수정 프로세스*/
 	@RequestMapping(value="notice/modifyprocess",method={RequestMethod.GET, RequestMethod.POST})
-	public String modifyProcess(MultipartHttpServletRequest request,CommunityVO vo,HttpSession session,
+	public String modifyProcess(HttpServletRequest request, HttpServletResponse response,CommunityVO vo,
 			String seq,
 			String title,
 			String contents) throws Exception {
@@ -152,7 +155,7 @@ public class DepartmentController {
 		vo.setCommunity_title(title);
 		vo.setCommunity_content(contents);
 		/*서비스단에 설정 해 놓은 메소드를 실행*/
-		vo.setCommunity_img(departmentService.fileInsert(request, session));
+		vo.setCommunity_img(departmentService.fileInsert(request, response));
 		vo.setCommunity_revise_datetime(str);
 		departmentService.modify(vo);
 		

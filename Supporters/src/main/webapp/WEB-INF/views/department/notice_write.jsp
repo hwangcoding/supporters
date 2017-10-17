@@ -11,41 +11,24 @@
 			<div class="content_view">
 				<div class="content_view_depth"><h3>학과관리 > 학과공지</h3></div>
 						
-							<form name="write" method="post" enctype="multipart/form-data" action="/department/notice/writeprocess" >
-								<table width="100%"  id="write_table"  border="1">
-																	
-									<tbody>
-						                <tr>
-						                    <td >제목</td>
-						                    <td><input type="text" id="title" name="title"  size="20"></input></td>
-						                    <td>작성자</td>
-						                    <td><input type="text" readonly id="writer" name="user_id" value="${ADMIN_ID}"></input></td>
-						                </tr>
-						                <tr>
-						                    <td colspan="4" class="view_text">
-						                        <textarea rows="20" cols="100"  title="내용" id="contents" name="contents"></textarea>
-						                    </td>
-						                </tr>
-						            </tbody>
-									<tfoot align="center">  
-										<tr  style="text-align:center;">
-											<td colspan="4" class="table_paging" > 
-												<input type="file" name="file">
-											</td>
-										</tr>
-									   <tr  style="text-align:center;">
-											<td colspan="4" class="table_paging" > 
-												<button class="write_process">작성</button><button class="write_button">목록</button>
-											</td>
-										</tr>     
-									</tfoot>
-								</table>
-							</form>
+								<form action="/department/notice/writeprocess" method="post" id="frm">
+									
+									제목 : <input type="text" name ="title">
+									작성자 : <input type="text" name ='user_id' value= ${ ADMIN_ID } readonly>
+								    <textarea name="smarteditor" id="smarteditor" rows="10" cols="100" style="width:756px; height:412px;">
+
+   								 </textarea>
+								
+								    <input type="button" id="savebutton" value="서버전송" />
+								
+								</form>
 					</div>
 						<!-- </div> -->
+
 		
 		
 	</div>
+<script src="/js/smart.js"></script>
 
 </body>
 </html>

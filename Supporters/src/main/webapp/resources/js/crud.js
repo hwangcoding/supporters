@@ -1,7 +1,9 @@
 $(document).ready(function(){
 	/*글쓰기버튼클릭*/
 	$(".write_button").click(function(){
+		
 		location.href="/department/notice/write";
+		subInit();
 	});
 	
 	/*글작성하고서브밋*/
@@ -82,6 +84,5 @@ $(document).ready(function(){
 	});
 	
 
-	
-	
 });
+

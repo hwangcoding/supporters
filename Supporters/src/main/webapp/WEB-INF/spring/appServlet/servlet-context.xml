@@ -21,6 +21,7 @@
 		<resources mapping="/img/**" location="/resources/img/" />
 		<resources mapping="/images/**" location="/resources/images/" /> 
 		<resources mapping="/js/**" location="/resources/js/" /> 
+		<resources mapping="/smarteditor/**" location="/resources/smarteditor/" /> 
 		<resources mapping="/include/**" location="/views/include/" /> 
 		<resources mapping="/resources/**" location="/resources/" /> 
 		<resources mapping="/webjars/**"  location="classpath:/META-INF/resources/webjars/" />

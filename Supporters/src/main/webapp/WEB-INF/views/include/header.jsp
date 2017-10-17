@@ -1,7 +1,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page session="true" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<!DOCTYPE>
+<!DOCTYPE html>
 <html>
 <head>
 	<title>재능마당 관리자페이지</title>
@@ -20,7 +20,8 @@
 	<script src="/js/crud.js"></script>
 	<script src="/js/jquery-syaku.lightbox.js"></script>
 	<script src="/js/bootstrap.min.js"></script>
-	
+	<script src="/js/HuskyEZCreator.js"></script>
+
 
 	
 	
