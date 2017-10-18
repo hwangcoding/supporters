@@ -53,10 +53,10 @@
 	</select>
 	
 	<insert id="fileInsert" parameterType="CommunityVO">
-    <![CDATA[
+    
         INSERT INTO community_notice(minor_cd,community_user_id,community_title,community_content,community_img) 
         VALUES (#{minor_cd},#{community_user_id},#{community_title},#{community_content},#{community_img})
-    ]]>
+   
 </insert>
 
 

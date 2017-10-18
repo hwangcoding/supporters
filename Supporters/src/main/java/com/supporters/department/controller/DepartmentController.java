@@ -117,18 +117,20 @@ public class DepartmentController {
 	}
 	
 	/*글 작성하기 프로세스*/
-	@RequestMapping(value="notice/writeprocess",method={RequestMethod.GET, RequestMethod.POST})
-	public String writeProcess(HttpServletRequest request, HttpServletResponse response,CommunityVO vo,
+	@RequestMapping(value="notice/writeprocess")
+	public String writeProcess(CommunityVO vo,
+			String smarteditor,
 			String user_id,
-			String title,
-			String smarteditor1) throws Exception {
-		System.out.println(request.getParameter("smarteditor"));
-		System.out.println(smarteditor1);
-		
+			String title
+			) throws Exception {
+		System.out.println("여기가 내용 부분 : ");
+		System.out.println(smarteditor);
+		System.out.println("여기가 내용 부분 : ");
 		/*학과 공지사항 코드 DBB001을 기본으로 설정*/
+		
 		vo.setMinor_cd("DEB001");
 		vo.setCommunity_title(title);
-		vo.setCommunity_content(smarteditor1);
+		vo.setCommunity_content(smarteditor);
 		vo.setCommunity_user_id(user_id);
 		/*후에 등록해준다*/
 		departmentService.regist(vo);

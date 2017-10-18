@@ -11,13 +11,11 @@
 			<div class="content_view">
 				<div class="content_view_depth"><h3>학과관리 > 학과공지</h3></div>
 						
-								<form action="/department/notice/writeprocess" method="post" id="frm">
+								<form name="frm" action="/department/notice/writeprocess" method="post" id="frm">
 									
-									제목 : <input type="text" name ="title">
+									제목 :   <input type="text" name ="title">
 									작성자 : <input type="text" name ='user_id' value= ${ ADMIN_ID } readonly>
-								    <textarea name="smarteditor" id="smarteditor" rows="10" cols="100" style="width:756px; height:412px;">
-
-   								 </textarea>
+								    <textarea name="smarteditor" id="smarteditor" rows="10" cols="100" style="width:756px; height:412px;" ></textarea>
 								
 								    <input type="button" id="savebutton" value="서버전송" />
 								

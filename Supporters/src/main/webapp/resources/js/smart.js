@@ -1,10 +1,11 @@
+var editor_object = [];
 $(document).ready(function(){
 
 
 
 		//전역변수선언
 
-		    var editor_object = [];
+		    
 
 		    nhn.husky.EZCreator.createInIFrame({
 
@@ -44,8 +45,11 @@ $(document).ready(function(){
 		        editor_object.getById["smarteditor"].exec("UPDATE_CONTENTS_FIELD", []);
 		        // 이부분에 에디터 validation 검증
 		        //폼 submit
+		        alert($("#smarteditor").val());
+
 		        if(validation()) {
-		        	$("#frm").submit();
+		        	
+		        	document.frm.submit();
 		        	}
 
 
