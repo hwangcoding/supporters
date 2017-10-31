@@ -67,6 +67,12 @@ public class StudentServiceImpl implements StudentService{
 		
 			return studentDAO.search(vo);
 		
+	}
+
+	@Override
+	public void pwUpdate(StudentVO vo) throws Exception {
+		// TODO Auto-generated method stub
+		studentDAO.pwUpdate(vo);
 	}	
 	
 	

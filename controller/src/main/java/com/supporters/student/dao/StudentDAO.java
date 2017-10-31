@@ -25,4 +25,6 @@ public interface StudentDAO {
 	
 	public int search(StudentVO vo) throws Exception;
 	
+	public void pwUpdate(StudentVO vo) throws Exception;
+	
 }

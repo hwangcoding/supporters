@@ -13,7 +13,6 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import com.supporters.department.dao.DepartmentDAO;
 import com.supporters.domain.CommunityVO;
-import com.supporters.function.FileUpload;
 
 
 @Service
@@ -23,9 +22,7 @@ public class DepartmentServiceImpl  implements DepartmentService{
 	@Inject
 	private DepartmentDAO departmentDAO;
 	
-	@Inject
-    private FileUpload fileUpload;
-
+ 
 
 	@Override
 	public void regist(CommunityVO vo) throws Exception {

@@ -3,7 +3,8 @@ $(document).ready(function(){
 
 
 		//전역변수선언
-			var tx_v=$("#tx_value").val()
+			var tx_v=$("#tx_value").val();
+			if(!tx_v){tx_v="";}
 		    var editor_object = [];
 
 		    nhn.husky.EZCreator.createInIFrame({
@@ -27,7 +28,7 @@ $(document).ready(function(){
 
 		            // 모드 탭(Editor | HTML | TEXT) 사용 여부 (true:사용/ false:사용하지 않음)
 
-		            bUseModeChanger : true, 
+		            bUseModeChanger : false, 
 		            fOnBeforeUnload : function(){ 
 		            	
 		            } 
@@ -53,6 +54,11 @@ $(document).ready(function(){
 		        // 이부분에 에디터 validation 검증
 		        //폼 submit
 		        if(validation()) {
+		        	
+		        	if(!$("#title").val()){
+		    			alert("제목을 작성해 주십시오.");
+		    			return false;
+		    		}
 		        	$("#frm").submit();
 		        	}
 

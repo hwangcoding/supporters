@@ -10,15 +10,15 @@
 			<div class="content_view">
 				<div class="content_view_depth"><h3>컨텐츠관리 > 오늘 뭐먹지 관리</h3></div>
 								
-								<table width="100%" id="restaurant_list" border="0">
+								<table width="100%" class="restaurant_list" border="0">
 								
 								<thead align="center">
 										<!-- 작성된 글을 담아 디비로 보내 데이터를 가져와 해당 검색에 맞는 데이터를 뿌려준다 -->
 										<tr style="text-align:right; background:#fff; height:50px; border-top:0px;"> 
 											<td colspan="8">
-												<form method="post" action="/contents/restaurant/restaurant_list">
+												<form method="post" action="/contents/restaurant/restaurant_view">
 												
-													<select name="searchFiled" class="restaurant_search_select">
+													<select name="searchFiled" class="search_select"> <!-- 이거 css안먹어서 다시 바꾸밍 -->
 														 <option value="0">선택</option>
 														 <option value="1">맛집종류</option>
 														 <option value="2">이름</option>
@@ -47,10 +47,10 @@
 								
 								<tbody align="center">
 									
-									<%-- <c:if test="${empty student}">
+									 <c:if test="${empty rest}">
 										
 										<tr width="100%" >	<!-- db에 따로 시퀀스가 없어 jstl 을 이용 -->
-												<td width="10%" colspan="8">회원정보가 없습니다.</td>
+												<td width="10%" colspan="8">맛집정보가 없습니다.</td>
 										</tr>
 										</tbody>
 										<tfoot align="center">
@@ -60,45 +60,42 @@
 											</tr>
 										</tfoot>
 										
-									</c:if> --%>
+									</c:if> 
 									
 									
-									<%-- <c:if test="${student!= '' || student ne null}">
-									<!-- 반복되는부분 -->
-									<c:forEach items="${student}" var="st"> --%>
+									<c:forEach items="${rest}" var="st"> 
 									
 										<!-- 반복해서 리스트로 값을 받아와 뿌려줘야함 -->
 										<tr height="120px">
 											<td><input type="checkbox" id=""></td>
-											<td height="80px">1</td>
-											<td>패스트푸드</td>
-											<td><a href="/contents/restaurant/view">엄마손길</a></td>
-											<td>img_1.jpg</td>
-											<td>인천시 서구 송림3동 521-1 현준빌딩 34호</td>
-											<td>010-2668-9376</td>
-											<td>배달가능</td>
-											<%-- <td>ICON<i class="material-icons" id="drop_button" style="cursor:pointer;" name="${st.user_num }">close</i></td> --%>
+											<td height="80px">${st.restaurant_seq }</td>
+											<td>${st.minor_nm }</td>
+											<td><a href="/contents/restaurant/view?seq=${st.restaurant_seq }">${st.restaurant_nm }</a></td>
+											<td>${st.restaurant_mainimg }</td>
+											<td>${st.restaurant_address }</td>
+											<td>${st.restaurant_phone }</td>
+											<td>${st.restaurant_delivery }</td>
 										</tr>
 									
-									<%-- </c:forEach>	 --%>
+									 </c:forEach>
 									<!-- 반복되는부분 -->											
 									</tbody>
 									
 									<tfoot align="center">
 										
-										<tr>
-											<td colspan="7" style="vertical-align: center; padding-top: 30px;">
+										<tr align="center">
+											<td colspan="8" style="vertical-align: center; padding-top: 30px;">
 												<!-- 추가 및 삭제로 보내기 -->
-												<input type="button" name="attend_btn" class="total_btn" value="추가" style="margin-right:20px;">
-												<input type="button" name="revise_btn" class="total_btn" value="수정">
-												<input type="button" name="delete_btn" class="total_btn" value="삭제" style="margin-left:20px;">
+												<input type="button" name="attend_btn" class="total_btn" value="추가">
+												<input type="button" name="revise_btn" class="total_btn" value="수정" style="margin-right:20px; margin-left:20px;">
+												<input type="button" name="delete_btn" class="total_btn" value="삭제">
 											
 											</td>
 										</tr>
 										
 										<tr> <!-- 페이징 -->
-											<%-- <td colspan="8" class="table_paging">
-												<jsp:include page="../include/paging.jsp" flush="true">
+											 <td colspan="8" class="table_paging">
+												<jsp:include page="../../include/paging.jsp" flush="true">
 												    <jsp:param name="firstPageNo" value="${paging.firstPageNo}" />
 												    <jsp:param name="prevPageNo" value="${paging.prevPageNo}" />
 												    <jsp:param name="startPageNo" value="${paging.startPageNo}" />
@@ -107,7 +104,7 @@
 												    <jsp:param name="nextPageNo" value="${paging.nextPageNo}" />
 												    <jsp:param name="finalPageNo" value="${paging.finalPageNo}" />
 												</jsp:include>
-											</td> --%>
+											</td> 
 										</tr>
 										
 									</tfoot>

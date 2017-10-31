@@ -9,20 +9,21 @@
 		<!-- 컨텐츠 크기 맞추기 -->
 		<div id="mid">
 			<div class="content_view">
-				<div class="content_view_depth"><h3>학과관리 > 학과공지</h3></div>
+				<div class="content_view_depth"><h3>학과관리 > 학과공지 관리</h3></div>
 						
 							
 								<table width="100%"  id="user_list"  border="0">
 									<thead align="center">
 										<tr style="text-align:right; background:#fff; height:50px; border-top:0px; ">
-											<td colspan="5"><select class="search_select">
-												 <option value="0">1</option>
-												 <option value="1">2</option>
-												 <option value="2">3</option>
-												 <option value="3">4</option>
+											<td colspan="5">
+											<form method="post" action="/department/notice?pageseq=1">
+											<select name="searchFiled" class="search_select">
+												 <option value="0">제목</option>
+												 <option value="1">작성자</option>
 												</select>
-												<input type="text" class="search_text">
-												<button type="button" class="search_button">검색</button>
+												<input type="text" name="searchValue" class="search_text">
+												<input type="submit" class="search_button" value="검색">
+												</form>
 											</td>
 										</tr>
 										<tr width="100%" >
@@ -50,7 +51,6 @@
 										<!-- 값이있을때-->
 										<c:if test="${notice!= '' || notice ne null}">
 												<c:forEach items="${notice}" var="no" varStatus="status"> 
-												
 													<tr width="100%">	<!-- db에 따로 시퀀스가 없어 jstl 을 이용 -->
 														<td width="10%">${fn:length(notice)-status.index}</td>
 														<td width="45%"><a href="/department/notice/view?seq=${no.community_seq}">${no.community_title}</a></td>
@@ -58,7 +58,6 @@
 														<td width="15%">${no.community_user_id}</td>
 														<td width="20%">${no.community_write_datetime}</td>
 													</tr>
-												
 												</c:forEach>
 											</c:if>	
 												<!-- 반복되는부분 -->							

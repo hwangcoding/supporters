@@ -23,19 +23,23 @@
 					<li><a href="#"><span>학과관리</span><i class="material-icons">add</i></a>
 						<ul>
 							<li><a href="/department/notice?pageseq=1">학과공지</a></li>
-							<li><a href="#">커뮤니티</a></li>
+							<li><a href="/department/community/list?pageseq=1">커뮤니티</a></li>
 							<li><a href="/department/keymanager/list?pageseq=1">열쇠관리</a></li>
 						</ul>
 					</li>
 					<li><a href="#"><span>컨텐츠관리</span><i class="material-icons">add</i></a>
 						<ul>
-							<li><a href="#">중고장터</a></li>
+							<li><a href="/contents/used/list?pageseq=1">중고장터</a></li>
 							<li><a href="/contents/restaurant/list?pageseq=1">오늘뭐먹지</a></li>
 							<li><a href="/contents/fictiongame/fiction_list?pageseq=1">끝말잇기</a></li>
 						</ul>
 					</li>		
-					<li><a href="#">통계</a></li>
-					<li><a href="#">관리</a></li>
+					<li><a href="/statistics/view">통계</a></li>
+					<li><a href="#"><span>관리</span><i class="material-icons">add</i></a>
+						<ul>
+							<li><a href="/management/faq/list?pageseq=1">FAQ</a></li>
+						</ul>
+					</li>
 				</ul>
 			</div>
 		</div>

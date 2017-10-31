@@ -9,28 +9,29 @@
 		<!-- 컨텐츠 크기 맞추기 -->
 		<div id="mid">
 			<div class="content_view">
-				<div class="content_view_depth"><h3>학과관리 > 학과공지</h3></div>
+				<div class="content_view_depth"><h3>콘텐츠관리 > 중고장터 관리</h3></div>
 						
 							
 								<table width="100%"  id="user_list"  border="0">
 									<thead align="center">
 										<tr style="text-align:right; background:#fff; height:50px; border-top:0px; ">
-											<td colspan="5"><select class="search_select">
-												 <option value="0">1</option>
-												 <option value="1">2</option>
-												 <option value="2">3</option>
-												 <option value="3">4</option>
+											<td colspan="5">
+											<form method="post" action="/contents/used/list?pageseq=1">
+											<select name="searchFiled" class="search_select">
+												 <option value="0">제목</option>
+												 <option value="1">작성자</option>
 												</select>
-												<input type="text" class="search_text">
-												<button type="button" class="search_button">검색</button>
+												<input type="text" name="searchValue" class="search_text">
+												<input type="submit" class="search_button" value="검색">
+												</form>
 											</td>
 										</tr>
-										<tr width="100%">
-											<td width="10%">번호</td>
-											<td width="45%">제목</td>
-											<td width="10%">조회수</td>
-											<td width="15%">작성자</td>
-											<td width="20%">작성일</td>
+										<tr width="100%" >
+											<th width="10%">번호</th>
+											<th width="45%">제목</th>
+											<th width="10%">조회수</th>
+											<th width="15%">작성자</th>
+											<th width="20%">작성일</th>
 										</tr>									
 									</thead>
 									
@@ -50,15 +51,13 @@
 										<!-- 값이있을때-->
 										<c:if test="${notice!= '' || notice ne null}">
 												<c:forEach items="${notice}" var="no" varStatus="status"> 
-												
 													<tr width="100%">	<!-- db에 따로 시퀀스가 없어 jstl 을 이용 -->
 														<td width="10%">${fn:length(notice)-status.index}</td>
-														<td width="45%"><a href="/department/notice/view?seq=${no.community_seq}">${no.community_title}</a></td>
+														<td width="45%"><a href="/contents/used/view?seq=${no.community_seq}">${no.community_title}</a></td>
 														<td width="10%">${no.community_lookupcnt}</td>
 														<td width="15%">${no.community_user_id}</td>
 														<td width="20%">${no.community_write_datetime}</td>
 													</tr>
-												
 												</c:forEach>
 											</c:if>	
 												<!-- 반복되는부분 -->							
@@ -71,7 +70,7 @@
 											<!-- 글쓰기 버튼을 누르면 제이쿼리로 정의 해 놓은 이벤트가 발생합니다 -->
 												<tr  style="text-align:right;">
 													<td colspan="5" class="table_paging" > 
-														<button class="write_button">글쓰기</button>
+														<input type="button" id="used_write_btn" value="글쓰기">
 													</td>
 												</tr>
 												

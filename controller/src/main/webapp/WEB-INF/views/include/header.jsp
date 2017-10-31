@@ -16,26 +16,21 @@
 	<script src="https://code.highcharts.com/modules/exporting.js"></script>
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
 	<script src="/webjars/jquery/2.1.1/dist/jquery.min.js"></script>
+	<script src="/js/bootstrap.min.js"></script>
 	<script src="/js/script.js"></script>
 	<script src="/js/crud.js"></script>
 	<script src="/js/jquery-syaku.lightbox.js"></script>
-	<script src="/js/bootstrap.min.js"></script>
 	<script src="/js/HuskyEZCreator.js"></script>
-
-
-	
+	<%-- <jsp:include page="../sub_menu/complain/complain_write.jsp" flush="false"/> --%>
 	
 </head>
-	
-
-
 <body >
 
 
 <div id = "header">
 		<div class="header_intro">
-			<div class="header_intro background">로고</div>
-			<b>인천재능대학교 관리자</b>
+			<div class="header_intro background"></div>
+			<b>재능마당 관리자센터</b>
 		</div> <!-- 이 부분에 로고 이미지 넣던지 글씨 이뿐거 만들던지  -->
 		
 		<div class= "header_setting"><!-- 버튼은 이미지 형식으로 만들 것 -->
@@ -43,7 +38,7 @@
 					<li > <span><i class="material-icons">settings</i></span>
 						<ul>
 							<li><a href="#">내 계정 정보</a></li>
-							<li><a href="#">문의하기</a></li>
+							<li><a href="#" data-toggle='modal' data-target='#light_model' >문의하기</a></li>
 							<li><a href="#">FAQ</a></li>
 							<li><a href="#">공지사항</a></li>
 							<li><a href="/logout" class="logout">로그아웃</a></li>

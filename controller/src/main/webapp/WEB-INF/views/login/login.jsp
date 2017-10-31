@@ -19,13 +19,13 @@
 			 	<div class="wrapper">
 			        <div class="wrap-input">
 			        	<!-- ID 를 입력하는 칸  -->
-			            <input class="login_text" type="text" name="adminId" placeholder="username"></input>
+			            <input class="login_text" type="text" name="adminId" id="adminId" placeholder="username"></input>
 			        </div>
 			        <div class="wrap-input">
 			        	<!-- PW 를 입력하는 칸 -->
-			            <input class="login_text" type="password" name="adminPw" placeholder="password"></input>
+			            <input class="login_text" type="password" name="adminPw" id="adminPw" placeholder="password"></input>
 			        </div>
-			        <button class="btn">로그인</button>
+			        <button class="btn" id="loginBtn">로그인</button>
 			    </div>
 		</form>
 	</div>

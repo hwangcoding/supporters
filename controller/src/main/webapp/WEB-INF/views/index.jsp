@@ -9,22 +9,57 @@
 				<div class="content_view">
 					<div class="content_view_depth"><h3>메인화면</h3></div>
 					
-							<table width="100%"  id="user_list" border="1px" >
+							<table width="100%"  id="user_list" border="0" >
 									
 									<tbody align="center">
 									<!-- 반복되는부분 -->
 										<tr>
-											<td style="background-color:#FF9000; height:200px;">
-											총 회원수 : <span></span><br>
-											신규 회원수 : <span></span>
+											<td style="background-color:#FF9000; height:150px; width:8%;">
+											<i class="material-icons"  style="padding-left:10%; font-size:80px; float:left;   z-index:10;">account_box</i>
 											</td>
-											<td style="background-color:#FDDA16; height:200px;">금일 방문자수</td>
-											<td style="background-color:#FFEE82; height:200px;">신규 게시글</td>
+											
+											<td style="background-color:#FF9000; width:28%;">
+												<span style="font-size:16px; float:left; line-height:0px; font-weight:500;">총 회원수 :
+												<font style="font-size:21px; line-height:0px; font-weight:500;">23</font></span>
+												<br>
+												<br>
+												<span style="font-size:16px; float:left; line-height:0px; font-weight:500;">신규 회원수 :
+												<font style="font-size:21px; line-height:0px; font-weight:500;">7</font></span>
+											</td>
+											
+											<td style="background-color:#FDDA16; height:150px; width:8%;">
+												<i class="material-icons" style=" padding-left:10%; font-size:80px; float:left; z-index:10;">touch_app</i>
+											</td>
+											
+											<td style="background-color:#FDDA16; width:28%;">
+												<span style="font-size:16px; float:left; line-height:0px; font-weight:500;">금일 방문자수 :
+												<font style="font-size:21px; line-height:0px; font-weight:500;">12</font></span>
+												<br>
+												<br>
+												<span style="font-size:16px; float:left; line-height:0px; font-weight:500;">총 방문자수 : 
+												<font style="font-size:21px; line-height:0px; font-weight:500;">10</font></span>
+											</td>
+											
+											<td style="background-color:#FFEE82; height:150px; width:8%;">
+												<i class="material-icons" style=" padding-left:20%; font-size:62px;float:left;z-index:10;">border_color</i>
+											</td>
+	
+											<td style="background-color:#FFEE82; width:28%;">
+												<span style="font-size:16px; float:left; line-height:0px; font-weight:500;">신규 게시글 : 
+												<font style="font-size:21px; line-height:0px; font-weight:500;">9</font></span>
+												<br>
+												<br>
+											</td>
+
+											
 										</tr>
-										   
+										   <tr >
+										   <td colspan="6"></td>
+										</tr> 
 										<tr >
-											<td colspan="3">	<div id="container" style="min-width: 310px; width:1000px;height: 400px; margin: 0 auto"></div>
-		</td>
+											<td colspan="6" style="margin-top:50px;">	
+											<div id="container" style="min-width: 310px; width:100%;height: 400px; margin: 0 auto"></div>
+											</td>
 										</tr> 
 									<!-- 반복되는부분 -->											
 									</tbody>

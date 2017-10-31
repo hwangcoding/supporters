@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+
+  
+  <mapper namespace="faqMapper">
+
+	<!-- FAQ리스트 -->
+	<select id="list" parameterType="FaqVO" resultType="FaqVO">
+		Select
+				*
+		From
+				 faq 
+		<where> 
+        	<choose> 
+        	<when test="searchFiled == ''"> AND 1=1 </when> 
+        	<when test="searchFiled == 'faq_title'"> AND faq_title like CONCAT('%', #{searchValue} , '%') </when> 
+	    	<when test="searchFiled == 'faq_content'"> AND faq_content like CONCAT('%', #{searchValue} , '%')</when>
+        	 </choose>
+        	  </where>
+		order by faq_seq
+		limit #{limitNo},#{pageSize}				
+	</select>
+	
+	<!-- FAQ카운트 -->
+	<select id="list_count" parameterType="FaqVO" resultType="int">
+		<!-- searchFiled = 조회조건, searchValue = 검색어 -->
+		
+		Select
+				 count(*) as totalCount
+		From
+				 faq
+        	<where> 
+        	<choose> 
+        	<when test="searchFiled == ''"> AND 1=1 </when> 
+        	<when test="searchFiled == 'faq_title'"> AND faq_title like CONCAT('%', #{searchValue} , '%') </when> 
+	    	<when test="searchFiled == 'faq_content'"> AND faq_content like CONCAT('%', #{searchValue} , '%')</when>
+        	 </choose>
+        	  </where>
+
+
+				 
+	</select>
+	
+	<!-- 회원삭제 -->
+	<delete id="delete" parameterType="FaqVO">
+	<![CDATA[
+		Delete From faq where user_num=#{user_num}
+		]]> 
+	</delete>
+	
+	<insert id="write" parameterType="FaqVO">
+	<![CDATA[
+		Insert into faq (faq_title,faq_content) Values (#{faq_title},#{faq_content})
+
+		]]> 
+	</insert>
+	
+	
+	
+	
+	
+</mapper>

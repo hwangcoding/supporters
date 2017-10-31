@@ -1,32 +1,42 @@
 $(document).ready(function(){
 	
 	 function a(){
-		 var value=$(location).attr('pathname');
-			 if(value=="/department/notice"){
-				 $(".sidebar_menu>ul>li:eq(2)").addClass("open"); /*학과공지*/
-				 $(".sidebar_menu>ul>li:eq(2)>ul>li:eq(0)>a").css("color","#C9182B");
-			 }else if(value=="/department/community/list"){
-				 $(".sidebar_menu>ul>li:eq(2)").addClass("open"); /*학과 > 커뮤니티*/
-				 $(".sidebar_menu>ul>li:eq(2)>ul>li:eq(1)>a").css("color","#C9182B");
-			 }else if(value=="/department/keymanager/list"){
-				 $(".sidebar_menu>ul>li:eq(2)").addClass("open"); /*학과 > 열쇠관리*/
-				 $(".sidebar_menu>ul>li:eq(2)>ul>li:eq(2)>a").css("color","#C9182B");
-			 }else if (value=="/student/list"){
+		 var domainUrl=$(location).attr('pathname');
+		 var value = domainUrl.split("/"); // 슬러쉬로 된 부분 다 끊어 가져옴 /department/notice   
+		 var cssValue='css("color","#C9182B")';
+			 if(value[1]=="department"){
+				 $(".sidebar_menu>ul>li:eq(2)").addClass("open");
+					 if(value[2] =="notice"){
+					 $(".sidebar_menu>ul>li:eq(2)>ul>li:eq(0)>a").css("color","#C9182B"); /*학과공지*/
+					 }if(value[2] =="community"){
+						 $(".sidebar_menu>ul>li:eq(2)>ul>li:eq(1)>a").css("color","#C9182B"); /*학과 > 커뮤니티*/
+					 }if(value[2] =="keymanager"){
+						 $(".sidebar_menu>ul>li:eq(2)>ul>li:eq(2)>a").css("color","#C9182B"); /*학과 > 열쇠관리*/
+					 }
+			 }else if(value[1]=="student"){
 				 $(".sidebar_menu>ul>li:eq(1)").addClass("open"); /*회원관리*/
-			 }else if (value=="/"){
+			 }else if(value[1]==""){
 				 $(".sidebar_menu>ul>li:eq(0)").addClass("open"); /*홈클릭시*/
-			 }else if(value=="/contents/fictiongame/fiction_list"){
-				 $(".sidebar_menu>ul>li:eq(3)").addClass("open"); /*끝말잇기*/
-				 $(".sidebar_menu>ul>li:eq(3)>ul>li:eq(2)>a").css("color","#C9182B");
-			 }else if(value == "/contents/restaurant/list"){
-				 $(".sidebar_menu>ul>li:eq(3)").addClass("open"); /*오늘 뭐먹지 클릭시*/
-				 $(".sidebar_menu>ul>li:eq(3)>ul>li:eq(1)>a").css("color","#C9182B");
-				 
+			 }else if(value[1]=="contents"){
+				 $(".sidebar_menu>ul>li:eq(3)").addClass("open"); /*콘텐츠관리*/
+				 	if(value[2] =="fictiongame"){
+				 		$(".sidebar_menu>ul>li:eq(2)>ul>li:eq(0)>a").css("color","#C9182B"); /*콘텐츠 > 끝말잇기*/
+					 }if(value[2] =="restaurant"){
+						 $(".sidebar_menu>ul>li:eq(2)>ul>li:eq(1)>a").css("color","#C9182B"); /*콘텐츠 >오늘 뭐 먹지*/
+					 }if(value[2] =="used"){
+						 $(".sidebar_menu>ul>li:eq(2)>ul>li:eq(2)>a").css("color","#C9182B"); /*콘텐츠 > 중고장터*/
+					 }
+			 }else if(value[1]=="statistics"){
+				 $(".sidebar_menu>ul>li:eq(4)").addClass("open"); /*통계*/
+			 }else if(value[1]=="management"){
+				 $(".sidebar_menu>ul>li:eq(5)").addClass("open"); /*관리*/
+				 if(value[2] =="fictiongame"){
+					 $(".sidebar_menu>ul>li:eq(5)>ul>li:eq(0)>a").css("color","#C9182B"); /*콘텐츠 > 끝말잇기*/
+					 }
 			 }
-		 
-		 
-		 
+			 
 	 };
+	 
 	
 	
 	 a();
@@ -72,7 +82,6 @@ $(document).ready(function(){
 		if(result) { 
 			var num = $(this).attr('name');
 			var url = $(location).attr('pathname')+"?usernum="+num;
-			alert(url);
 			location.href="list/delete?usernum="+num;
 			alert("삭제 되었습니다.");
 		}else { 
@@ -150,10 +159,6 @@ $(document).ready(function(){
 		//1레벨 메뉴 중 "open"으로 되어 있는 메뉴의 하위 메뉴를 펼침
 		$(".div_open").children("ul").hide();
 
-
-
-		
-		
 		
 });
 
@@ -161,3 +166,4 @@ $(document).ready(function(){
 		 var url =$(location).attr('pathname')+"?pageseq="+index;
 		    location.href =url;
 		};
+		

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+
+  
+  <mapper namespace="rastaurantMapper">
+
+	<!-- 맛집 게시물 리스트 -->
+	<select id="list" parameterType="RestaurantVO" resultType="RestaurantVO">
+		SELECT `RESTAURANT_SEQ`, `RESTAURANT_NM`, a.minor_cd, `RESTAURANT_PHONE`, 
+		`RESTAURANT_MAINIMG`, `RESTAURANT_ADDRESS`, `RESTAURANT_DELIVERY`, 
+		`RESTAURANT_LATITUDE`, `RESTAURANT_LOGNITODE`, `RESTAURANT_DISPLACEMENT`
+		,substring(`restaurant_write_datetime`,1,19) as restaurant_write_datetime , b.minor_nm as minor_nm
+		From
+				restaurant as a inner join minor_code_administrator as b on a.minor_cd = b.minor_cd
+		<where> 
+	        	<choose> 
+	        	<when test="searchFiled == ''">AND 1=1 </when> 
+	        	<when test="searchFiled == 'minor_cd'"> AND minor_cd like CONCAT('%', #{searchValue} , '%') </when> 
+		    	<when test="searchFiled == 'restaurant_nm'">AND restaurant_nm like CONCAT('%', #{searchValue} , '%')</when>
+	        	 </choose>
+	  </where>
+			order by restaurant_write_datetime desc
+		limit #{limitNo},#{pageSize}				
+	</select>
+	
+	<!-- 맛집 게시물 카운트 -->
+	<select id="list_count" parameterType="RestaurantVO" resultType="int">
+			Select
+					 count(*) as totalCount
+			From
+					restaurant
+		<where> 
+		        	<choose> 
+		        	<when test="searchFiled == ''">AND 1=1 </when> 
+		        	<when test="searchFiled == 'minor_cd'"> AND minor_cd like CONCAT('%', #{searchValue} , '%') </when> 
+			    	<when test="searchFiled == 'restaurant_nm'">AND restaurant_nm like CONCAT('%', #{searchValue} , '%')</when>
+		        	 </choose>
+		  </where>
+	  </select>
+	  
+	
+	<insert id="insert" parameterType="RestaurantVO">
+	
+		INSERT INTO restaurant(restaurant_nm, minor_cd, restaurant_phone, restaurant_mainimg, restaurant_address, restaurant_delivery, restaurant_latitude, restaurant_lognitode, restaurant_displacement) 
+        VALUES (#{restaurant_nm},#{minor_cd},#{restaurant_phone},#{restaurant_mainimg},#{restaurant_address}, #{restaurant_delivery}, #{restaurant_latitude}, #{restaurant_lognitode}, #{restaurant_displacement})
+	
+	</insert>
+	  
+	  <select id="view" parameterType="RestaurantVO" resultType="RestaurantVO">
+		Select
+					SELECT `RESTAURANT_SEQ`, `RESTAURANT_NM`, a.minor_cd, `RESTAURANT_PHONE`, 
+		`RESTAURANT_MAINIMG`, `RESTAURANT_ADDRESS`, `RESTAURANT_DELIVERY`, 
+		`RESTAURANT_LATITUDE`, `RESTAURANT_LOGNITODE`, `RESTAURANT_DISPLACEMENT`
+		,substring(`restaurant_write_datetime`,1,19) as restaurant_write_datetime , b.minor_nm as minor_nm
+		From
+				restaurant
+		Where restaurant_seq=#{restaurant_seq}
+			
+	</select>
+
+	<!-- 
+	<delete id="delete" parameterType="RastaurantVO">
+	<![CDATA[
+		Delete From restaurant where restaurant_seq=#{restaurant_seq}
+		]]> 
+	</delete>
+	 
+	 -->
+</mapper>

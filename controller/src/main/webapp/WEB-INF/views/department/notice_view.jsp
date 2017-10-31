@@ -9,9 +9,9 @@
 		<!-- 컨텐츠 크기 맞추기 -->
 		<div id="mid">
 			<div class="content_view">
-				<div class="content_view_depth"><h3>학과관리 > 학과공지</h3></div>
+				<div class="content_view_depth"><h3>학과관리 > 학과공지 글 확인</h3></div>
 						
-							<form name="write" id="fr_write" method="post" enctype="multipart/form-data" action="/department/notice/modify" >
+							<form name="fr_write" id="fr_write" method="post" enctype="multipart/form-data" action="/department/notice/modify" >
 								<table width="100%"  id="user_list"  border="1">
 								<c:forEach items="${view}" var="view" varStatus="status">
 									<!-- 히든으로 게시물의 고유 번호를 숨겨 놨다가 수정하거나 삭제 할 때 값을 넘겨줌 -->
@@ -28,7 +28,7 @@
 										<td width="10%">${view.community_lookupcnt }</td>
 									</tr> 
 									<tr>
-										<td colspan="4"  align="left" style="padding-left:20px;"><input type="file" value=${view.community_img }></td>
+										<td colspan="4"  align="left" style="padding-left:20px;"></td>
 										<td colspan="2" >작성일</td>  
 										<td width="10%">${view. community_write_datetime}</td>
 										  
@@ -44,10 +44,9 @@
 									<tfoot align="center">  
 										<tr  style="text-align:center;">
 											<td colspan="7" class="table_paging" > 
-												<button class="write_button" id="modeify_button">수정</button>
-												<button class="write_button" id="list">목록</button>
-												<button  id="delete_button">삭제</button>
-											</td>
+												<input type="button"  id="modify_button" value="수정">
+												<input type="button"  id="notice_list_btn" value="목록">
+												<input type="button"  id="delete_button" value="삭제">
 						 
 									</tfoot>
 								

@@ -30,8 +30,6 @@ public class StudentController {
 			String searchValue,
 			String searchFiled) throws Exception {
 		try {
-			System.out.println(searchValue);
-			System.out.println(searchFiled);
 			if(searchValue==null) {searchValue="";}
 			if(searchFiled==null) {searchFiled="";}
 			switch(searchFiled) {
@@ -72,6 +70,7 @@ public class StudentController {
 			@RequestParam String user_email1,
 			@RequestParam String user_email2,
 			@RequestParam String user_birth,
+			@RequestParam String state,
 			Model model,StudentVO vo) throws Exception {
 		
 		/*안드로이드에서 파라미터 값 보내준걸 받아서 StudentVO 객체에 담아준다.*/
@@ -80,9 +79,15 @@ public class StudentController {
 		vo.setUser_gender(user_gender);
 		vo.setUser_nm(user_name);
 		vo.setUser_phone(user_phone);
-		
 		vo.setUser_email(user_email1+"@"+user_email2);
 		vo.setUser_birth(user_birth);
+		switch(state) {
+		case "0" :state="재학"; break;
+		case "1" :state="휴학";break;
+		case "2" :state="졸업";break;
+		case "3" :state="전괴";break;
+		}
+		vo.setUser_atten(state);
 		
 		/*회원가입시 아이디가 중복되었는지 확인 하는 것*/
 		int a= studentService.search(vo);

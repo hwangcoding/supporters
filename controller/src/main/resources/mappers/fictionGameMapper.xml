@@ -16,8 +16,8 @@
 		<where> 
         	<choose> 
         	<when test="searchFiled == ''"> AND 1=1 </when> 
-        	<when test="searchFiled == 'user_num'"> AND user_id like CONCAT('%', #{searchValue} , '%') </when> 
-	    	<when test="searchFiled == 'fiction_content'"> AND user_nm like CONCAT('%', #{searchValue} , '%')</when>
+        	<when test="searchFiled == 'fiction_content'"> AND fiction_content like CONCAT('%', #{searchValue} , '%') </when> 
+	    	<when test="searchFiled == ''user_num"> AND user_num like CONCAT('%', #{searchValue} , '%')</when>
         	 </choose>
         	  </where>
 		order by fiction_write_datetime desc
@@ -31,11 +31,11 @@
 		From
 				fictiongame
 		
-		<where> 
-        	<choose> 
+	<where> 
+        	 	<choose> 
         	<when test="searchFiled == ''"> AND 1=1 </when> 
-        	<when test="searchFiled == 'user_num'"> AND user_id like CONCAT('%', #{searchValue} , '%') </when> 
-	    	<when test="searchFiled == 'fiction_content'"> AND user_nm like CONCAT('%', #{searchValue} , '%')</when>
+        	<when test="searchFiled == 'fiction_content'"> AND fiction_content like CONCAT('%', #{searchValue} , '%') </when> 
+	    	<when test="searchFiled == ''user_num"> AND user_num like CONCAT('%', #{searchValue} , '%')</when>
         	 </choose>
         	  </where>
 	</select>

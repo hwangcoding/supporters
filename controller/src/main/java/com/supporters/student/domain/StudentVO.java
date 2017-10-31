@@ -1,10 +1,10 @@
 package com.supporters.student.domain;
 
+
 import com.supporters.function.Paging;
 
 public class StudentVO extends Paging {
 
-	
 	
 	private String user_num;//	학생 아이디
 	private String minor_cd;//학과 구분 코드(공통코드)
@@ -17,7 +17,6 @@ public class StudentVO extends Paging {
 	private String user_email;// 학생 이메일
 	private String user_joindate;// 학생 가입 일자
 	private String user_lastlogin;// 학생 마지막 로그인
-	private String count; // 학생 수 구하기
 	
 	public String getUser_num() {
 		return user_num;

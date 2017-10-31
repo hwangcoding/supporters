@@ -79,4 +79,18 @@ public class StatisticsController {
 		return "/statistics/visited_week";
 	}
 	
+	
+	
+	@RequestMapping(value = "view")
+	public String view(
+			Model model
+			) throws Exception {
+		
+		return "statistics/statistics_view";
+
+		}
+	
+	/*통계용 Mapping 추가*/
+	
+	
 }

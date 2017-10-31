@@ -17,6 +17,7 @@ public class StudentDAOImpl  implements StudentDAO{
 	@Inject
 	private SqlSession session;
 	
+	
 	@Override
 	public void create(StudentVO  vo) throws Exception {
 		// TODO Auto-generated method stub
@@ -67,6 +68,13 @@ public class StudentDAOImpl  implements StudentDAO{
 		
 			return session.selectOne(namespace+".search", vo);
 
+	}
+
+	@Override
+	public void pwUpdate(StudentVO vo) throws Exception {
+		
+		session.update(namespace+".pw_update",vo);
+		
 	}
 	
 

@@ -18,7 +18,7 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import com.supporters.domain.Editor;
 @Controller
-public class File_UploadController {
+public class FileUploadController {
 
 
 	@RequestMapping("/file_uploader")

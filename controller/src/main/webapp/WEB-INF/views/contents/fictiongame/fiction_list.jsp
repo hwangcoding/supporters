@@ -4,32 +4,32 @@
 <jsp:include page="../../include/header.jsp" flush="false"/>
 
 <jsp:include page="../../include/sidebar.jsp" flush="false"/>
-		
 		<!-- <div id = "content"> -->
 		<!-- 컨텐츠 크기 맞추기 -->
 		<div id="mid">
 			<div class="content_view">
-				<div class="content_view_depth"><h3>컨텐츠관리 > 끝말잇기</h3></div>
+				<div class="content_view_depth"><h3>컨텐츠관리 > 끝말잇기 관리</h3></div>
 						
 							<center>
 								<table width="100%"  id="user_list"  border="0">
 									<thead align="center">
 										<tr style="text-align:right; background:#fff; height:50px; border-top:0px; ">
-											<td colspan="5"><select class="search_select">
-												 <option value="0">1</option>
-												 <option value="1">2</option>
-												 <option value="2">3</option>
-												 <option value="3">4</option>
+											<td colspan="5">
+											<form method="post" action="/contents/fictiongame/fiction_list?pageseq=1">
+											<select  name="searchFiled" class="search_select">
+												 <option value="0">내용</option>
+												 <option value="1">작성자</option>
 												</select>
-												<input type="text" class="search_text">
-												<button type="button" class="search_button">검색</button>
+												<input type="text" name="searchValue"class="search_text">
+												<input type="submit" class="search_button" value="검색">
+												</form>
 											</td>
 										</tr>
 										<tr width="100%">
 											<th width="10%">번호</th>
 											<th width="50%">내용</th>
-											<th width="15%">작성자</th>>
-											<th width="15%">작성일</th>>
+											<th width="15%">작성자</th>
+											<th width="15%">작성일</th>
 											<th width="10%">삭제</th>
 										</tr>									
 									</thead>
@@ -69,11 +69,6 @@
 										
 											<tfoot align="center">
 											<!-- 글쓰기 버튼을 누르면 제이쿼리로 정의 해 놓은 이벤트가 발생합니다 -->
-												<tr  style="text-align:right;">
-													<td colspan="5" class="table_paging" > 
-														<button class="write_button">글쓰기</button>
-													</td>
-												</tr>
 												
 													<tr>
 													<!-- 페이징을 위한 녀석 -->

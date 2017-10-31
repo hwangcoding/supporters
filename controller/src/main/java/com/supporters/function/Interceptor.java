@@ -36,6 +36,9 @@ public class Interceptor extends HandlerInterceptorAdapter {
 		        if(requestURI.indexOf("/student/list/add")>-1) return true;
 		        if(requestURI.indexOf("/statistics/join_week")>-1) return true;
 		        if(requestURI.indexOf("/statistics/visited_week")>-1) return true;
+		        if(requestURI.indexOf("/department/notice")>-1) return true;
+		        if(requestURI.indexOf("/department/notice/view")>-1) return true;
+		        if(requestURI.indexOf("/sendmail")>-1) return true;
 		        
 		        
 		        if (requestURI.indexOf("/login") > -1) { //세션체크 예외페이지

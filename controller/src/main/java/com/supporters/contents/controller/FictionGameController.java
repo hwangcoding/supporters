@@ -50,8 +50,8 @@ public class FictionGameController {
 				if(searchValue==null) {searchValue="";}
 				if(searchFiled==null) {searchFiled="";}
 				switch(searchFiled) {
-				case "0": searchFiled="user_num"; break;
-				case "1":searchFiled="fiction_content"; break;
+				case "0": searchFiled="fiction_content"; break;
+				case "1":searchFiled="user_num"; break;
 				}
 				
 				int seq = Integer.parseInt(pageseq);
