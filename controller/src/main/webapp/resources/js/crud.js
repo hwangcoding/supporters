@@ -204,8 +204,8 @@ $(document).ready(function(){
 			$(this).parent().parent().children(".a").css("display",'block');
 			var title = $(this).parent(".q").attr("value");
 			var contents = $(this).parent().parent().children(".a").attr("value");
-			$(this).parent().children("a").replaceWith('<form method="post" name="faq_frm" action="/management/faq/list/modify" <input type="text"  style="width:89%;     padding: .7em 1em;" value= " '+title+' " >');
-			$(this).parent().parent().children(".a").replaceWith('<input type="text" class="a" style="width:100%;"padding-left:30px;" value=" '+contents+' " ></form> ');
+			$(this).parent().children("a").replaceWith('<form method="post" name="faq_frm" action="/management/faq/list/modify" > <input type="text"  style="width:88%;display:inline-flex;   padding: .7em 1em;" value= " '+title+' " >');
+			$(this).parent().parent().children(".a").replaceWith('<input type="text" class="a" style="width:100%; padding-left:30px;" value=" '+contents+' " ></form> ');
 			$(this).attr("class","faq_modifyS");
 			
 		
@@ -213,8 +213,7 @@ $(document).ready(function(){
 	$(".faq_modifyS").click(function(){
 		var result = confirm('수정 하시겠습니까?');
 		if(result) { 
-			$("#fr_write").submit();
-			alert("삭제 되었습니다.");
+			
 		}else { 
 			return false;
 		
