@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.supporters.function.KISA_SHA256;
 import com.supporters.student.domain.StudentVO;
 import com.supporters.student.service.StudentService;
 
@@ -20,6 +21,8 @@ public class StudentController {
  
 	@Inject
 	private StudentService studentService;
+	private KISA_SHA256 kisa;
+	
 	
 	
 	/*회원리스트*/
@@ -72,6 +75,10 @@ public class StudentController {
 			@RequestParam String user_birth,
 			@RequestParam String state,
 			Model model,StudentVO vo) throws Exception {
+		
+		
+		
+		
 		
 		/*안드로이드에서 파라미터 값 보내준걸 받아서 StudentVO 객체에 담아준다.*/
 		vo.setUser_num(user_id);
