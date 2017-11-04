@@ -197,15 +197,19 @@ $(document).ready(function(){
 /*
 규빈아 너 여기 제이쿼리 만들어야 한다 ^^ 뭐 바꾸냐면 
 1. 수정 버튼 누르면 펼쳐지고 안에꺼 인풋타입 바꾸면 되 ㅎㅎ 나머지는 자바딴 
-*/
+*//*
 	$(".faq_modify").click(function(){
+	//	
 		
+		alert("a");
+			$(this).closest("li").prepend('<form method="post" name="faq_frm" action="/management/faq/list/modify" style="display:inline-flex;width:88%;display:inline-flex;" >');
+			
 			$(this).parent().parent().attr("class",'article showview');
 			$(this).parent().parent().children(".a").css("display",'block');
 			var title = $(this).parent(".q").attr("value");
 			var contents = $(this).parent().parent().children(".a").attr("value");
-			$(this).parent().children("a").replaceWith('<form method="post" name="faq_frm" action="/management/faq/list/modify" > <input type="text"  style="width:88%;display:inline-flex;   padding: .7em 1em;" value= " '+title+' " >');
-			$(this).parent().parent().children(".a").replaceWith('<input type="text" class="a" style="width:100%; padding-left:30px;" value=" '+contents+' " ></form> ');
+			$(this).parent().children("a").replaceWith(' <input type="text"  style="width:100%;display:inline-flex;   padding: .7em 1em;" value= " '+title+' " >');
+			$(this).parent().parent().children(".a").replaceWith('<input type="text" class="a" style="width:100%; padding-left:30px;" value=" '+contents+' " > </form>');
 			$(this).attr("class","faq_modifyS");
 			
 		
@@ -220,7 +224,7 @@ $(document).ready(function(){
 			
 		}
 		
-	});
+	});*/
 /*
  * 	$(this).parent().parent().attr("class",'article hideview');
 	$(this).parent().parent().children(".a").css("display",'none');

@@ -44,10 +44,10 @@
 				 
 	</select>
 	
-	<!-- 회원삭제 -->
+	<!-- FAQ삭제 -->
 	<delete id="delete" parameterType="FaqVO">
 	<![CDATA[
-		Delete From faq where user_num=#{user_num}
+		Delete From faq where faq_seq=#{faq_seq}
 		]]> 
 	</delete>
 	
