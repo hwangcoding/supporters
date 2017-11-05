@@ -1,5 +1,6 @@
 package com.supporters.controller;
 
+import java.security.MessageDigest;
 import java.text.DecimalFormat;
 import java.util.Calendar;
 import java.util.List;
@@ -66,12 +67,30 @@ public class HomeController {
 			@RequestParam String adminPw,Locale locale,LoginVO vo,
 			HttpSession session, Model model) throws Exception {
 		/*adminId , adminPw 파라미터를 받아서 변수를 설정했음.*/ 
-		
-		
+		/*SHA-256 비밀번호 암호화*/
+		StringBuffer hexString = new StringBuffer();
+		  try{
+			  
+	            MessageDigest digest = MessageDigest.getInstance("SHA-256");
+	            byte[] hash = digest.digest(adminPw.getBytes("UTF-8"));
+	            
+	 
+	            for (int i = 0; i < hash.length; i++) {
+	                String hex = Integer.toHexString(0xff & hash[i]);
+	                if(hex.length() == 1) hexString.append('0');
+	                hexString.append(hex);
+	            }
+	 
+	            //출력
+	            System.out.println(hexString.toString());
+	 
+	        } catch(Exception ex){
+	            throw new RuntimeException(ex);
+	        }
 		
 		/*파라미터 값을 VO에 주입 */
 		vo.setAdministrator_id(adminId);
-		vo.setAdministrator_pw(adminPw);
+		vo.setAdministrator_pw(hexString.toString());
 		 
 		/*LoginVO 라고 지은 모델에 서비스단( LoginService )에 만들어 놓은  메소드를 불러서
 		 *  loginMapper.xml 에 등록해 놓은 쿼리를 실행하고 나온 결과 값을 result 객체에 넣는다.*/
