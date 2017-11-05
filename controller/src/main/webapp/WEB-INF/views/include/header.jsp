@@ -8,7 +8,7 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<link rel="stylesheet" href="/css/main.css" type="text/css">
 	<link rel="stylesheet" href="/css/curd.css" type="text/css">
-	<link rel="stylesheet" href="/css/c_curd.css" type="text/css">
+	<link rel="stylesheet" href="/css/c_crud.css" type="text/css">
 	<link rel="stylesheet" href="/css/jquery-syaku.lightbox.css" type="text/css">
 	<link rel="stylesheet" href="/css/bootstrap.min.css" type="text/css">
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">

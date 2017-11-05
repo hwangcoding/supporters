@@ -119,7 +119,7 @@
 											</td>
 										</tr>
 										
-										<table class="restaurant_comment_list" width="100%" class="restaurant_list" border="0" style="margin: auto; margin-top: 20px;">
+										<table class="restaurant_comment_list" width="100%" border="0" style="margin: auto; margin-top: 20px;">
 										
 										<thead>
 										
