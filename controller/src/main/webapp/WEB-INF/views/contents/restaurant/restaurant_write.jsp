@@ -35,7 +35,7 @@
 						                
 						                <tr height="120px" align="center">
 						                    <td>주소</td>
-						                    <td><input type="text" name = "res_addr" id = "res_addr" class="res_text"></td>
+						                    <td><textarea style="resize: none;" name = "res_addr" id = "res_addr" class="res_text_addr"></textarea></td>
 						                    <td>전화번호</td>
 						                    <td ><input type="text"  name = "res_phone" id = "res_phone"  class="res_text"></td>
 						                    
@@ -51,7 +51,7 @@
 						                
 						                <tr height="80px">
 						                    <td align="center">배달유무</td>
-						                    <td >
+						                    <td align="center">
 						                    
 						                    	<select name="searchFiled1" class="search_select_res_write_dele">
 														 <option value="0">배달가능</option>
@@ -68,7 +68,7 @@
 									<tfoot align="center">  
 										<tr style="text-align:center;">
 											<td colspan="4" class="table_paging">
-												<input type="file" name="file">
+												<input type="file" name="file" id="file_ch"> <!-- 10월 31일 작업 (아이디 추가) -->
 											</td>
 										</tr>
 									   <tr style="text-align:center;">

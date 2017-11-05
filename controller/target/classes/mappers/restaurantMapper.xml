@@ -12,10 +12,12 @@
 		SELECT `RESTAURANT_SEQ`, `RESTAURANT_NM`, a.minor_cd, `RESTAURANT_PHONE`, 
 		`RESTAURANT_MAINIMG`, `RESTAURANT_ADDRESS`, `RESTAURANT_DELIVERY`, 
 		`RESTAURANT_LATITUDE`, `RESTAURANT_LOGNITODE`, `RESTAURANT_DISPLACEMENT`
-		,substring(`restaurant_write_datetime`,1,19) as restaurant_write_datetime , b.minor_nm as minor_nm
+		,substring(`restaurant_write_datetime`,1,19) as restaurant_write_datetime, substring(`restaurant_revise_datetime`,1,19) as `RESTAURANT_REVISE_DATETIME`
+		, b.minor_nm as minor_nm
 		From
 				restaurant as a inner join minor_code_administrator as b on a.minor_cd = b.minor_cd
-		<where> 
+		<where>
+				RESTAURANT_DELETE_CH = 1
 	        	<choose> 
 	        	<when test="searchFiled == ''">AND 1=1 </when> 
 	        	<when test="searchFiled == 'minor_cd'"> AND minor_cd like CONCAT('%', #{searchValue} , '%') </when> 
@@ -41,31 +43,67 @@
 		  </where>
 	  </select>
 	  
-	
+	<!-- 맛집 게시물 작성 -->
 	<insert id="insert" parameterType="RestaurantVO">
 	
 		INSERT INTO restaurant(restaurant_nm, minor_cd, restaurant_phone, restaurant_mainimg, restaurant_address, restaurant_delivery, restaurant_latitude, restaurant_lognitode, restaurant_displacement) 
         VALUES (#{restaurant_nm},#{minor_cd},#{restaurant_phone},#{restaurant_mainimg},#{restaurant_address}, #{restaurant_delivery}, #{restaurant_latitude}, #{restaurant_lognitode}, #{restaurant_displacement})
 	
 	</insert>
+	
+	<!-- 맛집 게시물 보기 -->
 	  
 	  <select id="view" parameterType="RestaurantVO" resultType="RestaurantVO">
-		Select
-					SELECT `RESTAURANT_SEQ`, `RESTAURANT_NM`, a.minor_cd, `RESTAURANT_PHONE`, 
-		`RESTAURANT_MAINIMG`, `RESTAURANT_ADDRESS`, `RESTAURANT_DELIVERY`, 
-		`RESTAURANT_LATITUDE`, `RESTAURANT_LOGNITODE`, `RESTAURANT_DISPLACEMENT`
-		,substring(`restaurant_write_datetime`,1,19) as restaurant_write_datetime , b.minor_nm as minor_nm
-		From
-				restaurant
-		Where restaurant_seq=#{restaurant_seq}
+		SELECT `RESTAURANT_SEQ`,`RESTAURANT_NM`,`MINOR_NM`,`RESTAURANT_PHONE`,`RESTAURANT_MAINIMG`,`RESTAURANT_ADDRESS`,`RESTAURANT_DELIVERY`,
+		`RESTAURANT_LATITUDE`,`RESTAURANT_LOGNITODE`,`RESTAURANT_DISPLACEMENT`,
+		substring(`restaurant_write_datetime`,1,19) as `RESTAURANT_WRITE_DATETIME`,substring(`restaurant_revise_datetime`,1,19) as `RESTAURANT_REVISE_DATETIME`
+		FROM `restaurant` as a inner join minor_code_administrator as b on a.`MINOR_CD`=b.`MINOR_CD`
+		WHERE `RESTAURANT_SEQ` = #{restaurant_seq}
 			
+	</select>
+	
+	<!-- 맛집 게시물 삭제 -->
+	
+	<update id="delete" parameterType="RestaurantVO">
+	<![CDATA[
+	UPDATE RESTAURANT SET RESTAURANT_DELETE_CH = 0 WHERE RESTAURANT_SEQ=#{restaurant_seq}
+	]]>
+	
+	</update>
+	
+	<update id="update" parameterType="RestaurantVO">
+	
+	<![CDATA[
+	UPDATE RESTAURANT
+      SET RESTAURANT_NM = #{restaurant_nm},
+          MINOR_CD = #{minor_cd},
+          RESTAURANT_PHONE = #{restaurant_phone},
+          RESTAURANT_MAINIMG = #{restaurant_mainimg},
+          RESTAURANT_ADDRESS = #{restaurant_address},
+          RESTAURANT_DELIVERY = #{restaurant_delivery},
+          RESTAURANT_LATITUDE = #{restaurant_latitude},
+          RESTAURANT_LOGNITODE = #{restaurant_lognitode},
+          RESTAURANT_DISPLACEMENT = #{restaurant_displacement},
+          RESTAURANT_REVISE_DATETIME = #{restaurant_revise_datetime}
+       WHERE RESTAURANT_SEQ = #{restaurant_seq}
+	]]>
+	
+	</update>
+	
+	<!-- 댓글 -->
+	
+	<select id="comment" parameterType="RestaurantVO" resultType="RestaurantVO">
+	
+	SELECT `USER_NUM`,`REVIEW_CONTENT`,substring(`restaurant_write_datetime`,1,19) as  `RESTAURANT_WRITE_DATETIME`,
+	substring(`restaurant_revise_datetime`,1,19) as  `RESTAURANT_REVISE_DATETIME` FROM `restaurant_review` WHERE `RESTAURANT_SEQ` = #{restaurant_seq}
+	
 	</select>
 
 	<!-- 
 	<delete id="delete" parameterType="RastaurantVO">
-	<![CDATA[
+	
 		Delete From restaurant where restaurant_seq=#{restaurant_seq}
-		]]> 
+		
 	</delete>
 	 
 	 -->

@@ -16,7 +16,7 @@
 										<!-- 작성된 글을 담아 디비로 보내 데이터를 가져와 해당 검색에 맞는 데이터를 뿌려준다 -->
 										<tr style="text-align:right; background:#fff; height:50px; border-top:0px;"> 
 											<td colspan="8">
-												<form method="post" action="/contents/restaurant/restaurant_view">
+												<form method="post" name="delete_frm" action="/contents/restaurant/delete">
 												
 													<select name="searchFiled" class="search_select"> <!-- 이거 css안먹어서 다시 바꾸밍 -->
 														 <option value="0">선택</option>
@@ -33,14 +33,14 @@
 										</tr>
 										
 										<tr width="100%">
-											<th width="5%">선택</th>
-											<th width="5%">순번</th>
+											<th width="5%">글번호</th>
 											<th width="8%">맛집종류</th>
 											<th width="12%">이름</th>
 											<th width="22%">메인이미지</th>
-											<th width="28%">주소</th>
+											<th width="23%">주소</th>
 											<th width="13%">전화번호</th>
-											<th width="14%">배달유무</th>
+											<th width="10%">배달유무</th>
+											<th width="14%">작성일자</th>
 										</tr>
 										
 								</thead>
@@ -64,31 +64,45 @@
 									
 									
 									<c:forEach items="${rest}" var="st"> 
-									
+									<!-- 10월 31일 작업 -->
 										<!-- 반복해서 리스트로 값을 받아와 뿌려줘야함 -->
 										<tr height="120px">
-											<td><input type="checkbox" id=""></td>
 											<td height="80px">${st.restaurant_seq }</td>
 											<td>${st.minor_nm }</td>
 											<td><a href="/contents/restaurant/view?seq=${st.restaurant_seq }">${st.restaurant_nm }</a></td>
-											<td>${st.restaurant_mainimg }</td>
+											<td width="22%" height="120px" style="overflow: hidden;"><img style="width: auto; height: 110px; margin:auto;" src="/img/${st.restaurant_mainimg}"></td>
 											<td>${st.restaurant_address }</td>
 											<td>${st.restaurant_phone }</td>
-											<td>${st.restaurant_delivery }</td>
-										</tr>
+											<td><c:if test="${st.restaurant_delivery eq 'Y'}">배달가능</c:if>
+												<c:if test="${st.restaurant_delivery eq 'N'}">배달불가능</c:if>
+											</td>
+											<td>
+					
+											<c:choose>
+
+										    <c:when test="${st.restaurant_write_datetime < st.restaurant_revise_datetime}">
+										        ${st.restaurant_revise_datetime}
+										    </c:when>
+										
+										    <c:otherwise>
+										        ${st.restaurant_write_datetime}
+										    </c:otherwise>
+
+										</c:choose>
+									
+									</td> 
+									</tr>
 									
 									 </c:forEach>
-									<!-- 반복되는부분 -->											
+									<!-- 반복되는부분 -->
 									</tbody>
 									
 									<tfoot align="center">
 										
 										<tr align="center">
-											<td colspan="8" style="vertical-align: center; padding-top: 30px;">
+											<td colspan="8" style="vertical-align: center; padding-top: 20px;" align="center">
 												<!-- 추가 및 삭제로 보내기 -->
 												<input type="button" name="attend_btn" class="total_btn" value="추가">
-												<input type="button" name="revise_btn" class="total_btn" value="수정" style="margin-right:20px; margin-left:20px;">
-												<input type="button" name="delete_btn" class="total_btn" value="삭제">
 											
 											</td>
 										</tr>

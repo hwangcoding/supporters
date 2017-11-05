@@ -1,0 +1,9 @@
+@charset "UTF-8";
+
+/* 맛집 리뷰 부분 테이블 css */
+
+.restaurant_comment_list{border-collapse:collapse;}
+.restaurant_comment_list>thead>tr>th{background-color:#F8F8F8; height:33px; font-size:16px; text-align:center; border:1px solid #c1c1c1; font-weight:500;}
+.restaurant_comment_list>thead>tr>td{height:33px; font-size:18px; text-align:left; border:0px; font-weight:500; padding-bottom: 20px;}
+/* #restaurant_list>tbody>tr{ height:45px; font-size:15px;border-bottom:1px solid #c1c1c1;border-top:1px solid #c1c1c1;} */
+.restaurant_comment_list>tbody>tr>td{height:45px; font-size:15px; border:1px solid #c1c1c1;}

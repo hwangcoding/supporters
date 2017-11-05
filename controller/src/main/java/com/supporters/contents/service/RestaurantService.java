@@ -7,6 +7,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import com.supporters.contents.domain.RestaurantVO;
+import com.supporters.domain.CommunityVO;
 
 public interface RestaurantService {
 	
@@ -23,9 +24,14 @@ public interface RestaurantService {
 	public void delete(RestaurantVO vo) throws Exception;
 	
 	// 맛집 수정하기
-	public void update() throws Exception;
+	public void update(RestaurantVO paging) throws Exception;
 	
-	public void view(RestaurantVO vo) throws Exception;
+	/*맛집 보기*/
+	public List<RestaurantVO> view(RestaurantVO vo) throws Exception;
 	
+	/*이미지 업로드*/
 	public String fileUpload(MultipartHttpServletRequest request,HttpSession session) throws Exception;
+
+	/*댓글*/
+	public List<RestaurantVO> comment(RestaurantVO paging) throws Exception;
 }

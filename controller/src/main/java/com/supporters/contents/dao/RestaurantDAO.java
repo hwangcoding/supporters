@@ -3,6 +3,7 @@ package com.supporters.contents.dao;
 import java.util.List;
 
 import com.supporters.contents.domain.RestaurantVO;
+import com.supporters.domain.CommunityVO;
 
 
 public interface RestaurantDAO {
@@ -21,7 +22,9 @@ public interface RestaurantDAO {
 	public void delete(RestaurantVO vo) throws Exception;
 	
 	// 맛집 수정하기
-	public void update() throws Exception;
+	public void update(RestaurantVO vo) throws Exception;
 	
-	public void view(RestaurantVO vo) throws Exception;
+	public List<RestaurantVO> view(RestaurantVO vo) throws Exception;
+
+	public List<RestaurantVO> comment(RestaurantVO vo) throws Exception;
 }
