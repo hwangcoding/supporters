@@ -7,3 +7,8 @@
 .restaurant_comment_list>thead>tr>td{height:33px; font-size:18px; text-align:left; border:0px; font-weight:500; padding-bottom: 20px;}
 /* #restaurant_list>tbody>tr{ height:45px; font-size:15px;border-bottom:1px solid #c1c1c1;border-top:1px solid #c1c1c1;} */
 .restaurant_comment_list>tbody>tr>td{height:45px; font-size:15px; border:1px solid #c1c1c1;}
+
+/* 맛집 없어진부분 추가 */
+
+.res_text{height:30px; width:50%; border:none; border-bottom:1px solid #c1c1c1; color:#666666; vertical-align: center;}
+.res_text_addr{height:95%; width:100%; border:none; color:#666666; overflow: hidden;}
