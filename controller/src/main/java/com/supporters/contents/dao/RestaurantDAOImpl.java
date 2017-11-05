@@ -49,7 +49,17 @@ public class RestaurantDAOImpl implements RestaurantDAO{
 	@Override
 	public void update(RestaurantVO vo) throws Exception {
 		// TODO Auto-generated method stub
+		
+		if(vo.getFile_ch_num().equals("1")) {
+			
+		sqlsession.update(namespace+".notImgUpdate",vo);
+		
+		}else if(vo.getFile_ch_num().equals("2")) {
+			
 		sqlsession.update(namespace+".update",vo);	
+			
+		}
+		
 	}
 
 

@@ -19,6 +19,7 @@ public class RestaurantVO extends Paging {
 	private String restaurant_revise_datetime; /*수정날짜*/
 	private String user_num;
 	private String review_content;
+	private String file_ch_num;
 	/**
 	 * @return the restaurant_seq
 	 */
@@ -198,6 +199,18 @@ public class RestaurantVO extends Paging {
 	 */
 	public void setReview_content(String review_content) {
 		this.review_content = review_content;
+	}
+	/**
+	 * @return the file_ch_num
+	 */
+	public String getFile_ch_num() {
+		return file_ch_num;
+	}
+	/**
+	 * @param file_ch_num the file_ch_num to set
+	 */
+	public void setFile_ch_num(String file_ch_num) {
+		this.file_ch_num = file_ch_num;
 	}
 	
 	

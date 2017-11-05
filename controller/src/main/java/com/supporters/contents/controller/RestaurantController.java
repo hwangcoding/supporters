@@ -195,8 +195,8 @@ public class RestaurantController {
 			String latitude, // 위도
 			String lognitode, // 경도
 			String searchFiled1, //배달 유무
-/*			String file, //파일이름
-*/			RestaurantVO paging)throws Exception{
+			String file_ch_num,
+			RestaurantVO paging)throws Exception{
 		
 		switch(searchFiled) {
 		case "0": searchFiled="REST01"; break;
@@ -222,6 +222,7 @@ public class RestaurantController {
 		case "0": searchFiled1="Y"; break;
 		case "1":searchFiled1="N"; break;
 		}
+		paging.setFile_ch_num(file_ch_num);
 		paging.setRestaurant_delivery(searchFiled1);
 		paging.setRestaurant_mainimg(restaurantService.fileUpload(request, session));
 		

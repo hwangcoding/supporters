@@ -79,7 +79,7 @@
 										<tfoot align="center">
 										
 										<tr style="float: left; margin-top: 20px;">
-											<td><input type="file" name="file" id="file_ch"></td>
+											<td><input type="file" name="file" id="file_ch"><input type="hidden" name="file_ch_num" id="file_ch_num" value="1"></td>
 										</tr>
 										
 									   <tr style="text-align:center;">

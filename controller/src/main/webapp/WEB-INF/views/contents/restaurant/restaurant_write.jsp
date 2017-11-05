@@ -68,7 +68,7 @@
 									<tfoot align="center">  
 										<tr style="text-align:center;">
 											<td colspan="4" class="table_paging">
-												<input type="file" name="file" id="file_ch"> <!-- 10월 31일 작업 (아이디 추가) -->
+												<input type="file" name="file" id="file_ch_write"> <!-- 10월 31일 작업 (아이디 추가) -->
 											</td>
 										</tr>
 									   <tr style="text-align:center;">

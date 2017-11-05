@@ -90,6 +90,24 @@
 	
 	</update>
 	
+	<update id="notImgUpdate" parameterType="RestaurantVO">
+	
+	<![CDATA[
+	UPDATE RESTAURANT
+      SET RESTAURANT_NM = #{restaurant_nm},
+          MINOR_CD = #{minor_cd},
+          RESTAURANT_PHONE = #{restaurant_phone},
+          RESTAURANT_ADDRESS = #{restaurant_address},
+          RESTAURANT_DELIVERY = #{restaurant_delivery},
+          RESTAURANT_LATITUDE = #{restaurant_latitude},
+          RESTAURANT_LOGNITODE = #{restaurant_lognitode},
+          RESTAURANT_DISPLACEMENT = #{restaurant_displacement},
+          RESTAURANT_REVISE_DATETIME = #{restaurant_revise_datetime}
+       WHERE RESTAURANT_SEQ = #{restaurant_seq}
+	]]>
+	
+	</update>
+	
 	<!-- 댓글 -->
 	
 	<select id="comment" parameterType="RestaurantVO" resultType="RestaurantVO">
