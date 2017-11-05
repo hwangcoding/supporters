@@ -70,7 +70,7 @@
 											<td height="80px">${st.restaurant_seq }</td>
 											<td>${st.minor_nm }</td>
 											<td><a href="/contents/restaurant/view?seq=${st.restaurant_seq }">${st.restaurant_nm }</a></td>
-											<td width="22%" height="120px" style="overflow: hidden;"><img style="width: auto; height: 110px; margin:auto;" src="/img/${st.restaurant_mainimg}"></td>
+											<td width="22%" height="120px" style="overflow: hidden;"><img style="width: auto; height: 90px; margin:auto;" src="/img/${st.restaurant_mainimg}"></td>
 											<td>${st.restaurant_address }</td>
 											<td>${st.restaurant_phone }</td>
 											<td><c:if test="${st.restaurant_delivery eq 'Y'}">배달가능</c:if>
