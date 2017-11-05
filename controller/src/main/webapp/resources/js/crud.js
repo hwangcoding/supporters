@@ -59,7 +59,6 @@ $(document).ready(function(){
 			alert("삭제 되었습니다.");
 		}else { 
 			return false;
-		u
 			
 		}
 	});
@@ -117,6 +116,28 @@ $(document).ready(function(){
 			document.frm_write.submit();
 	});
 	
+	$("#file_ch_write").change(function(){
+
+			  var fileExt = $("#file_ch").val().substring($("#file_ch").val().lastIndexOf('.')+1);
+			  var imgCh =  ["jpg","png","bmp","gif"];
+			  var imgChCount = 0;
+			  fileExt = fileExt.toLowerCase();
+			  
+			  for(var i = 0; i<imgCh.length; i++) {
+		        	if(fileExt == imgCh[i]) {
+		        		imgChCount++;
+		        	}
+		        }
+		       
+		        if(imgChCount == 0) {
+		        	
+		        	$("#file_ch_write").val('');
+		        	return alert(fileExt + " 확장자 명은 사용할수 없습니다 (jpg, png, bmp, gif 가능)");
+		        	return false;
+		        }
+			
+		});
+		
 	
 	/*오늘 뭐먹지 목록 클릭*/
     $("input[name=go_list]").click(function(){
