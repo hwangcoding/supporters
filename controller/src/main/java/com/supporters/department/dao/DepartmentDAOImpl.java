@@ -9,7 +9,8 @@ import javax.servlet.http.HttpServletRequest;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
-import com.supporters.domain.CommunityVO;
+import com.supporters.department.domain.NoticeVO;
+
 
 
 @Repository("departmentDAOImpl")
@@ -23,7 +24,7 @@ public class DepartmentDAOImpl implements DepartmentDAO{
 	
 	
 	@Override
-	public void create(CommunityVO vo) throws Exception {
+	public void create(NoticeVO vo) throws Exception {
 		// TODO Auto-generated method stub
 		
 		sqlsession.insert(namespace+".fileInsert", vo);
@@ -31,33 +32,33 @@ public class DepartmentDAOImpl implements DepartmentDAO{
 	}
 
 	@Override
-	public List<CommunityVO> read(CommunityVO vo) throws Exception {
+	public List<NoticeVO> read(NoticeVO vo) throws Exception {
 		// TODO Auto-generated method stub
 		return sqlsession.selectList(namespace+".view", vo);
 	}
 
 	@Override
-	public void update(CommunityVO vo) throws Exception {
+	public void update(NoticeVO vo) throws Exception {
 		// TODO Auto-generated method stub
 		sqlsession.update(namespace+".modify",vo);
 		
 	}
 
 	@Override
-	public void delete(CommunityVO vo) throws Exception {
+	public void delete(NoticeVO vo) throws Exception {
 		// TODO Auto-generated method stub
 		
 		sqlsession.update(namespace+".delete",vo);
 	}
 
 	@Override
-	public List<CommunityVO> list(CommunityVO vo) throws Exception {
+	public List<NoticeVO> list(NoticeVO vo) throws Exception {
 		// TODO Auto-generated method stub
 		return sqlsession.selectList(namespace+".list",vo);
 	}
 
 	@Override
-	public int count(CommunityVO vo) throws Exception {
+	public int count(NoticeVO vo) throws Exception {
 		// TODO Auto-generated method stub
 		return sqlsession.selectOne(namespace+".list_count", vo);
 	}

@@ -33,7 +33,7 @@ public class FaqServiceImpl implements FaqService{
 	@Override
 	public void delete(FaqVO vo) throws Exception {
 		// TODO Auto-generated method stub
-		
+		faqDAO.delete(vo);
 	}
 
 	@Override

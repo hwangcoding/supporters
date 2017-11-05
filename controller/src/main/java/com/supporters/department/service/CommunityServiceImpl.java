@@ -7,7 +7,7 @@ import javax.inject.Inject;
 import org.springframework.stereotype.Service;
 
 import com.supporters.department.dao.CommunityDAO;
-import com.supporters.domain.CommunityVO;
+import com.supporters.department.domain.DecommunityVO;
 
 
 
@@ -18,25 +18,25 @@ public class CommunityServiceImpl implements CommunityService{
 	private CommunityDAO communityDAO;
 	
 	@Override
-	public int count(CommunityVO vo) throws Exception {
+	public int count(DecommunityVO vo) throws Exception {
 		// TODO Auto-generated method stub
 		return communityDAO.count(vo);
 	}
 
 	@Override
-	public List<CommunityVO> list(CommunityVO vo) throws Exception {
+	public List<DecommunityVO> list(DecommunityVO vo) throws Exception {
 		// TODO Auto-generated method stub
 		return communityDAO.list(vo);
 	}
 
 	@Override
-	public void write(CommunityVO vo) throws Exception {
+	public void write(DecommunityVO vo) throws Exception {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void delete(CommunityVO vo) throws Exception {
+	public void delete(DecommunityVO vo) throws Exception {
 		// TODO Auto-generated method stub
 		
 	}

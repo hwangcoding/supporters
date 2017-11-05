@@ -1,25 +1,16 @@
 package com.supporters.department.controller;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import javax.inject.Inject;
 
-import org.json.JSONArray;
-import org.json.JSONObject;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RequestPart;
 
-import com.supporters.contents.domain.FictionGameVO;
+import com.supporters.department.domain.DecommunityVO;
 import com.supporters.department.service.CommunityService;
-import com.supporters.domain.CommunityVO;
-import com.supporters.domain.StatisticsVO;
-import com.supporters.function.DateCalculator;
-import com.supporters.service.StatisticsService;
 
 
 @Controller
@@ -44,16 +35,16 @@ public class CommunityController {
 					Model model,
 					String searchValue,
 					String searchFiled,
-					CommunityVO paging) throws Exception {
+					DecommunityVO paging) throws Exception {
 				
 				
 				/*검색 조건 , 검색어 확인 하는 알고리즘*/
-				if(searchValue==null) {searchValue="";}
+				/*if(searchValue==null) {searchValue="";}
 				if(searchFiled==null) {searchFiled="";}
 				switch(searchFiled) {
 				case "0": searchFiled="user_title"; break;
 				case "1":searchFiled="community_user_id"; break;
-				}
+				}*/
 				
 				int seq = Integer.parseInt(pageseq);
 				paging.setPageNo(seq);
@@ -62,7 +53,7 @@ public class CommunityController {
 				paging.setSearchFiled(searchFiled);
 				paging.setTotalCount(communityService.count(paging));
 				
-				List<CommunityVO> list = communityService.list(paging);
+				List<DecommunityVO> list = communityService.list(paging);
 				
 				model.addAttribute("page",paging);
 				model.addAttribute("fiction", list);
@@ -71,13 +62,6 @@ public class CommunityController {
 		
 				}
 			
-			/*학과공지 글 작성하기 */
-			@RequestMapping(value="write")
-			public String write() throws Exception {
-				
-				return "department/community/community_write";
-				
-			}
 			
 		}
 	

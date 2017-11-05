@@ -16,8 +16,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
+import com.supporters.department.domain.NoticeVO;
 import com.supporters.department.service.DepartmentService;
-import com.supporters.domain.CommunityVO;
 @Controller
 @RequestMapping("/department/*")
 public class DepartmentController {
@@ -31,7 +31,7 @@ public class DepartmentController {
 	/*학과공지 리스트*/
 		@RequestMapping(value = "notice")
 		public String list(@RequestParam String pageseq,
-				Model model,CommunityVO paging,
+				Model model,NoticeVO paging,
 				String searchValue,
 				String searchFiled) throws Exception {
 			try {
@@ -39,8 +39,8 @@ public class DepartmentController {
 				if(searchValue==null) {searchValue="";}
 				if(searchFiled==null) {searchFiled="";}
 				switch(searchFiled) {
-				case "0": searchFiled="community_title"; break;
-				case "1":searchFiled="community_user_id"; break;
+				case "0": searchFiled="department_notice_title"; break;
+				case "1":searchFiled="department_notice_user_id"; break;
 				}
 				
 				
@@ -56,7 +56,7 @@ public class DepartmentController {
 				/*학과 공지 관련 게시물의 총 갯수를 가져와 페이징 처리를 어떻게 할 것인가 설정 하는것.*/
 				paging.setTotalCount(departmentService.count(paging));
 				/*서비스단에 설정 해 놓은 메소드를 실행시켜 */ 
-		        List<CommunityVO> list = departmentService.list(paging);
+		        List<NoticeVO> list = departmentService.list(paging);
 		        
 		        model.addAttribute("page",paging);
 				model.addAttribute("notice", list);
@@ -71,12 +71,12 @@ public class DepartmentController {
 		/*학과공지 클릭시 보여지는곳*/
 		@RequestMapping(value = "notice/view")
 		public String view(@RequestParam String seq,
-				Model model,CommunityVO paging) throws Exception {
+				Model model,NoticeVO paging) throws Exception {
 			try {
 				/*게시물의 시퀀스를 가져와 설정 함*/
-				paging.setCommunity_seq(seq);
+				paging.setDepartment_notice_seq(seq);
 				/*설정한 시퀀스를 파라미터로 넘겨 줘서 원하는 값을 가져옴*/
-		        List<CommunityVO> list = departmentService.read(paging);
+		        List<NoticeVO> list = departmentService.read(paging);
 				model.addAttribute("view", list);
 		        
 		    } catch (Exception e) {
@@ -91,11 +91,11 @@ public class DepartmentController {
 		/*학과공지 수정하기*/
 		@RequestMapping(value = "notice/modify")
 		public String modify(@RequestParam String seq,
-				Model model,CommunityVO paging) throws Exception {
+				Model model,NoticeVO paging) throws Exception {
 			try {
 				/*게시물의 시퀀스를 가져와 설정 함*/
-				paging.setCommunity_seq(seq);
-		        List<CommunityVO> list = departmentService.read(paging);
+				paging.setDepartment_notice_seq(seq);
+		        List<NoticeVO> list = departmentService.read(paging);
 		         
 				model.addAttribute("view", list);
 		        
@@ -114,9 +114,9 @@ public class DepartmentController {
 		
 		/*학과공지 삭제하기 */
 		@RequestMapping(value="notice/delete")
-		public String delete(CommunityVO vo,String seq) throws Exception {
+		public String delete(NoticeVO vo,String seq) throws Exception {
 			/*그 게시물의 시퀀스를 가져옴*/
-			vo.setCommunity_seq(seq);
+			vo.setDepartment_notice_seq(seq);
 			/*서비스단에 설정 해 놓은 메소드를 실행 시켜 삭제*/
 			departmentService.remove(vo);
 			
@@ -132,7 +132,7 @@ public class DepartmentController {
 	
 	/*글 작성하기 프로세스*/
 	@RequestMapping(value="notice/writeprocess",method={RequestMethod.GET, RequestMethod.POST})
-	public String writeProcess(HttpServletRequest request, HttpServletResponse response,CommunityVO vo,
+	public String writeProcess(HttpServletRequest request, HttpServletResponse response,NoticeVO vo,
 			String user_id,
 			String title,
 			String smarteditor) throws Exception {
@@ -141,9 +141,9 @@ public class DepartmentController {
 		
 		/*학과 공지사항 코드 DBB001을 기본으로 설정*/
 		vo.setMinor_cd("DEB001");
-		vo.setCommunity_title(title);
-		vo.setCommunity_content(smarteditor);
-		vo.setCommunity_user_id(user_id);
+		vo.setDepartment_notice_title(title);
+		vo.setDepartment_notice_content(smarteditor);
+		vo.setDepartment_notice_user_id(user_id);
 		/*후에 등록해준다*/
 		departmentService.regist(vo);
 		
@@ -152,7 +152,7 @@ public class DepartmentController {
 }
 	/*학과공지 수정 프로세스*/
 	@RequestMapping(value="notice/modifyprocess",method={RequestMethod.GET, RequestMethod.POST})
-	public String modifyProcess(HttpServletRequest request, HttpServletResponse response,CommunityVO vo,
+	public String modifyProcess(HttpServletRequest request, HttpServletResponse response,NoticeVO vo,
 			String seq,
 			String title,
 			String smarteditor) throws Exception {
@@ -165,11 +165,11 @@ public class DepartmentController {
 		String str = dayTime.format(new Date());
 		
 		/*파라미터로 넘어온 값을 넣음*/
-		vo.setCommunity_seq(seq);
-		vo.setCommunity_title(title);
-		vo.setCommunity_content(smarteditor);
+		vo.setDepartment_notice_seq(seq);
+		vo.setDepartment_notice_title(title);
+		vo.setDepartment_notice_content(smarteditor);
 		/*서비스단에 설정 해 놓은 메소드를 실행*/
-		vo.setCommunity_revise_datetime(str);
+		vo.setDepartment_notice_revise_datetime(str);
 		departmentService.modify(vo);
 		
 		

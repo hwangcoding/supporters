@@ -24,7 +24,7 @@ public class FaqController {
 	private FaqService faqService;
 	
 	
-	/*회원리스트*/
+	/*FAQ리스트*/
 	@RequestMapping(value = "list" ,method={RequestMethod.GET, RequestMethod.POST})
 	public String list(@RequestParam String pageseq,
 			Model model,
@@ -60,7 +60,7 @@ public class FaqController {
 	}
 	
 
-	
+		/*FAQ 글 등록*/
 		@RequestMapping(value="list/write")
 		public String write(FaqVO paging,
 				String faq_title,
@@ -70,6 +70,18 @@ public class FaqController {
 			paging.setFaq_content(faq_contents);
 			
 			faqService.create(paging);
+			return "redirect:/management/faq/list?pageseq=1";
+		}
+		
+		/*FAQ 글 삭제*/
+		@RequestMapping(value="list/delete")
+		public String delete(FaqVO paging,
+				String faqseq
+				) throws Exception {
+			
+			paging.setFaq_seq(faqseq);
+			
+			faqService.delete(paging);
 			return "redirect:/management/faq/list?pageseq=1";
 		}
 			

@@ -4,68 +4,78 @@ import com.supporters.function.Paging;
 
 public class NoticeVO extends Paging {
 
+
+	private String department_notice_seq;//	int(11)	아니오 	 	 	 
+	private String minor_cd	;//char(6)	예 	null 	minor_code_administrator -> minor_cd 	 
+	private String department_notice_user_id;//	varchar(20)	예 	null 	 	 
+	private String department_notice_title	;//varchar(100)	예 	null 	 	 
+	private String department_notice_content;//	varchar(800)	예 	null 	 	 
+	private String department_notice_img;//	varchar(50)	예 	null 	 	 
+	private String department_notice_write_datetime;//	timestamp	아니오 	current_timestamp 	 	 
+	private String department_notice_revise_datetime;//	timestamp	아니오 	0000-00-00 00:00:00 	 	 
+	private String department_notice_delete_ch;//
+	//private String department_notice_lookupcnt = "21"; //
 	
-	private String depn_num;
-	private String dep_code;
-	private String depn_title;
-	private String depn_content;
-	private String depn_img;
-	private String depn_day;
-	private String depn_modiday;
-	private String depn_lookupcnt;
 	
 	
+	public String getDepartment_notice_seq() {
+		return department_notice_seq;
+	}
+	public void setDepartment_notice_seq(String department_notice_seq) {
+		this.department_notice_seq = department_notice_seq;
+	}
+	public String getMinor_cd() {
+		return minor_cd;
+	}
+	public void setMinor_cd(String minor_cd) {
+		this.minor_cd = minor_cd;
+	}
+	public String getDepartment_notice_user_id() {
+		return department_notice_user_id;
+	}
+	public void setDepartment_notice_user_id(String department_notice_user_id) {
+		this.department_notice_user_id = department_notice_user_id;
+	}
+	public String getDepartment_notice_title() {
+		return department_notice_title;
+	}
+	public void setDepartment_notice_title(String department_notice_title) {
+		this.department_notice_title = department_notice_title;
+	}
+	public String getDepartment_notice_content() {
+		return department_notice_content;
+	}
+	public void setDepartment_notice_content(String department_notice_content) {
+		this.department_notice_content = department_notice_content;
+	}
+	public String getDepartment_notice_img() {
+		return department_notice_img;
+	}
+	public void setDepartment_notice_img(String department_notice_img) {
+		this.department_notice_img = department_notice_img;
+	}
+	public String getDepartment_notice_write_datetime() {
+		return department_notice_write_datetime;
+	}
+	public void setDepartment_notice_write_datetime(String department_notice_write_datetime) {
+		this.department_notice_write_datetime = department_notice_write_datetime;
+	}
+	public String getDepartment_notice_revise_datetime() {
+		return department_notice_revise_datetime;
+	}
+	public void setDepartment_notice_revise_datetime(String department_notice_revise_datetime) {
+		this.department_notice_revise_datetime = department_notice_revise_datetime;
+	}
+	public String getDepartment_notice_delete_ch() {
+		return department_notice_delete_ch;
+	}
+	public void setDepartment_notice_delete_ch(String department_notice_delete_ch) {
+		this.department_notice_delete_ch = department_notice_delete_ch;
+	}
+		
+		
 	
 	
-	
-	public String getDepn_num() {
-		return depn_num;
-	}
-	public void setDepn_num(String depn_num) {
-		this.depn_num = depn_num;
-	}
-	public String getDep_code() {
-		return dep_code;
-	}
-	public void setDep_code(String dep_code) {
-		this.dep_code = dep_code;
-	}
-	public String getDepn_title() {
-		return depn_title;
-	}
-	public void setDepn_title(String depn_title) {
-		this.depn_title = depn_title;
-	}
-	public String getDepn_content() {
-		return depn_content;
-	}
-	public void setDepn_content(String depn_content) {
-		this.depn_content = depn_content;
-	}
-	public String getDepn_img() {
-		return depn_img;
-	}
-	public void setDepn_img(String depn_img) {
-		this.depn_img = depn_img;
-	}
-	public String getDepn_day() {
-		return depn_day;
-	}
-	public void setDepn_day(String depn_day) {
-		this.depn_day = depn_day;
-	}
-	public String getDepn_modiday() {
-		return depn_modiday;
-	}
-	public void setDepn_modiday(String depn_modiday) {
-		this.depn_modiday = depn_modiday;
-	}
-	public String getDepn_lookupcnt() {
-		return depn_lookupcnt;
-	}
-	public void setDepn_lookupcnt(String depn_lookupcnt) {
-		this.depn_lookupcnt = depn_lookupcnt;
-	}
 	
 	
 	

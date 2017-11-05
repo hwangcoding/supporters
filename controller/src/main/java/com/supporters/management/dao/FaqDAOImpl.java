@@ -35,7 +35,7 @@ private static String namespace = "faqMapper";
 	@Override
 	public void delete(FaqVO vo) throws Exception {
 		// TODO Auto-generated method stub
-		
+		session.delete(namespace+".delete",vo);
 	}
 
 	@Override
