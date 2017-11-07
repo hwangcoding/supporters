@@ -20,11 +20,12 @@
 											style="background-color:#FFFFFF; border:1px; text-decoration: none; width:50px; height:30px;">
 											맛집 종류 :
 												<select name="searchFiled" id = "res_filed" class="search_select_res_write">
-														 <option value="0" <c:if test="${modiview.minor_nm eq '한식'}">selected</c:if>>한식</option>
-														 <option value="1" <c:if test="${modiview.minor_nm eq '중식'}">selected</c:if>>중식</option>
-														 <option value="2" <c:if test="${modiview.minor_nm eq '패스트푸드'}">selected</c:if>>패스트푸드</option>
-														 <option value="3" <c:if test="${modiview.minor_nm eq '카페'}">selected</c:if>>카페</option>
+														 <option value="0" ${modiview.minor_nm eq "한식" ? 'selected="selected"' : '' }>한식</option>
+														 <option value="1" ${modiview.minor_nm eq "중식" ? 'selected="selected"' : '' }>중식</option>
+														 <option value="2" ${modiview.minor_nm eq "패스트푸드" ? 'selected="selected"' : '' }>패스트푸드</option>
+														 <option value="3" ${modiview.minor_nm eq "카페" ? 'selected="selected"' : '' }>카페</option>
 												</select>
+												<input type="hidden" name="select_ch1" value="${modiview.minor_nm}" readonly = "readonly">
 											</td>
 										</tr>
 						                <tr height="50px">
@@ -57,8 +58,8 @@
 						                    <td align="center">
 						                    
 						                    	<select name="searchFiled1" class="search_select_res_write_dele">
-														 <option value="0" <c:if test="${modiview.minor_nm eq 'Y'}">selected</c:if>>배달가능</option>
-														 <option value="1" <c:if test="${modiview.minor_nm eq 'N'}">selected</c:if>>배달불가능</option>
+														 <option value="0" ${modiview.restaurant_delivery eq "Y" ? 'selected="selected"' : '' }>배달가능</option>
+														 <option value="1" ${modiview.restaurant_delivery eq "N" ? 'selected="selected"' : '' }>배달불가능</option>
 												</select>
 						                    
 						                    </td>
