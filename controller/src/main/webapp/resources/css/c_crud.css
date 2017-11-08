@@ -12,3 +12,47 @@
 
 .res_text{height:30px; width:50%; border:none; border-bottom:1px solid #c1c1c1; color:#666666; vertical-align: center;}
 .res_text_addr{height:95%; width:100%; border:none; color:#666666; overflow: hidden;}
+
+/* 탭부분 css */
+
+.restaurant_list_tabs>tr>td{border:1px solid #eee;}
+
+ul.tabs {
+	
+	margin: 0;
+    padding: 0;
+    float: left;
+    list-style: none;
+    height: 38px;
+    border-left: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+    width: 100%;
+    font-family:"dotum";
+    font-size:12px;
+	
+}
+
+ul.tabs li.active {
+    background: #FFFFFF;
+    border-bottom: 1px solid #FFFFFF;
+}
+
+ul.tabs li {
+    float: left;
+    text-align:center;
+    cursor: pointer;
+    width:90px;
+    height: 37px;
+    line-height: 31px;
+    border: 1px solid #eee;
+    border-left: none;
+    font-weight: bold;
+    background: #fafafa;
+    overflow: hidden;
+    position: relative;
+}
+
+ #container {
+    width: 249px;
+    margin: 0 auto;
+}

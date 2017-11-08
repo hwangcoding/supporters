@@ -9,29 +9,40 @@
 		<div id="mid">
 			<div class="content_view">
 				<div class="content_view_depth"><h3>컨텐츠관리 > 오늘 뭐먹지 관리</h3></div>
+				
+				<div style="text-align:right; background:#fff; height:50px; border-top:0px;">
+				
+					<form method="post" name="delete_frm" action="/contents/restaurant/list?pageseq=1">
+		
+									<select name="searchFiled" class="search_select"> <!-- 이거 css안먹어서 다시 바꾸밍 -->
+											<option value="0">선택</option>
+											<option value="1">맛집종류</option>
+											<option value="2">이름</option>
+									</select>
+													
+									<!-- 검색 버튼 행위 -->
+									<input type="text" name="searchValue"class="search_text">
+									<input type="submit" class="search_button" value="검색">
+																	
+								</form>
+				
+				</div>
+				<!-- 맛집 탭 부분 구현 진행중 http://jsfiddle.net/3n74v/ 여기 참고해서 할수 있도록 -->
+				<div id="container">
+							
+								<ul class="tabs">
+													
+									<li class="active">전체</li>
+									<!-- 맛집 종류별로 반복될 부분 -->
+									<li class="">실험용 1</li>
+													
+								</ul>
+						</div>
 								
 								<table width="100%" class="restaurant_list" border="0">
 								
 								<thead align="center">
 										<!-- 작성된 글을 담아 디비로 보내 데이터를 가져와 해당 검색에 맞는 데이터를 뿌려준다 -->
-										<tr style="text-align:right; background:#fff; height:50px; border-top:0px;"> 
-											<td colspan="8">
-												<form method="post" name="delete_frm" action="/contents/restaurant/delete">
-												
-													<select name="searchFiled" class="search_select"> <!-- 이거 css안먹어서 다시 바꾸밍 -->
-														 <option value="0">선택</option>
-														 <option value="1">맛집종류</option>
-														 <option value="2">이름</option>
-													</select>
-													
-													<!-- 검색 버튼 행위 -->
-													<input type="text" name="searchValue"class="search_text">
-													<input type="submit" class="search_button" value="검색">
-													
-												</form>
-											</td>
-										</tr>
-										
 										<tr width="100%">
 											<th width="5%">글번호</th>
 											<th width="8%">맛집종류</th>
