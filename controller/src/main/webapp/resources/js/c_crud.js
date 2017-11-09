@@ -75,15 +75,15 @@ $("input[name=delete_btn").click(function(){
 
 
     $("ul.tabs li").click(function () {
-    	
+/*    	
         $("ul.tabs li").removeClass("active").css("color", "#333");
         $(this).addClass("active").css({"color": "darkred","font-weight": "bolder"});
-        $("#tabs_ch").val($(this).val())
         
-        /*$(".restaurant_list").hide()*/
+        
+        $(".restaurant_list").hide()
       var activeTab = $(this).attr("rel");
-        $("#" + activeTab).fadeIn()
-        
+        $("#" + activeTab).fadeIn()*/
+        $("#tabs_ch").val($(this).val());
         document.frm_tabs.submit();
     });
     

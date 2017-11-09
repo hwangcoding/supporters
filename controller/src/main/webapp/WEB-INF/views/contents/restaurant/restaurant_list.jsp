@@ -14,7 +14,7 @@
 				
 					<form method="post" name="delete_frm" action="/contents/restaurant/list?pageseq=1">
 		
-									<select name="searchFiled" class="search_select" style="width: 50px;"> <!-- 이거 css안먹어서 다시 바꾸밍 -->
+									<select name="searchFiled" class="search_select" style="width: 80px;"> <!-- 이거 css안먹어서 다시 바꾸밍 -->
 											<option value="0" >선택</option>
 											<option value="1">가게이름</option>
 									</select>
@@ -32,13 +32,13 @@
 								<ul class="tabs">
 								<c:forEach items="${rest }" var="tabs" begin="0" end="0" varStatus="status">
 								
-										<li rel="tab1" value="0">전체</li>
+										<li rel="tab1" ${page.searchValue eq "" ? 'class="active"' : '' } value="0">전체</li>
 									
 										<!-- 맛집 종류별로 반복될 부분 (일딴 고정으로 함 ㅎㅎㅎ)-->
-										<li rel="tab2" ${tabs.minor_nm eq "한식" ? 'class="active"' : '' } value="1">한식</li>
-										<li rel="tab3" ${tabs.minor_nm eq "중식" ? 'class="active"' : '' } value="2">중식</li>
-										<li rel="tab4" ${tabs.minor_nm eq "패스트푸드" ? 'class="active"' : '' } value="3">패스트푸드</li>
-										<li rel="tab5" ${tabs.minor_nm eq "카페" ? 'class="active"' : '' } value="4">카페</li>
+										<li rel="tab2" ${page.searchValue eq "한식" ? 'class="active"' : '' } value="1">한식</li>
+										<li rel="tab3" ${page.searchValue eq "중식" ? 'class="active"' : '' } value="2">중식</li>
+										<li rel="tab4" ${page.searchValue eq "패스트푸드" ? 'class="active"' : '' } value="3">패스트푸드</li>
+										<li rel="tab5" ${page.searchValue eq "카페" ? 'class="active"' : '' } value="4">카페</li>
 										
 								</c:forEach>
 								</ul>
