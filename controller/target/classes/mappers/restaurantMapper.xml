@@ -9,7 +9,7 @@
 
 	<!-- 맛집 게시물 리스트 -->
 	<select id="list" parameterType="RestaurantVO" resultType="RestaurantVO">
-		SELECT `RESTAURANT_SEQ`, `RESTAURANT_NM`, a.minor_cd, `RESTAURANT_PHONE`, 
+		SELECT `RESTAURANT_SEQ`, `RESTAURANT_NM`, a.minor_cd,  `RESTAURANT_PHONE`, 
 		`RESTAURANT_MAINIMG`, `RESTAURANT_ADDRESS`, `RESTAURANT_DELIVERY`, 
 		`RESTAURANT_LATITUDE`, `RESTAURANT_LOGNITODE`, `RESTAURANT_DISPLACEMENT`
 		,substring(`restaurant_write_datetime`,1,19) as restaurant_write_datetime, substring(`restaurant_revise_datetime`,1,19) as `RESTAURANT_REVISE_DATETIME`
@@ -22,6 +22,7 @@
 	        	<when test="searchFiled == ''">AND 1=1 </when> 
 	        	<when test="searchFiled == 'minor_cd'"> AND minor_cd like CONCAT('%', #{searchValue} , '%') </when> 
 		    	<when test="searchFiled == 'restaurant_nm'">AND restaurant_nm like CONCAT('%', #{searchValue} , '%')</when>
+		    	<when test="searchFiled == 'minor_nm'">AND minor_nm like CONCAT('%', #{searchValue} , '%')</when>
 	        	 </choose>
 	  </where>
 			order by restaurant_write_datetime desc

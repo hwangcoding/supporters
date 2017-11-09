@@ -1,5 +1,6 @@
 @charset "UTF-8";
 
+
 /* 맛집 리뷰 부분 테이블 css */
 
 .restaurant_comment_list{border-collapse:collapse;}
@@ -47,6 +48,8 @@ ul.tabs li {
 ul.tabs li.active {
     background: #FFFFFF;
     border-bottom: 1px solid #FFFFFF;
+   font-weight: bolder;
+   color: darkred;
 }
 /* .tab_container {
     border: 1px solid #eee;

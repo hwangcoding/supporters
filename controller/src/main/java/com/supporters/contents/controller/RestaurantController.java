@@ -40,21 +40,44 @@ public class RestaurantController {
 			Model model,
 			RestaurantVO paging,
 			String searchValue,
+			String tabs_ch,
 			String searchFiled) throws Exception {
 		
 			/*검색 조건 , 검색어 확인 하는 알고리즘*/
 			if(searchValue==null) {searchValue="";}
 			if(searchFiled==null) {searchFiled="";}
-		/*	switch(searchFiled) {
-			case "0": searchFiled="fiction_content"; break;
-			case "1":searchFiled="user_num"; break;
+		switch(searchFiled) {
+			case "1":searchFiled="restaurant_nm"; break;
 			}
-			*/
+		if(tabs_ch == null) {
+			tabs_ch="";
+			}else if(tabs_ch == "0") {
+			tabs_ch="";
+			}
+		/*System.out.println("진짜 테스트 합니다 : " + tabs_ch);*/
+		switch (tabs_ch) {
+		case "1": searchFiled = "minor_nm";
+		searchValue = "한식";
+		break;
+		case "2": searchFiled = "minor_nm";
+		searchValue = "중식";
+		break;
+		case "3": searchFiled = "minor_nm";
+		searchValue = "패스트푸드";
+		break;
+		case "4": searchFiled = "minor_nm";
+		searchValue = "카페";
+		break;
+		}
+		
+		
+		
 			int seq = Integer.parseInt(pageseq);
 			paging.setPageNo(seq);
 			paging.setPageSize(10);
 			paging.setSearchValue(searchValue);
 			paging.setSearchFiled(searchFiled);
+			/*paging.setMinor_nm(tabs_ch);*/
 			paging.setTotalCount(restaurantService.count(paging));
 			
 			List<RestaurantVO> list = restaurantService.list(paging);

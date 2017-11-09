@@ -14,10 +14,9 @@
 				
 					<form method="post" name="delete_frm" action="/contents/restaurant/list?pageseq=1">
 		
-									<select name="searchFiled" class="search_select"> <!-- 이거 css안먹어서 다시 바꾸밍 -->
-											<option value="0">선택</option>
-											<option value="1">맛집종류</option>
-											<option value="2">이름</option>
+									<select name="searchFiled" class="search_select" style="width: 50px;"> <!-- 이거 css안먹어서 다시 바꾸밍 -->
+											<option value="0" >선택</option>
+											<option value="1">가게이름</option>
 									</select>
 													
 									<!-- 검색 버튼 행위 -->
@@ -29,15 +28,24 @@
 				</div>
 				<!-- 맛집 탭 부분 구현 진행중 http://jsfiddle.net/3n74v/ 여기 참고해서 할수 있도록 -->
 				<div id="container">
-							
+							<form name="frm_tabs" method="post" action="/contents/restaurant/list?pageseq=1">
 								<ul class="tabs">
-													
-									<li class="active">전체</li>
-									<!-- 맛집 종류별로 반복될 부분 -->
-									<li class="">실험용 1</li>
-													
+								<c:forEach items="${rest }" var="tabs" begin="0" end="0" varStatus="status">
+								
+										<li rel="tab1" value="0">전체</li>
+									
+										<!-- 맛집 종류별로 반복될 부분 (일딴 고정으로 함 ㅎㅎㅎ)-->
+										<li rel="tab2" ${tabs.minor_nm eq "한식" ? 'class="active"' : '' } value="1">한식</li>
+										<li rel="tab3" ${tabs.minor_nm eq "중식" ? 'class="active"' : '' } value="2">중식</li>
+										<li rel="tab4" ${tabs.minor_nm eq "패스트푸드" ? 'class="active"' : '' } value="3">패스트푸드</li>
+										<li rel="tab5" ${tabs.minor_nm eq "카페" ? 'class="active"' : '' } value="4">카페</li>
+										
+								</c:forEach>
 								</ul>
+								
+								<input type="hidden" id="tabs_ch" name="tabs_ch">
 						
+						</form>
 								<table width="90%" class="restaurant_list" border="0" style="margin: 0px auto;">
 								
 								<thead align="center">
@@ -73,7 +81,7 @@
 									</c:if> 
 									
 									
-									<c:forEach items="${rest}" var="st"> 
+									<c:forEach items="${rest}" var="st">
 									<!-- 10월 31일 작업 -->
 										<!-- 반복해서 리스트로 값을 받아와 뿌려줘야함 -->
 										<tr height="120px">
