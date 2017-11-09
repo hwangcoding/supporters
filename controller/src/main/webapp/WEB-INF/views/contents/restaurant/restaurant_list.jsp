@@ -37,9 +37,8 @@
 									<li class="">실험용 1</li>
 													
 								</ul>
-						</div>
-								
-								<table width="100%" class="restaurant_list" border="0">
+						
+								<table width="90%" class="restaurant_list" border="0" style="margin: 0px auto;">
 								
 								<thead align="center">
 										<!-- 작성된 글을 담아 디비로 보내 데이터를 가져와 해당 검색에 맞는 데이터를 뿌려준다 -->
@@ -136,6 +135,8 @@
 								<%-- </c:if> --%>
 								
 								</table>
+								
+								</div>
 								
 							</div>
 						<!-- </div> -->

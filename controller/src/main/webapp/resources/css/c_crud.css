@@ -18,31 +18,24 @@
 .restaurant_list_tabs>tr>td{border:1px solid #eee;}
 
 ul.tabs {
-	
-	margin: 0;
+    margin: 0;
+    margin-bottom:10px;
     padding: 0;
     float: left;
     list-style: none;
-    height: 38px;
-    border-left: 1px solid #eee;
+    height: 32px;
     border-bottom: 1px solid #eee;
+    border-left: 1px solid #eee;
     width: 100%;
     font-family:"dotum";
     font-size:12px;
-	
 }
-
-ul.tabs li.active {
-    background: #FFFFFF;
-    border-bottom: 1px solid #FFFFFF;
-}
-
 ul.tabs li {
     float: left;
     text-align:center;
     cursor: pointer;
-    width:90px;
-    height: 37px;
+    width:82px;
+    height: 31px;
     line-height: 31px;
     border: 1px solid #eee;
     border-left: none;
@@ -51,8 +44,35 @@ ul.tabs li {
     overflow: hidden;
     position: relative;
 }
+ul.tabs li.active {
+    background: #FFFFFF;
+    border-bottom: 1px solid #FFFFFF;
+}
+/* .tab_container {
+    border: 1px solid #eee;
+    border-top: none;
+    clear: both;
+    float: left;
+    width: 248px;
+    background: #FFFFFF;
+}
+.tab_content {
+    padding: 5px;
+    font-size: 12px;
+    display: none;
+}
+.tab_container .tab_content ul {
+    width:100%;
+    margin:0px;
+    padding:0px;
+}
+.tab_container .tab_content ul li {
+    padding:5px;
+    list-style:none
+} */
 
  #container {
-    width: 249px;
+ 	float:left;
+    width: 100%;
     margin: 0 auto;
 }
