@@ -20,11 +20,11 @@ $(document).ready(function(){
 			 }else if(value[1]=="contents"){
 				 $(".sidebar_menu>ul>li:eq(3)").addClass("open"); /*콘텐츠관리*/
 				 	if(value[2] =="fictiongame"){
-				 		$(".sidebar_menu>ul>li:eq(2)>ul>li:eq(0)>a").css("color","#C9182B"); /*콘텐츠 > 끝말잇기*/
+				 		$(".sidebar_menu>ul>li:eq(3)>ul>li:eq(0)>a").css("color","#C9182B"); /*콘텐츠 > 끝말잇기*/
 					 }if(value[2] =="restaurant"){
-						 $(".sidebar_menu>ul>li:eq(2)>ul>li:eq(1)>a").css("color","#C9182B"); /*콘텐츠 >오늘 뭐 먹지*/
+						 $(".sidebar_menu>ul>li:eq(3)>ul>li:eq(1)>a").css("color","#C9182B"); /*콘텐츠 >오늘 뭐 먹지*/
 					 }if(value[2] =="used"){
-						 $(".sidebar_menu>ul>li:eq(2)>ul>li:eq(2)>a").css("color","#C9182B"); /*콘텐츠 > 중고장터*/
+						 $(".sidebar_menu>ul>li:eq(3)>ul>li:eq(2)>a").css("color","#C9182B"); /*콘텐츠 > 중고장터*/
 					 }
 			 }else if(value[1]=="statistics"){
 				 $(".sidebar_menu>ul>li:eq(4)").addClass("open"); /*통계*/
