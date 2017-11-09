@@ -11,7 +11,13 @@ public interface StatisticsDAO {
 	
 	public List<StatisticsVO>  visited_week(StatisticsVO vo) throws Exception;
 	
-	public int visited_count() throws Exception;
+	public int all_visited() throws Exception;
+	
+	public int all_join() throws Exception;
+	
+	public int day_visited() throws Exception;
+	
+	public int day_join() throws Exception;
 	
 	
 }

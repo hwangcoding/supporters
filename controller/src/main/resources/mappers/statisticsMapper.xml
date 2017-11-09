@@ -31,11 +31,43 @@
 	</select>
 	
 	<!-- 총 방문자 수  -->
-	<select id="visited_count" resultType="int">
+	<select id="all_visited" resultType="int">
 		<![CDATA[
 		Select sum(date_cnt_d_cnt) 
 		From date_cnt
 				 ]]> 
+	</select>
+	
+	<!-- 총 회원 수 -->
+	<select id="all_join" resultType="int">
+		<![CDATA[
+			Select
+					 count(*) as totalCount
+			From
+					 student
+					  ]]> 
+	</select>
+	
+	<!-- 금일 방문자 수  -->
+	<select id="day_visited" resultType="int">
+		<![CDATA[
+		Select date_cnt_d_cnt
+		From date_cnt
+		WHERE 
+				date_cnt_date =(select curdate()) 
+				 ]]> 
+	</select>
+	
+	<!-- 금일 회원 수 -->
+	<select id="day_join" resultType="int">
+		<![CDATA[
+			Select
+					 count(substring(`user_joindate`,1,10)) as  date 
+			From
+					 student
+        	WHERE 
+			 	substring(`user_joindate`,1,10) = (select curdate())
+					  ]]> 
 	</select>
 	
 	

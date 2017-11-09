@@ -49,8 +49,22 @@ public class HomeController {
 	
 	@RequestMapping(value = "/")
 	public String home( Model model,
-			CommunityVO vo,StudentVO stuVo,StatisticsVO statisticVO) throws Exception {
+			StatisticsVO statisticVO) throws Exception {
 
+		/*극혐으로 만들었다 ;;;*/
+		int all_visited = statisticsService.all_visited();
+		int all_join = statisticsService.all_join();
+		int day_visited= statisticsService.day_visited();
+		int day_join = statisticsService.day_join();
+		
+		
+		model.addAttribute("all_visited", all_visited);
+		model.addAttribute("all_join", all_join);
+		model.addAttribute("day_visited", day_visited);
+		model.addAttribute("day_join", day_join);
+		
+		
+		
 		return "index";
 	}
 	

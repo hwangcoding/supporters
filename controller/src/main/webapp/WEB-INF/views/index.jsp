@@ -20,11 +20,11 @@
 											
 											<td style="background-color:#FF9000; width:28%;">
 												<span style="font-size:16px; float:left; line-height:0px; font-weight:500;">총 회원수 :
-												<font style="font-size:21px; line-height:0px; font-weight:500;">23</font></span>
+												<font style="font-size:21px; line-height:0px; font-weight:500;">${all_join}</font></span>
 												<br>
 												<br>
 												<span style="font-size:16px; float:left; line-height:0px; font-weight:500;">신규 회원수 :
-												<font style="font-size:21px; line-height:0px; font-weight:500;">7</font></span>
+												<font style="font-size:21px; line-height:0px; font-weight:500;">${day_join}</font></span>
 											</td>
 											
 											<td style="background-color:#FDDA16; height:150px; width:8%;">
@@ -32,12 +32,12 @@
 											</td>
 											
 											<td style="background-color:#FDDA16; width:28%;">
-												<span style="font-size:16px; float:left; line-height:0px; font-weight:500;">금일 방문자수 :
-												<font style="font-size:21px; line-height:0px; font-weight:500;">12</font></span>
+												<span style="font-size:16px; float:left; line-height:0px; font-weight:500;">총 방문자수 :
+												<font style="font-size:21px; line-height:0px; font-weight:500;">${all_visited}</font></span>
 												<br>
 												<br>
-												<span style="font-size:16px; float:left; line-height:0px; font-weight:500;">총 방문자수 : 
-												<font style="font-size:21px; line-height:0px; font-weight:500;">10</font></span>
+												<span style="font-size:16px; float:left; line-height:0px; font-weight:500;">금일 방문자수 : 
+												<font style="font-size:21px; line-height:0px; font-weight:500;">${day_visited}</font></span>
 											</td>
 											
 											<td style="background-color:#FFEE82; height:150px; width:8%;">

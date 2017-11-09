@@ -39,20 +39,37 @@ public class StatisticsController {
 			StatisticsVO statisticVO ) throws Exception {
 		statisticVO.setDate(dc.getDateAgo(-6));
 		List<StatisticsVO> join_week= statisticsService.join_week(statisticVO);  //일주일 가입자 수
+		
 		List<StatisticsVO> visited_week = statisticsService.visited_week(statisticVO); //일주일 방문자 수
+		
+		
+		
 		
 		JSONObject jsonResponse; /* Json 선언 부분 */
 		JSONArray jsonRows = new JSONArray();
-		for (StatisticsVO str : join_week) {
+		
+		// 통계 부분  , 날짜 별 회원의 데이터가 없으면 0 을 찍도록 하는 알고리즘
+	    for (StatisticsVO str : visited_week) {
 			jsonResponse = new JSONObject();
+			// 회원수에 날짜 값이 있는지 판단
+			boolean fa = true;
+			for (StatisticsVO str2 : join_week) {
+				if(str.getDate().equals(str2.getDate())) {
+					jsonResponse.put("count", str2.getWeek_cnt());// 카운트 값
+					fa=false;
+				}
+			}
 			jsonResponse.put("date", str.getDate()); // 날짜 값
-			jsonResponse.put("count", str.getWeek_cnt());// 카운트 값
+			if(fa!=false) {
+				jsonResponse.put("count", "0");// 카운트 값
+			}
 			jsonRows.put(jsonResponse);
 		}
 		
 
 
 		model.addAttribute("join",jsonRows);
+		
 		return "/statistics/join_week";
 	}
 	
