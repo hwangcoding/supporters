@@ -14,10 +14,16 @@ public class NoticeVO extends Paging {
 	private String department_notice_write_datetime;//	timestamp	아니오 	current_timestamp 	 	 
 	private String department_notice_revise_datetime;//	timestamp	아니오 	0000-00-00 00:00:00 	 	 
 	private String department_notice_delete_ch;//
-	//private String department_notice_lookupcnt = "21"; //
+	private String department_notice_lookupcnt ;
 	
 	
 	
+	public String getDepartment_notice_lookupcnt() {
+		return department_notice_lookupcnt;
+	}
+	public void setDepartment_notice_lookupcnt(String department_notice_lookupcnt) {
+		this.department_notice_lookupcnt = department_notice_lookupcnt;
+	}
 	public String getDepartment_notice_seq() {
 		return department_notice_seq;
 	}

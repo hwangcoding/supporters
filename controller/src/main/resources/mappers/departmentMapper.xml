@@ -12,8 +12,10 @@
 		Select
 				`department_notice_seq`, `minor_cd`, `department_notice_user_id`, `department_notice_title`,
 				 `department_notice_content`, `department_notice_img`,
-				 `department_notice_write_datetime`, `department_notice_revise_datetime`, `department_notice_delete_ch`,
-				   substring(`department_notice_write_datetime`,1,19) as department_notice_write_datetime
+				 `department_notice_delete_ch`,
+				   substring(`department_notice_write_datetime`,1,19) as department_notice_write_datetime,
+				    substring(`department_notice_revise_datetime`,1,19) as department_notice_write_datetime,
+				    department_notice_lookupcnt
 		From
 				department_notice
 		<where> 
@@ -23,7 +25,7 @@
 		    	<when test="searchFiled == 'community_user_id'"> minor_cd='DEB001'  AND department_notice_user_id like CONCAT('%', #{searchValue} , '%')</when>
 	        	 </choose>
 	  </where>
-			order by department_notice_write_datetime desc
+			order by   substring(`department_notice_write_datetime`,1,19) desc
 		limit #{limitNo},#{pageSize}				
 	</select>
 	
@@ -46,8 +48,10 @@
 		Select
 				`department_notice_seq`, `minor_cd`, `department_notice_user_id`, `department_notice_title`,
 				 `department_notice_content`, `department_notice_img`,
-				 `department_notice_write_datetime`, `department_notice_revise_datetime`, `department_notice_delete_ch`,
-				   substring(`department_notice_write_datetime`,1,19) as department_notice_write_datetime
+				 `department_notice_delete_ch`,
+				   substring(`department_notice_write_datetime`,1,19) as department_notice_write_datetime,
+				    substring(`department_notice_revise_datetime`,1,19) as department_notice_write_datetime,
+				    department_notice_lookupcnt
 				   
 		From
 				department_notice

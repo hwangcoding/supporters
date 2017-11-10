@@ -54,7 +54,7 @@
 													<tr width="100%">	<!-- db에 따로 시퀀스가 없어 jstl 을 이용 -->
 														<td width="10%">${ no.department_notice_seq }</td>
 														<td width="45%"><a href="/department/notice/view?seq=${no.department_notice_seq}">${no.department_notice_title}</a></td>
-														<td width="10%"><%-- ${no.department_notice_lookupcnt} --%>2</td>
+														<td width="10%"> ${no.department_notice_lookupcnt}</td>
 														<td width="15%">${no.department_notice_user_id}</td>
 														<td width="20%">${no.department_notice_write_datetime}</td>
 													</tr>
