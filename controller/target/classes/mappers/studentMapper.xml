@@ -77,6 +77,16 @@
 				 ]]> 
 	</select>
 	
+		<select id="login" parameterType="StudentVO" resultType="StudentVO">
+		<![CDATA[
+		Select
+				*
+		From
+				student
+		Where user_num = #{user_num} and user_pw = #{user_pw}
+				 ]]> 
+	</select>
+	
 	
 	
 </mapper>

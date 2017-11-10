@@ -73,6 +73,12 @@ public class StudentServiceImpl implements StudentService{
 	public void pwUpdate(StudentVO vo) throws Exception {
 		// TODO Auto-generated method stub
 		studentDAO.pwUpdate(vo);
+	}
+
+	@Override
+	public StudentVO login(StudentVO vo) throws Exception {
+		// TODO Auto-generated method stub
+		return studentDAO.login(vo);
 	}	
 	
 	

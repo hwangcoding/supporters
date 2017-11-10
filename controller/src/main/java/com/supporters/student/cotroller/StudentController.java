@@ -1,15 +1,21 @@
 package com.supporters.student.cotroller;
 
+import java.security.MessageDigest;
 import java.util.List;
+import java.util.Locale;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpSession;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.supporters.domain.LoginVO;
 import com.supporters.function.KISA_SHA256;
 import com.supporters.student.domain.StudentVO;
 import com.supporters.student.service.StudentService;
@@ -77,12 +83,32 @@ public class StudentController {
 			Model model,StudentVO vo) throws Exception {
 		
 		
+		/*SHA-256 비밀번호 암호화*/
+		StringBuffer hexString = new StringBuffer();
+		  try{
+			  
+	            MessageDigest digest = MessageDigest.getInstance("SHA-256");
+	            byte[] hash = digest.digest(user_pw.getBytes("UTF-8"));
+	            
+	 
+	            for (int i = 0; i < hash.length; i++) {
+	                String hex = Integer.toHexString(0xff & hash[i]);
+	                if(hex.length() == 1) hexString.append('0');
+	                hexString.append(hex);
+	            }
+	 
+	            //출력
+	            System.out.println(hexString.toString());
+	 
+	        } catch(Exception ex){
+	            throw new RuntimeException(ex);
+	        }
 		
 		
 		
 		/*안드로이드에서 파라미터 값 보내준걸 받아서 StudentVO 객체에 담아준다.*/
 		vo.setUser_num(user_id);
-		vo.setUser_pw(user_pw);
+		vo.setUser_pw(hexString.toString());
 		vo.setUser_gender(user_gender);
 		vo.setUser_nm(user_name);
 		vo.setUser_phone(user_phone);
@@ -92,7 +118,8 @@ public class StudentController {
 		case "0" :state="재학"; break;
 		case "1" :state="휴학";break;
 		case "2" :state="졸업";break;
-		case "3" :state="전괴";break;
+		case "3" :state="전과";break;
+		default : state="재학";break;
 		}
 		vo.setUser_atten(state);
 		
@@ -127,10 +154,63 @@ public class StudentController {
 		
 		
 		return "redirect:/student/list?pageseq=1";
-		
-	
-	
 	}
 	
-
+	//로그인 절차
+	@RequestMapping(value = "loginprocess")		
+	public String  loginProcess(
+			@RequestParam String userid,
+			@RequestParam String userpw,Locale locale,StudentVO vo,
+			HttpSession session, Model model) throws Exception {
+		/*adminId , adminPw 파라미터를 받아서 변수를 설정했음.*/ 
+		/*SHA-256 비밀번호 암호화*/
+		StringBuffer hexString = new StringBuffer();
+		  try{
+			  
+	            MessageDigest digest = MessageDigest.getInstance("SHA-256");
+	            byte[] hash = digest.digest(userpw.getBytes("UTF-8"));
+	            
+	 
+	            for (int i = 0; i < hash.length; i++) {
+	                String hex = Integer.toHexString(0xff & hash[i]);
+	                if(hex.length() == 1) hexString.append('0');
+	                hexString.append(hex);
+	            }
+	 
+	            //출력
+	            System.out.println(hexString.toString());
+	 
+	        } catch(Exception ex){
+	            throw new RuntimeException(ex);
+	        }
+		
+		/*파라미터 값을 VO에 주입 */
+		vo.setUser_num(userid);
+		vo.setUser_pw(hexString.toString());
+		 
+		int a= studentService.search(vo);
+		if (a==1) {
+			/*아이디가 있으면 여기로 */
+			StudentVO str = studentService.login(vo);
+			JSONObject item;   // 제이손 변수 선언
+			JSONArray items = new JSONArray();  //제이손어레이 생성
+			
+			item = new JSONObject();  //제이손오브젝 선언
+			item.put("회원이름" , str.getUser_nm());  
+			item.put("회원아이디" , str.getUser_num());	
+			items.put(item);
+		
+			model.addAttribute("login", items);
+			return "student/student_login" ;
+		}else {
+			/*아이디가 없으면 model 에 true 라는 값을 넣음*/
+			model.addAttribute("login", "false");
+			return "student/student_login";
+		}
+			
+			
+		
+	}
+	
+	
 }

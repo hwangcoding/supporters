@@ -76,6 +76,12 @@ public class StudentDAOImpl  implements StudentDAO{
 		session.update(namespace+".pw_update",vo);
 		
 	}
+
+	@Override
+	public StudentVO login(StudentVO vo) throws Exception {
+		// TODO Auto-generated method stub
+		return session.selectOne(namespace+".login",vo);
+	}
 	
 
 }

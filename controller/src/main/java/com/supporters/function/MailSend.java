@@ -1,5 +1,6 @@
 package com.supporters.function;
 
+import java.security.MessageDigest;
 import java.util.List;
 import java.util.Properties;
 
@@ -54,6 +55,28 @@ public class MailSend {
         if(values.isEmpty()) {
         	model.addAttribute("pass",false); // 등록된 회원이 아님
         }else {
+        	
+        	/*SHA-256 비밀번호 암호화*/
+    		StringBuffer hexString = new StringBuffer();
+    		  try{
+    			  
+    	            MessageDigest digest = MessageDigest.getInstance("SHA-256");
+    	            byte[] hash = digest.digest(vo.getUser_pw().getBytes("UTF-8"));
+    	            
+    	 
+    	            for (int i = 0; i < hash.length; i++) {
+    	                String hex = Integer.toHexString(0xff & hash[i]);
+    	                if(hex.length() == 1) hexString.append('0');
+    	                hexString.append(hex);
+    	            }
+    	 
+    	            //출력
+    	            System.out.println(hexString.toString());
+    	 
+    	        } catch(Exception ex){
+    	            throw new RuntimeException(ex);
+    	        }
+    	vo.setUser_pw(hexString.toString());
         studentService.pwUpdate(vo);
         
         model.addAttribute("pass",true);  // 등록된 회원임

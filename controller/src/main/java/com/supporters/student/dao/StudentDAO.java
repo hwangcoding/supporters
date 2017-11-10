@@ -27,4 +27,5 @@ public interface StudentDAO {
 	
 	public void pwUpdate(StudentVO vo) throws Exception;
 	
+	public StudentVO login(StudentVO vo) throws Exception;
 }
