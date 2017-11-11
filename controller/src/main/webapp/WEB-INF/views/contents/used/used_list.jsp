@@ -26,7 +26,7 @@
 												</form>
 											</td>
 										</tr>
-										<tr width="100%" >
+										<tr width="100%" >  
 											<th width="10%">번호</th>
 											<th width="45%">제목</th>
 											<th width="10%">조회수</th>
