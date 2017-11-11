@@ -38,6 +38,7 @@
 					<li><a href="#"><span>관리</span><i class="material-icons">add</i></a>
 						<ul>
 							<li><a href="/management/faq/list?pageseq=1">FAQ</a></li>
+							<li><a href="/management/qna/list?pageseq=1">QnA</a></li>
 						</ul>
 					</li>
 				</ul>
