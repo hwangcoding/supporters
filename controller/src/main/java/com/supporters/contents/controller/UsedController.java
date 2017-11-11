@@ -9,8 +9,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.supporters.contents.domain.UsedVO;
 import com.supporters.contents.service.UsedService;
-import com.supporters.domain.CommunityVO;
 
 
 @Controller
@@ -24,10 +24,10 @@ public class UsedController {
 	private UsedService usedService;
 	
 	
-	/*학과공지 리스트*/
+	/*중고장터 리스트*/
 		@RequestMapping(value = "list")
 		public String list(@RequestParam String pageseq,
-				Model model,CommunityVO paging,
+				Model model,UsedVO paging,
 				String searchValue,
 				String searchFiled) throws Exception {
 			try {
@@ -49,10 +49,10 @@ public class UsedController {
 				/*학과 공지 관련 게시물의 총 갯수를 가져와 페이징 처리를 어떻게 할 것인가 설정 하는것.*/
 				paging.setTotalCount(usedService.count(paging));
 				/*서비스단에 설정 해 놓은 메소드를 실행시켜 */ 
-		        List<CommunityVO> list = usedService.list(paging);
+		        List<UsedVO> list = usedService.list(paging);
 		        
 		        model.addAttribute("page",paging);
-				model.addAttribute("notice", list);
+				model.addAttribute("used", list);
 		        
 		    } catch (Exception e) {
 		    	System.out.println("파일이없떠요");
@@ -61,15 +61,15 @@ public class UsedController {
 			return "contents/used/used_list";
 			
 		}
-		/*학과공지 클릭시 보여지는곳*/
+		/*중고장터 클릭시 보여지는곳*/
 		@RequestMapping(value = "view")
 		public String view(@RequestParam String seq,
-				Model model,CommunityVO paging) throws Exception {
+				Model model,UsedVO paging) throws Exception {
 			try {
 				/*게시물의 시퀀스를 가져와 설정 함*/
-				paging.setCommunity_seq(seq);
+				paging.setUsed_seq(seq);
 				/*설정한 시퀀스를 파라미터로 넘겨 줘서 원하는 값을 가져옴*/
-		        List<CommunityVO> list = usedService.read(paging);
+		        List<UsedVO> list = usedService.read(paging);
 				model.addAttribute("view", list);
 		        
 		    } catch (Exception e) {
@@ -81,14 +81,14 @@ public class UsedController {
 		}
 		
 		
-		/*학과공지 수정하기*/
+		/*중고장터 수정하기*/
 		@RequestMapping(value = "modify")
 		public String modify(@RequestParam String seq,
-				Model model,CommunityVO paging) throws Exception {
+				Model model,UsedVO paging) throws Exception {
 			try {
 				/*게시물의 시퀀스를 가져와 설정 함*/
-				paging.setCommunity_seq(seq);
-		        List<CommunityVO> list = usedService.read(paging);
+				paging.setUsed_seq(seq);
+		        List<UsedVO> list = usedService.read(paging);
 		         
 				model.addAttribute("view", list);
 		        
@@ -100,7 +100,7 @@ public class UsedController {
 			
 		}
 		
-		/*학과공지 글 작성하기 */
+		/*중고장터 글 작성하기 */
 		@RequestMapping(value="write")
 		public String write() throws Exception {
 			
@@ -110,9 +110,9 @@ public class UsedController {
 		
 		
 	/*	
-		학과공지 삭제하기 
+		중고장터 삭제하기 
 		@RequestMapping(value="notice/delete")
-		public String delete(CommunityVO vo,String seq) throws Exception {
+		public String delete(UsedVO vo,String seq) throws Exception {
 			그 게시물의 시퀀스를 가져옴
 			vo.setCommunity_seq(seq);
 			서비스단에 설정 해 놓은 메소드를 실행 시켜 삭제
@@ -125,7 +125,7 @@ public class UsedController {
 	
 	글 작성하기 프로세스
 	@RequestMapping(value="notice/writeprocess",method={RequestMethod.GET, RequestMethod.POST})
-	public String writeProcess(HttpServletRequest request, HttpServletResponse response,CommunityVO vo,
+	public String writeProcess(HttpServletRequest request, HttpServletResponse response,UsedVO vo,
 			String user_id,
 			String title,
 			String smarteditor) throws Exception {
@@ -143,9 +143,9 @@ System.out.println("들어옴");
 		
 		return "redirect:/department/notice?pageseq=1";
 }
-	학과공지 수정 프로세스
+	중고장터 수정 프로세스
 	@RequestMapping(value="notice/modifyprocess",method={RequestMethod.GET, RequestMethod.POST})
-	public String modifyProcess(HttpServletRequest request, HttpServletResponse response,CommunityVO vo,
+	public String modifyProcess(HttpServletRequest request, HttpServletResponse response,UsedVO vo,
 			String seq,
 			String title,
 			String smarteditor) throws Exception {

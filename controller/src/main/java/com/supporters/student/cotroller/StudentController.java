@@ -192,25 +192,29 @@ public class StudentController {
 		if (a==1) {
 			/*아이디가 있으면 여기로 */
 			StudentVO str = studentService.login(vo);
-			JSONObject item;   // 제이손 변수 선언
-			JSONArray items = new JSONArray();  //제이손어레이 생성
+				if(str!=null) {
+				JSONObject item;   // 제이손 변수 선언
+				JSONArray items = new JSONArray();  //제이손어레이 생성
+				
+				item = new JSONObject();  //제이손오브젝 선언
+				item.put("회원이름" , str.getUser_nm());  
+				item.put("회원아이디" , str.getUser_num());	
+				items.put(item);
 			
-			item = new JSONObject();  //제이손오브젝 선언
-			item.put("회원이름" , str.getUser_nm());  
-			item.put("회원아이디" , str.getUser_num());	
-			items.put(item);
-		
-			model.addAttribute("login", items);
-			return "student/student_login" ;
+				model.addAttribute("login", items);
+				return "student/student_login" ;
+				}else {
+					/*아이디가 없으면 model 에 false 라는 값을 넣음*/
+					model.addAttribute("login", "false");
+					return "student/student_login";
+				}
 		}else {
-			/*아이디가 없으면 model 에 true 라는 값을 넣음*/
+			/*아이디가 없으면 model 에 false 라는 값을 넣음*/
 			model.addAttribute("login", "false");
 			return "student/student_login";
 		}
-			
-			
 		
-	}
-	
+		}
+			
 	
 }

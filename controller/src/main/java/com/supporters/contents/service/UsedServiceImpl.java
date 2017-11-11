@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.supporters.contents.dao.FictionGameDAO;
 import com.supporters.contents.dao.UsedDAO;
-import com.supporters.domain.CommunityVO;
+import com.supporters.contents.domain.UsedVO;
 
 
 
@@ -19,25 +19,25 @@ public class UsedServiceImpl implements UsedService{
 	private UsedDAO usedDAO;
 	
 	@Override
-	public int count(CommunityVO vo) throws Exception {
+	public int count(UsedVO vo) throws Exception {
 		// TODO Auto-generated method stub
 		return usedDAO.count(vo);
 	}
 
 	@Override
-	public List<CommunityVO> list(CommunityVO vo) throws Exception {
+	public List<UsedVO> list(UsedVO vo) throws Exception {
 		// TODO Auto-generated method stub
 		return usedDAO.list(vo);
 	}
 
 	@Override
-	public void write(CommunityVO vo) throws Exception {
+	public void write(UsedVO vo) throws Exception {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void delete(CommunityVO vo) throws Exception {
+	public void delete(UsedVO vo) throws Exception {
 		// TODO Auto-generated method stub
 		
 	}
@@ -49,7 +49,7 @@ public class UsedServiceImpl implements UsedService{
 	}
 
 	@Override
-	public List<CommunityVO>  read(CommunityVO vo) throws Exception {
+	public List<UsedVO>  read(UsedVO vo) throws Exception {
 		// TODO Auto-generated method stub
 		return usedDAO.read(vo);
 	}

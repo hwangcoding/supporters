@@ -7,77 +7,57 @@
   
   <mapper namespace="usedMapper">
 
-	<!-- 학과 공지 게시물 리스트 -->
-	<select id="list" parameterType="CommunityVO" resultType="CommunityVO">
+	<!-- 중고 장터 게시물 리스트 -->
+	<select id="list" parameterType="UsedVO" resultType="UsedVO">
 		Select
-				`COMMUNITY_SEQ`, `MINOR_CD`, `COMMUNITY_USER_ID`, `COMMUNITY_TITLE`,
-				 `COMMUNITY_CONTENT`, `COMMUNITY_IMG`, `COMMUNITY_USED_PRICE`, 
-				 `COMMUNITY_USED_IMG1`, `COMMUNITY_USED_IMG2`, `COMMUNITY_USED_IMG3`,
-				  `COMMUNITY_USED_CHEAK`, `COMMUNITY_USED_GROUP`, `COMMUNITY_MEETING_DATE`,
-				   substring(`COMMUNITY_WRITE_DATETIME`,1,19) as COMMUNITY_WRITE_DATETIME, `COMMUNITY_REVISE_DATETIME`, `COMMUNITY_LOOKUPCNT`
+			   `used_seq`, `MINOR_CD`, `USED_USER_ID`, `USED_TITLE`, `USED_CONTENT`, `USED_PRICE`,
+				   `USED_CHEAK`, `USED_GROUP`, `USED_IMG1`, `USED_IMG2`, `USED_IMG3`, substring(`USED_WRITE_DATETIME`,1,19) as USED_WRITE_DATETIME,
+				   substring(`USED_REVISE_DATETIME`,1,19) as USED_REVISE_DATETIME, `USED_LOOKUPCNT`, `USED_DELETE_CH`
 		From
-				community_notice
+				used
 		<where> 
 	        	<choose> 
 	        	<when test="searchFiled == ''">minor_cd='BORD04 '  AND 1=1 </when> 
-	        	<when test="searchFiled == 'community_title'">minor_cd=''BORD04'  AND community_title like CONCAT('%', #{searchValue} , '%') </when> 
-		    	<when test="searchFiled == 'community_user_id'"> minor_cd=''BORD04 '  AND community_user_id like CONCAT('%', #{searchValue} , '%')</when>
+	        	<when test="searchFiled == 'used_title'">minor_cd=''BORD04'  AND used_title like CONCAT('%', #{searchValue} , '%') </when> 
+		    	<when test="searchFiled == 'used_user_id'"> minor_cd=''BORD04 '  AND used_user_id like CONCAT('%', #{searchValue} , '%')</when>
 	        	 </choose>
 	  </where>
-			order by community_write_datetime desc
+			order by substring(`USED_WRITE_DATETIME`,1,19) desc
 		limit #{limitNo},#{pageSize}				
 	</select>
 	
-	<!-- 학과 게시물 카운트 -->
-	<select id="list_count" parameterType="CommunityVO" resultType="int">
+	<!-- 중고 장터 게시물 카운트 -->
+	<select id="list_count" parameterType="UsedVO" resultType="int">
 		Select
 				 count(*) as totalCount
 		From
-				community_notice
+				used
 		<where> 
 	        	<choose> 
-	        	<when test="searchFiled == ''">minor_cd='BORD04'  AND 1=1 </when> 
-	        	<when test="searchFiled == 'community_title'">minor_cd='BORD04 '  AND community_title like CONCAT('%', #{searchValue} , '%') </when> 
-		    	<when test="searchFiled == 'community_user_id'"> minor_cd='BORD04'  AND community_user_id like CONCAT('%', #{searchValue} , '%')</when>
+	        	<when test="searchFiled == ''">minor_cd='BORD04 '  AND 1=1 </when> 
+	        	<when test="searchFiled == 'used_title'">minor_cd=''BORD04'  AND used_title like CONCAT('%', #{searchValue} , '%') </when> 
+		    	<when test="searchFiled == 'used_user_id'"> minor_cd=''BORD04 '  AND used_user_id like CONCAT('%', #{searchValue} , '%')</when>
 	        	 </choose>
 	  </where>
 	  </select>
-	<!-- 학과 공지 보여주기 -->
-	<select id="view" parameterType="CommunityVO" resultType="CommunityVO">
-		Select
-				`COMMUNITY_SEQ`, `MINOR_CD`, `COMMUNITY_USER_ID`, `COMMUNITY_TITLE`,
-				 `COMMUNITY_CONTENT`, `COMMUNITY_IMG`, `COMMUNITY_USED_PRICE`, 
-				 `COMMUNITY_USED_IMG1`, `COMMUNITY_USED_IMG2`, `COMMUNITY_USED_IMG3`,
-				  `COMMUNITY_USED_CHEAK`, `COMMUNITY_USED_GROUP`, `COMMUNITY_MEETING_DATE`,
-				   substring(`COMMUNITY_WRITE_DATETIME`,1,19) as COMMUNITY_WRITE_DATETIME, `COMMUNITY_REVISE_DATETIME`, `COMMUNITY_LOOKUPCNT`
-				   
+	<!-- 중고 장터 보여주기 -->
+	<select id="view" parameterType="UsedVO" resultType="UsedVO">
+	Select
+			   `used_seq`, `MINOR_CD`, `USED_USER_ID`, `USED_TITLE`, `USED_CONTENT`, `USED_PRICE`,
+				   `USED_CHEAK`, `USED_GROUP`, `USED_IMG1`, `USED_IMG2`, `USED_IMG3`, substring(`USED_WRITE_DATETIME`,1,19) as USED_WRITE_DATETIME,
+				   substring(`USED_REVISE_DATETIME`,1,19) as USED_REVISE_DATETIME, `USED_LOOKUPCNT`, `USED_DELETE_CH`
 		From
-				community_notice
-		Where community_seq=#{community_seq}
+				used
+		Where used_seq=#{used_seq}
 			
 	</select>
 	
-	<insert id="fileInsert" parameterType="CommunityVO">
-    <![CDATA[
-        INSERT INTO community_notice(minor_cd,community_user_id,community_title,community_content,community_img) 
-        VALUES (#{minor_cd},#{community_user_id},#{community_title},#{community_content},#{community_img})
-    ]]>
-</insert>
 
-
-<!-- 학과 공지 수정하기 -->
-<update id="modify" parameterType="CommunityVO" >
-		Update community_notice set community_title=#{community_title},community_content=#{community_content}
-		 ,community_img=#{community_img},community_revise_datetime=#{community_revise_datetime}
-		Where community_seq=#{community_seq}
-		
-			
-	</update>
 
 	
-	<delete id="delete" parameterType="CommunityVO">
+	<delete id="delete" parameterType="UsedVO">
 	<![CDATA[
-		Delete From community_notice where community_seq=#{community_seq}
+		Delete From used where used_seq=#{used_seq}
 		]]> 
 	</delete>
 	 

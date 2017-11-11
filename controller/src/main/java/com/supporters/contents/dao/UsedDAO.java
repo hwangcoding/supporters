@@ -2,27 +2,28 @@ package com.supporters.contents.dao;
 
 import java.util.List;
 
-import com.supporters.domain.CommunityVO;
+import com.supporters.contents.domain.UsedVO;
+
 
 
 public interface UsedDAO {
 
 	
 	//게시글 갯수 , 페이징
-	public int count(CommunityVO vo) throws Exception;
+	public int count(UsedVO vo) throws Exception;
 	
 	// 게시글 리스트
-	public List<CommunityVO> list(CommunityVO vo) throws Exception;
+	public List<UsedVO> list(UsedVO vo) throws Exception;
 	
 	// 게시글 작성하기
-	public void write(CommunityVO vo) throws Exception; 
+	public void write(UsedVO vo) throws Exception; 
 
 	// 게시글 삭제하기
-	public void delete(CommunityVO vo) throws Exception;
+	public void delete(UsedVO vo) throws Exception;
 	
 	// 게시글 수정하기
 	public void update() throws Exception;
 	
 	//게시글 읽기
-		public List<CommunityVO>  read(CommunityVO vo) throws Exception;
+		public List<UsedVO>  read(UsedVO vo) throws Exception;
 }

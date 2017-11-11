@@ -7,7 +7,8 @@ import javax.inject.Inject;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
-import com.supporters.domain.CommunityVO;
+import com.supporters.contents.domain.UsedVO;
+
 
 
 @Repository("usedDAOImpl")
@@ -21,26 +22,26 @@ public class UsedDAOImpl implements UsedDAO{
 
 
 	@Override
-	public int count(CommunityVO vo) throws Exception {
+	public int count(UsedVO vo) throws Exception {
 		return sqlsession.selectOne(namespace+".list_count",vo);
 	}
 
 
 	@Override
-	public List<CommunityVO> list(CommunityVO vo) throws Exception {
+	public List<UsedVO> list(UsedVO vo) throws Exception {
 		return  sqlsession.selectList(namespace+".list", vo);
 	}
 
 
 	@Override
-	public void write(CommunityVO vo) throws Exception {
+	public void write(UsedVO vo) throws Exception {
 		  sqlsession.insert(namespace+".insert",vo);
 		
 	}
 
 
 	@Override
-	public void delete(CommunityVO vo) throws Exception {
+	public void delete(UsedVO vo) throws Exception {
 		sqlsession.delete(namespace+".delete",vo);		
 	}
 
@@ -53,7 +54,7 @@ public class UsedDAOImpl implements UsedDAO{
 
 
 	@Override
-	public List<CommunityVO> read(CommunityVO vo) throws Exception {
+	public List<UsedVO> read(UsedVO vo) throws Exception {
 		// TODO Auto-generated method stub
 		return sqlsession.selectList(namespace+".view", vo);
 	}
