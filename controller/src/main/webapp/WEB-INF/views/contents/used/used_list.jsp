@@ -53,7 +53,7 @@
 												<c:forEach items="${used}" var="used" varStatus="status"> 
 													<tr width="100%">	<!-- db에 따로 시퀀스가 없어 jstl 을 이용 -->
 														<td width="10%">${used.used_seq }</td>
-														<td width="45%"><a href="/contents/used/view?seq=${used.used_seq}">${used.used_title}</a></td>
+														<td width="45%" ali><a href="/contents/used/view?seq=${used.used_seq}">${used.used_title}</a></td>
 														<td width="10%">${used.used_lookupcnt}</td>
 														<td width="15%">${used.used_user_id}</td>
 														<td width="20%">${used.used_write_datetime}</td>

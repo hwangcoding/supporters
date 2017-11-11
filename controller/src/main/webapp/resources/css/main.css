@@ -16,7 +16,7 @@
 		#header {min-width:1280px;  min-height:50px;background: #C9182B; position: fixed; top: 0;left: 0;right: 0;z-index: 999;}    
 		#sidebar {width: 220px;height: 100%;padding-top:50px; position: fixed; z-index:99;border-right:1px solid #c1c1c1;background-color:white;overflow:auto; } 
 		.content_view{padding-bottom:5%;margin-left:220px; margin-top:110.5px; position:relative; padding-left:10%;padding-right:10%; } 
-		.content_view_depth{height:60px;  border-bottom:1px solid #c1c1c1; text-align:left; margin-bottom:10px;} 
+		.content_view_depth{height:60px;  border-bottom:0px solid #c1c1c1; text-align:left; margin-bottom:10px;} 
 
 		
 

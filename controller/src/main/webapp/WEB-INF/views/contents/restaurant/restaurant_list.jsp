@@ -46,7 +46,7 @@
 								<input type="hidden" id="tabs_ch" name="tabs_ch">
 						
 						</form>
-								<table width="90%" class="restaurant_list" border="0" style="margin: 0px auto;">
+								<table width="100%" class="restaurant_list" border="0" style="margin: 0px auto;">
 								
 								<thead align="center">
 										<!-- 작성된 글을 담아 디비로 보내 데이터를 가져와 해당 검색에 맞는 데이터를 뿌려준다 -->
@@ -88,7 +88,7 @@
 											<td height="80px">${st.restaurant_seq }</td>
 											<td>${st.minor_nm }</td>
 											<td><a href="/contents/restaurant/view?seq=${st.restaurant_seq }">${st.restaurant_nm }</a></td>
-											<td width="22%" height="120px" style="overflow: hidden;"><img style="width: auto; height: 90px; margin:auto;" src="/img/${st.restaurant_mainimg}"></td>
+											<td width="22%" height="120px" style="overflow: hidden;"><img style="width: auto; height: 90px; margin:auto;" src="/resources/img/${st.restaurant_mainimg}"></td>
 											<td>${st.restaurant_address }</td>
 											<td>${st.restaurant_phone }</td>
 											<td><c:if test="${st.restaurant_delivery eq 'Y'}">배달가능</c:if>
