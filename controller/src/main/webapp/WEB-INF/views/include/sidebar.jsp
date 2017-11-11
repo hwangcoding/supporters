@@ -27,7 +27,7 @@
 							<li><a href="/department/keymanager/list?pageseq=1">열쇠관리</a></li>
 						</ul>
 					</li>
-					<li><a href="#"><span>컨텐츠관리</span><i class="material-icons">add</i></a>
+					<li><a href="#"><span>콘텐츠관리</span><i class="material-icons">add</i></a>
 						<ul>
 							<li><a href="/contents/used/list?pageseq=1">중고장터</a></li>
 							<li><a href="/contents/restaurant/list?pageseq=1">오늘뭐먹지</a></li>
