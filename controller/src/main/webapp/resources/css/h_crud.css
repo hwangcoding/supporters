@@ -2,4 +2,6 @@
 
 
 /* 공지 글쓰기 버튼 공간 */
-notice_list_btn{}
+.notice_list_btn{}
+/* 중고장터 이미지 정렬하기  */
+.img_sort>img{width:60%;height:auto;}

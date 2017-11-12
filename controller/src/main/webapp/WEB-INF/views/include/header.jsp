@@ -9,6 +9,7 @@
 	<link rel="stylesheet" href="/css/main.css" type="text/css">
 	<link rel="stylesheet" href="/css/curd.css" type="text/css">
 	<link rel="stylesheet" href="/css/c_crud.css" type="text/css">
+	<link rel="stylesheet" href="/css/h_crud.css" type="text/css">
 	<link rel="stylesheet" href="/css/jquery-syaku.lightbox.css" type="text/css">
 	<link rel="stylesheet" href="/css/bootstrap.min.css" type="text/css">
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -21,6 +22,7 @@
 	<script src="/js/script.js"></script>
 	<script src="/js/crud.js"></script>
 	<script src="/js/c_crud.js"></script>
+	<script src="/js/h_crud.js"></script>
 	<script src="/js/jquery-syaku.lightbox.js"></script>
 	<script src="/js/HuskyEZCreator.js"></script>
 	<%-- <jsp:include page="../sub_menu/complain/complain_write.jsp" flush="false"/> --%>
