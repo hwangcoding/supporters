@@ -90,6 +90,38 @@ $("input[name=delete_btn").click(function(){
 /*    if($("#tabs_ch").text() == $("ul.tabs li").val()){
     	
     }*/
+    
+/*    var article_qna = $('.qna>.qnaBody>.article'); 
+    article_qna.addClass('hideview');
+    article_qna.find('.a').hide();
+    article_qna.eq(0).removeClass('hideview');
+    article_qna.eq(0).find('.a').show();
+    $('.qna>.qnaBody>.article>.q>a').click(function(){
+    	var myArticle_qna = $(this).parents('.article:first');
+    	if(myArticle_qna.hasClass('hideview')){
+    		article_qna.addClass('hideview').removeClass('showview');
+    		article_qna.find('.a').slideUp(100);
+    		myArticle_qna.removeClass('hideview').addClass('showview');
+    		myArticle_qna.find('.a').slideDown(100);
+    	} else {
+    		myArticle_qna.removeClass('showview').addClass('hideview');
+    		myArticle_qna.find('.a').slideUp(100);
+    	}
+    	return false;
+    });
+    전체 답변 열고 닫기
+    $('.showviewAll_qna').click(function(){
+    	var hidden_qna = $('.qna>.qnaBody>.article.hideview').length;
+    	if(hidden_qna > 0){
+    		$(this).attr("value","모두 닫기");
+    		article_qna.removeClass('hideview').addClass('showview');
+    		article_qna.find('.a').slideDown(100);
+    	} else {
+    		$(this).attr("value","모두 열기");
+    		article_qna.removeClass('showview').addClass('hideview');
+    		article_qna.find('.a').slideUp(100);
+    	}
+    });*/
 	
 
 });

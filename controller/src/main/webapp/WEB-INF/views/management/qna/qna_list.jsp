@@ -9,10 +9,6 @@
 		<div id="mid">
 			<div class="content_view">
 				<div class="content_view_depth"><h3>관리 > QnA</h3></div>
-				
-												<div class="faqHeader" style="float:right;">
-													<input type="button" class="showviewAll_qna" value="모두 열기">
-												</div>
 												
 												<div class="qna">
 												
@@ -35,31 +31,11 @@
 																				
 																</c:choose>
 																
-															<a href="#a${ qna.qna_seq }"> ${ qna.qna_title } </a>
+															<a href="#a${ qna.qna_seq }">제목: ${ qna.qna_title } </a>
+
+															<input type="button" value="답변삭제" class="total_btn" style="width: 60px; height: 30px; float: right; margin-top: 5px;">
 															
-																<c:choose>
-																
-																    <c:when test="${qna.qna_state eq '1'}">
-																       <input type="button" value="답변작성" id="qna_write_btn" class="total_btn" style="width: 60px; height: 30px;">
-																    </c:when>
-																	
-																    <c:when test="${qna.qna_state eq '2'}">
-																      <input type="button" value="답변수정" id="qna_modify_btn" class="total_btn" style="width: 60px; height: 30px;">
-																    </c:when>
-																				
-																</c:choose>
-																
-															<input type="button" value="삭제" class="total_btn" style="width: 60px; height: 30px;">
 															</p>
-															<p class="a" style="padding-left:30px; border-bottom: 1px solid #ddd;" value="${ qna.qna_content }">내용: ${ qna.qna_content }</p>
-																
-																<c:choose>
-																
-																    <c:when test="${qna.qnasr_content != null}">
-																      <p class="a" style="padding-left:30px;" value="${ qna.qnasr_content }">답변: ${ qna.qnasr_content }</p>
-																    </c:when>
-																				
-																</c:choose>
 																
 														</li>
 													</c:forEach>

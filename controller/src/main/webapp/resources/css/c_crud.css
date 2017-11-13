@@ -79,3 +79,16 @@ ul.tabs li.active {
     width: 100%;
     margin: 0 auto;
 }
+
+		.qna{border-bottom:1px solid #ddd;margin:5em 0; }
+		.qna .qnaBody{margin:0;padding:0;}
+		.qna .qnaBody .article{list-style:none;}
+		.qna .q{margin:0;border-top:1px solid #ddd;}
+		.qna .q a{display:inline-flex;padding:.7em 1em; width:85%; font-weight:bold;background:#f5f5f5;color:#000;text-decoration:none !important;}
+		.qna .q input[type="button"]{ width:5%; border-radius:2px ; height:28px; }
+		.qna .q a:hover, .faq .q a:active, .faq .q a:focus{background:#f8f8f8;}
+		.qna .a{margin:0;padding:1em; line-height:1.5;}
+		
+		
+		
+		

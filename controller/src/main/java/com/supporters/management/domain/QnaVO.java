@@ -6,6 +6,7 @@ public class QnaVO extends Paging {
 	
 	private String qna_seq;
 	private String qna_pw;
+	private String user_num;
 	private String qna_title;
 	private String qna_content;
 	private String qna_state;
@@ -13,6 +14,7 @@ public class QnaVO extends Paging {
 	private String qna_write_datetime;
 	private String qnasr_content;
 	private String qnasr_write_datetime;
+	private String qnasr_revise_datetime;
 	/**
 	 * @return the qna_seq
 	 */
@@ -120,6 +122,18 @@ public class QnaVO extends Paging {
 	 */
 	public void setQnasr_write_datetime(String qnasr_write_datetime) {
 		this.qnasr_write_datetime = qnasr_write_datetime;
+	}
+	public String getUser_num() {
+		return user_num;
+	}
+	public void setUser_num(String user_num) {
+		this.user_num = user_num;
+	}
+	public String getQnasr_revise_datetime() {
+		return qnasr_revise_datetime;
+	}
+	public void setQnasr_revise_datetime(String qnasr_revise_datetime) {
+		this.qnasr_revise_datetime = qnasr_revise_datetime;
 	}
 	
 	
