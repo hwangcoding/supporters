@@ -45,4 +45,12 @@ public class QnaServiceImpl implements QnaService {
 		return qnadao.count(vo);
 	}
 
+	@Override
+	public List<QnaVO> view(QnaVO vo) throws Exception {
+		// TODO Auto-generated method stub
+		return qnadao.view(vo);
+	}
+	
+	
+
 }

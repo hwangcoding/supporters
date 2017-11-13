@@ -96,7 +96,7 @@
 											</td>
 											<td>
 					
-											<c:choose>
+										<c:choose>
 
 										    <c:when test="${st.restaurant_write_datetime < st.restaurant_revise_datetime}">
 										        ${st.restaurant_revise_datetime}

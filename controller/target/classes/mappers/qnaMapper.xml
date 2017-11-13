@@ -7,7 +7,7 @@
   
   <mapper namespace="qnaMapper">
 
-	<!-- FAQ리스트 -->
+	<!-- QNA리스트 -->
 	<select id="list" parameterType="QnaVO" resultType="QnaVO">
 		select a.user_num,a.qna_seq, qna_title, qna_content,qna_state, qna_type,
 		substring(`qna_write_datetime`,1,19) as qna_write_datetime, qnasr_content,
@@ -25,7 +25,16 @@
 		limit #{limitNo},#{pageSize}				
 	</select>
 	
-	<!-- FAQ카운트 -->
+	<!-- QNA보기 -->
+	
+		<select id="view" parameterType="QnaVO" resultType="QnaVO">
+		select user_num, qna_seq, qna_title, qna_content, qna_state, qna_type,
+		substring(`qna_write_datetime`,1,19) as qna_write_datetime
+		from qna
+		where qna_seq = #{qna_seq}
+	</select>
+	
+	<!-- QNA카운트 -->
 	<select id="list_count" parameterType="QnaVO" resultType="int">
 		<!-- searchFiled = 조회조건, searchValue = 검색어 -->
 		
