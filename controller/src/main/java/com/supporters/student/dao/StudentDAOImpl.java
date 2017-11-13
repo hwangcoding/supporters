@@ -18,6 +18,14 @@ public class StudentDAOImpl  implements StudentDAO{
 	private SqlSession session;
 	
 	
+	
+	
+	@Override
+	public void token(StudentVO vo) throws Exception {
+		// TODO Auto-generated method stub
+		session.update(namespace+".token_update",vo);
+	}
+
 	@Override
 	public void create(StudentVO  vo) throws Exception {
 		// TODO Auto-generated method stub

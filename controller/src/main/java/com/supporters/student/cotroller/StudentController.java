@@ -80,6 +80,7 @@ public class StudentController {
 			@RequestParam String user_email2,
 			@RequestParam String user_birth,
 			@RequestParam String state,
+			@RequestParam String user_token,
 			Model model,StudentVO vo) throws Exception {
 		
 		
@@ -107,6 +108,7 @@ public class StudentController {
 		
 		
 		/*안드로이드에서 파라미터 값 보내준걸 받아서 StudentVO 객체에 담아준다.*/
+		vo.setUser_token(user_token);
 		vo.setUser_num(user_id);
 		vo.setUser_pw(hexString.toString());
 		vo.setUser_gender(user_gender);
@@ -160,7 +162,9 @@ public class StudentController {
 	@RequestMapping(value = "loginprocess")		
 	public String  loginProcess(
 			@RequestParam String userid,
-			@RequestParam String userpw,Locale locale,StudentVO vo,
+			@RequestParam String userpw,
+			@RequestParam String user_token,
+			Locale locale,StudentVO vo,
 			HttpSession session, Model model) throws Exception {
 		/*adminId , adminPw 파라미터를 받아서 변수를 설정했음.*/ 
 		/*SHA-256 비밀번호 암호화*/
@@ -187,12 +191,17 @@ public class StudentController {
 		/*파라미터 값을 VO에 주입 */
 		vo.setUser_num(userid);
 		vo.setUser_pw(hexString.toString());
-		 
+		vo.setUser_token(user_token);
 		int a= studentService.search(vo);
 		if (a==1) {
 			/*아이디가 있으면 여기로 */
 			StudentVO str = studentService.login(vo);
 				if(str!=null) {
+					
+				if(!(str.getUser_token().equals(user_token))) {
+					System.out.println("토큰정보다름");
+					studentService.token(vo);
+				}	
 				JSONObject item;   // 제이손 변수 선언
 				JSONArray items = new JSONArray();  //제이손어레이 생성
 				
