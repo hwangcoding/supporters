@@ -11,7 +11,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.supporters.management.domain.FaqVO;
+import com.supporters.management.domain.QnaVO;
 import com.supporters.management.service.FaqService;
+import com.supporters.management.service.QnaService;
 
 @Controller
 @RequestMapping("/management/qna/*")
@@ -20,12 +22,12 @@ public class QnaController {
 	
 	
 	@Inject
-	private FaqService faqService;
+	private QnaService qnaService;
 	
 	@RequestMapping(value = "list" ,method={RequestMethod.GET, RequestMethod.POST})
 	public String list(@RequestParam String pageseq,
 			Model model,
-			FaqVO paging
+			QnaVO paging
 			) throws Exception {
 		try {
 			/*if(searchValue==null) {searchValue="";}
@@ -41,16 +43,16 @@ public class QnaController {
 			int seq = Integer.parseInt(pageseq);
 			paging.setPageNo(seq);
 			paging.setPageSize(20);
-			paging.setTotalCount(faqService.count(paging));
+			paging.setTotalCount(qnaService.count(paging));
 			System.out.println(seq);
 	       
-	        List<FaqVO> list = faqService.list(paging);
+	        List<QnaVO> list = qnaService.list(paging);
 	        
 	        model.addAttribute("page",paging);
-			model.addAttribute("faq", list);
+			model.addAttribute("qna", list);
 	        
 	    } catch (Exception e) {
-	    	System.out.println("파일이없떠요");
+	    	System.out.println("파일이없떠요"+ e.getMessage());
 	    }
 
 		return "management/qna/qna_list";

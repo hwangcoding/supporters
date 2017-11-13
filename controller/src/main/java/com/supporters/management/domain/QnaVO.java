@@ -1,6 +1,8 @@
 package com.supporters.management.domain;
 
-public class QnaVO {
+import com.supporters.function.Paging;
+
+public class QnaVO extends Paging {
 	
 	private String qna_seq;
 	private String qna_pw;
