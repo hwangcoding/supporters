@@ -57,8 +57,8 @@
 	<!-- 회원가입 -->
 	<insert id="list_add"  parameterType="StudentVO">
 		
-		INSERT INTO student (user_num,user_pw,user_gender,user_nm,user_phone,user_email,user_birth,user_atten)
-		VALUES (#{user_num},#{user_pw},#{user_gender},#{user_nm},#{user_phone},#{user_email},#{user_birth},#{user_atten});
+		INSERT INTO student (user_num,user_pw,user_gender,user_nm,user_phone,user_email,user_birth,user_atten,user_token)
+		VALUES (#{user_num},#{user_pw},#{user_gender},#{user_nm},#{user_phone},#{user_email},#{user_birth},#{user_atten},#{user_token});
 				 
 	</insert>
 	<!-- 회원수정 -->
@@ -85,7 +85,15 @@
 				student
 		Where user_num = #{user_num} and user_pw = #{user_pw}
 				 ]]> 
-	</select>
+		</select>
+		
+		<!-- 회원 토큰 수정 -->
+	<update id="token_update"  parameterType="StudentVO" >
+		UPDATE student SET user_token = #{user_token} WHERE user_num = #{user_num}
+	</update>
+		
+		
+		
 	
 	
 	

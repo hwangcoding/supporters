@@ -13,8 +13,16 @@ import com.supporters.student.domain.StudentVO;
 public class StudentServiceImpl implements StudentService{
 
 	
+	
+
 	@Inject
 	private StudentDAO studentDAO;
+	
+	@Override
+	public void token(StudentVO vo) throws Exception {
+		// TODO Auto-generated method stub
+		studentDAO.token(vo);
+	}
 	
 	@Override
 	public void regist(StudentVO vo) throws Exception {
