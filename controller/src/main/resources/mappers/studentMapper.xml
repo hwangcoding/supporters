@@ -92,6 +92,14 @@
 		UPDATE student SET user_token = #{user_token} WHERE user_num = #{user_num}
 	</update>
 		
+		<select id="alert"  resultType="StudentVO">
+		<![CDATA[
+		Select
+				user_token
+		From
+				student
+				 ]]> 
+		</select>
 		
 		
 	

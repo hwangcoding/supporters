@@ -16,4 +16,6 @@ public interface QnaService {
 	
 	public int count(QnaVO vo) throws Exception;
 
+	public List<QnaVO> view(QnaVO vo) throws Exception;
+
 }

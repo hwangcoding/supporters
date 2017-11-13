@@ -15,6 +15,12 @@ $(document).ready(function(){
 		}
 	});
 	
+	$(".alert_write_btn1").click(function(){
+		document.frm_alert.submit();
+		
+	});
+	
+	
 
 });
 

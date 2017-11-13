@@ -13,7 +13,6 @@ import com.supporters.student.domain.StudentVO;
 public class StudentServiceImpl implements StudentService{
 
 	
-	
 
 	@Inject
 	private StudentDAO studentDAO;
@@ -90,6 +89,12 @@ public class StudentServiceImpl implements StudentService{
 	}	
 	
 	
+	
+	@Override
+	public List<StudentVO>  alert(StudentVO vo) throws Exception {
+		// TODO Auto-generated method stub
+		return studentDAO.alert(vo);
+	}
 	
 
 	

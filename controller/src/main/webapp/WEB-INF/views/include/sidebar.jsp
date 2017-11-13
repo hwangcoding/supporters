@@ -39,6 +39,7 @@
 						<ul>
 							<li><a href="/management/faq/list?pageseq=1">FAQ</a></li>
 							<li><a href="/management/qna/list?pageseq=1">QnA</a></li>
+							<li><a href="/management/alert/write">알림 관리</a></li>
 						</ul>
 					</li>
 				</ul>

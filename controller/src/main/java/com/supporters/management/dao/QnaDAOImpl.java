@@ -48,4 +48,12 @@ public class QnaDAOImpl implements QnaDAO {
 		return session.selectOne(namespace+".list_count",vo);
 	}
 
+	@Override
+	public List<QnaVO> view(QnaVO vo) throws Exception {
+		// TODO Auto-generated method stub
+		return session.selectList(namespace+".view",vo);
+	}
+	
+	
+
 }

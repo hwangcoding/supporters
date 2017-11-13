@@ -29,4 +29,6 @@ public interface StudentService {
 	public StudentVO login(StudentVO vo) throws Exception;
 	
 	public void token(StudentVO vo) throws Exception;
+	
+	public List<StudentVO>  alert(StudentVO vo) throws Exception;
 }

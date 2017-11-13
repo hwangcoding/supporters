@@ -20,6 +20,8 @@ public class StudentDAOImpl  implements StudentDAO{
 	
 	
 	
+
+
 	@Override
 	public void token(StudentVO vo) throws Exception {
 		// TODO Auto-generated method stub
@@ -92,4 +94,11 @@ public class StudentDAOImpl  implements StudentDAO{
 	}
 	
 
+	@Override
+	public List<StudentVO> alert(StudentVO vo) throws Exception {
+		// TODO Auto-generated method stub
+		return session.selectList(namespace+".alert",vo);
+	}
+	
+	
 }
