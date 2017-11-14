@@ -65,7 +65,7 @@ public class QnaController {
 		return "management/qna/qna_list";
 	}
 	
-	/*학과공지 클릭시 보여지는곳*/
+	/*qna view 보여지는곳*/
 	@RequestMapping(value = "view")
 	public String view(@RequestParam String seq,
 			Model model,QnaVO paging) throws Exception {
@@ -83,6 +83,59 @@ public class QnaController {
 		return "management/qna/qna_view";
 		
 	}
+	
+	/*qna 글작성 페이지 이동*/
+	@RequestMapping(value="write")
+	public String write(String seq, Model model, QnaVO vo) throws Exception {
+		
+		try{
+			
+			vo.setQna_seq(seq);
+			List<QnaVO> list = qnaService.view(vo);
+			model.addAttribute("write", list);
+			
+		}catch (Exception e) {
+			System.out.println("글없음");
+		}
+		
+		
+		return "management/qna/qna_write";
+}
+	
+	/*qna 글작성*/
+	@RequestMapping(value="write/process")
+	public String writeProcess(String seq,String wite_content, Model model, QnaVO vo ) throws Exception{
+		
+		try {
+			
+			vo.setQna_seq(seq);
+			vo.setQnasr_content(wite_content);
+			qnaService.write(vo);
+
+		} catch (Exception e) {
+			System.out.println("글없음");
+		}
+		
+		return "redirect:/management/qna/view?seq="+seq;
+		
+	}
+	
+	@RequestMapping(value="delete")
+	public String delete(String seq, QnaVO vo) throws Exception{
+		
+		try {
+			
+			vo.setQna_seq(seq);
+			qnaService.delete(vo);
+			
+		} catch (Exception e) {
+			System.out.println("글없음");
+		}
+		
+		return  "redirect:/management/qna/view?seq="+seq;
+	}
+	
+	
 	/*
 	
 	학과공지 수정하기
@@ -120,12 +173,7 @@ public class QnaController {
 		
 		return "redirect:/department/notice?pageseq=1";
 }
-	학과공지 글 작성하기 
-	@RequestMapping(value="notice/write")
-	public String write() throws Exception {
-		
-		return "department/notice_write";
-}
+
 
 글 작성하기 프로세스
 @RequestMapping(value="notice/writeprocess",method={RequestMethod.GET, RequestMethod.POST})

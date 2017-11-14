@@ -12,7 +12,7 @@
 /* 맛집 없어진부분 추가 */
 
 .res_text{height:30px; width:50%; border:none; border-bottom:1px solid #c1c1c1; color:#666666; vertical-align: center;}
-.res_text_addr{height:95%; width:100%; border:none; color:#666666; overflow: hidden;}
+.res_text_addr{height:100%; width:100%; border:none; color:#666666; overflow: hidden;}
 
 /* 탭부분 css */
 
@@ -90,5 +90,30 @@ ul.tabs li.active {
 		.qna .a{margin:0;padding:1em; line-height:1.5;}
 		
 		
+	.number_ch tr:nth-child(1){
+		background-color: #e2e2e2;
+	}
+	
+		.number_ch tr:nth-child(2){
+		background-color: #f0f0f0;
+	}
+/* 		.number_ch tr:nth-child(3){
+		background-color: #ddd;
+	} */
+		
+	.number_ch th:nth-child(odd) {
+	text-align: center;
+}
+
+	.number_ch tr td:nth-child(1) {
+	background-color: #f0f0f0;
+	font-weight:500;
+}
+
+#qna_list_view{border-collapse:collapse;}
+		#qna_list_view>thead>tr>th{ background-color:#F8F8F8; height:33px; font-size:16px; text-align:center; border-bottom:1px solid #c1c1c1;border-top:1px solid #c1c1c1;
+		font-weight:500;}
+		#qna_list_view>tbody>tr{ height:45px; font-size:15px;border-bottom:1px solid #c1c1c1; border-top:1px solid #c1c1c1;}
+		#qna_list_view>tbody>tr>td{font-size:15px;border:1px solid #c1c1c1;}
 		
 		

@@ -33,7 +33,8 @@ public class QnaDAOImpl implements QnaDAO {
 	@Override
 	public void delete(QnaVO vo) throws Exception {
 		// TODO Auto-generated method stub
-
+		session.delete(namespace+".delete",vo);
+		session.update(namespace+".delete_state",vo);
 	}
 
 	@Override
@@ -53,6 +54,14 @@ public class QnaDAOImpl implements QnaDAO {
 		// TODO Auto-generated method stub
 		return session.selectList(namespace+".view",vo);
 	}
+
+	@Override
+	public void write(QnaVO vo) throws Exception {
+		// TODO Auto-generated method stub
+		session.insert(namespace+".write",vo);
+		session.update(namespace+".write_state",vo);
+	}
+	
 	
 	
 

@@ -9,55 +9,89 @@
 		<!-- 컨텐츠 크기 맞추기 -->
 		<div id="mid">
 			<div class="content_view">
-				<div class="content_view_depth"><h3>QnA 관리 > QnA 글 확인</h3></div>
+				<div class="content_view_depth"><h3>QnA 관리 > QnA 질문 및 답변 확인</h3></div>
 						
-							<form name="fr_write" id="fr_write" method="post" enctype="multipart/form-data" action="/department/notice/modify" >
-								<table width="100%"  id="user_list"  border="1">
+							<form name="qna_frm_delete" id="qna_frm_delete" method="post" enctype="multipart/form-data" action="/management/qna/delete" >
+								<table width="100%"  id="qna_list_view"  border="0">
 								<c:forEach items="${view}" var="view" varStatus="status">
 									<!-- 히든으로 게시물의 고유 번호를 숨겨 놨다가 수정하거나 삭제 할 때 값을 넘겨줌 -->
 									<input type="hidden" value=${ view.qna_seq} name="seq">
-									<tbody align="center">
+									<tbody align="center" class="number_ch">
 									<!-- 반복되는부분 --> 
 									
-									<tr>
-										<td width="15%">제목</td>
-										<td align="left" style="padding-left:20px;"width="40%" >${view.qna_title}</td>
-										<td width="10%">작성자</td>
-										<td  width="20%" colspan="2">${view.user_num}</td>
-										<td>답변상태</td>
-										<td width="10%">${view.qna_state }</td>
-									</tr> 
-									<tr>
-										<td>질문종류</td>
-										<td>${view.qna_type }</td>
-										<td colspan="3" >작성일</td>  
-										<td width="10%" colspan="2">${view.qna_write_datetime}</td>
-									</tr>
-									<tr >
-										<td>내용</td>
-										<td colspan="6" height="400px" style="text-align:left;">${view.qna_content }</td>
-									</tr>
-									</c:forEach>
-									<!-- 반복되는부분 --> 
-																				
-									</tbody>
-									<tfoot align="center">  
-										<tr  style="text-align:center;">
-											<td colspan="7" class="table_paging">
-											<%-- <c:choose>
-												<c:when test="${view.qnasr_content == null }">
-													<input type="button" id="modify_button" value="작성">
+									<tr style="text-align: center;">
+											<th width="15%">제 목 :</th>
+											<th align="left" width="35%" >${view.qna_title}</th>
+											<th width="10%">질문자 :</th>
+											<th  width="15%" colspan="2">${view.user_num}</th>
+											<th width="10%">답변상태 :</th>
+											<th width="15%">
+											<c:choose>
+											
+												<c:when test="${view.qna_state eq '1'}">
+												
+													답변대기
+												
 												</c:when>
 												
 												<c:otherwise>
-													<input type="button" id="modify_button" value="수정">
+												
+													답변완료
+												
 												</c:otherwise>
-											</c:choose> --%>
-												<input type="button"  id="notice_list_btn" value="목록">
-												<input type="button"  id="delete_button" value="삭제">
-						 
-									</tfoot>
+											
+											</c:choose>
+											</th>
+									</tr> 
+									<tr>
+										<th>질문종류 :</th>
+										<th>${view.qna_type }</th>
+										<th>질문날짜 :</th>  
+										<th width="10%" colspan="5">${view.qna_write_datetime}</th>
+									</tr>
+									<tr >
+										<td>내 용</td>
+										<td colspan="6" height="300px" style="text-align:left;">${view.qna_content }</td>
+									</tr>
+																				
+									
 								
+									<c:choose>
+									
+										<c:when test="${view.qna_state eq 2 }">
+										
+										<tr>
+										
+											<td>답변내용</td>
+											<td colspan="6"  align="left" height="300px">${view.qnasr_content }</td>
+										
+										</tr>
+										
+										</c:when>
+									
+									</c:choose>
+									
+									</tbody>
+									
+									<tfoot align="center"> 
+									
+										<tr  style="text-align:center;">
+											<td colspan="7" class="table_paging">
+											<c:choose>
+												<c:when test="${view.qna_state eq '1'}">
+													<input type="button" class="total_btn" id="qna_write_button" value="작성">
+												</c:when>
+												
+												<c:otherwise>
+													<input type="button" class="total_btn" id="qna_modify_button" value="수정">
+												</c:otherwise>
+											</c:choose>
+												<input type="button" class="total_btn"  id="qna_list_btn" value="목록" style="margin-left: 5px; margin-right: 5px;">
+												<input type="button" class="total_btn"  id="qna_delete_button" value="답변삭제">
+						 				</td>
+						 				</tr>
+									</tfoot>
+								</c:forEach>
 								</table>
 								
 								</form>

@@ -18,4 +18,6 @@ public interface QnaService {
 
 	public List<QnaVO> view(QnaVO vo) throws Exception;
 
+	public void write(QnaVO vo) throws Exception;
+
 }

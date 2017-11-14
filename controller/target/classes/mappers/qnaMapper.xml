@@ -22,16 +22,18 @@
         	 </choose>
         	  </where>
 		order by a.qna_seq
-		limit #{limitNo},#{pageSize}				
+		limit #{limitNo},#{pageSize}
 	</select>
 	
 	<!-- QNA보기 -->
 	
 		<select id="view" parameterType="QnaVO" resultType="QnaVO">
-		select user_num, qna_seq, qna_title, qna_content, qna_state, qna_type,
-		substring(`qna_write_datetime`,1,19) as qna_write_datetime
-		from qna
-		where qna_seq = #{qna_seq}
+		select a.user_num,a.qna_seq, qna_title, qna_content,qna_state, qna_type,
+		substring(`qna_write_datetime`,1,19) as qna_write_datetime, qnasr_content,
+		substring(`qnasr_write_datetime`,1,19) as qnasr_write_datetime,
+		substring(`qnasr_revise_datetime`,1,19) as qnasr_revise_datetime
+		from qna a left outer join qna_ansr b ON a.qna_seq = b.qna_seq
+		where a.qna_seq = #{qna_seq}
 	</select>
 	
 	<!-- QNA카운트 -->
@@ -54,8 +56,46 @@
 				 
 	</select>
 	
+	<!-- QNA 답변 작성 -->
+	
+	<insert id="write" parameterType="QnaVO">
+	
+	insert into qna_ansr(qna_seq, qnasr_content) value(#{qna_seq},#{qnasr_content})
+	
+	</insert>
+	
+	<update id="write_state" parameterType="QnaVO">
+	
+		<![CDATA[
+			UPDATE qna
+		    SET qna_state = 2
+		     WHERE qna_seq = #{qna_seq}
+		]]>
+	
+	</update>
+	
+	<!-- QnA 삭제 -->
+	<delete id="delete" parameterType="QnaVO">
+
+		<![CDATA[
+		Delete From qna_ansr where qna_seq=#{qna_seq}
+		]]> 
+	
+	</delete>
+	
+	<update id="delete_state" parameterType="QnaVO">
+	
+		<![CDATA[
+			UPDATE qna
+		    SET qna_state = 1
+		    WHERE qna_seq = #{qna_seq}
+		]]>
+	
+	</update>
+	
 	<!-- FAQ삭제 -->
-	<delete id="delete" parameterType="FaqVO">
+	
+<!-- 	<delete id="delete" parameterType="FaqVO">
 	<![CDATA[
 		Delete From faq where faq_seq=#{faq_seq}
 		]]> 
@@ -67,7 +107,7 @@
 
 		]]> 
 	</insert>
-	
+	 -->
 	
 	
 	

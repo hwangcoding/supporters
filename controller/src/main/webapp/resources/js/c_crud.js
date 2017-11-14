@@ -87,6 +87,49 @@ $("input[name=delete_btn").click(function(){
         document.frm_tabs.submit();
     });
     
+    
+    /*qna 목록으로 가기*/
+    $("#qna_list_btn").click(function(){
+    	location.href="/management/qna/list?pageseq=1";
+    	
+    })
+    
+    /*qna 작성페이지로 이동*/
+    $("#qna_write_button").click(function(){
+    	
+    	$("#qna_frm_delete").attr("action", "/management/qna/write");
+    	$("#qna_frm_delete").submit();
+    	
+    });
+    
+    /*qna 답변 작성*/
+    $("#qna_write_submit_button").click(function(){
+    	
+    	$("#fr_write").attr("action", "/management/qna/write/process");
+    	$("#fr_write").submit();
+    	
+    });
+    
+    $("#qna_delete_button").click(function(){
+    	
+    	var qna_confirm_delete = confirm('정말 삭제하시겠습니까?');
+    	
+    	if(qna_confirm_delete) {
+    		
+    		$("#qna_frm_delete").submit();
+
+    	} else {
+    		
+    		return false;
+    		
+    	}
+    	
+    });
+    
+    
+    
+    
+    
 /*    if($("#tabs_ch").text() == $("ul.tabs li").val()){
     	
     }*/

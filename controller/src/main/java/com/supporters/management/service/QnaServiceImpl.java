@@ -30,7 +30,7 @@ public class QnaServiceImpl implements QnaService {
 	@Override
 	public void delete(QnaVO vo) throws Exception {
 		// TODO Auto-generated method stub
-
+		qnadao.delete(vo);
 	}
 
 	@Override
@@ -50,6 +50,14 @@ public class QnaServiceImpl implements QnaService {
 		// TODO Auto-generated method stub
 		return qnadao.view(vo);
 	}
+
+	@Override
+	public void write(QnaVO vo) throws Exception {
+		// TODO Auto-generated method stub
+		qnadao.write(vo);
+	}
+	
+	
 	
 	
 
