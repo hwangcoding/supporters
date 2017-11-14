@@ -40,6 +40,7 @@ public class Interceptor extends HandlerInterceptorAdapter {
 		        if(requestURI.indexOf("/department/notice")>-1) return true;
 		        if(requestURI.indexOf("/department/notice/view")>-1) return true;
 		        if(requestURI.indexOf("/sendmail")>-1) return true;
+		        if(requestURI.indexOf("/student/modifyprocess")>-1) return true;
 		        
 		        
 		        

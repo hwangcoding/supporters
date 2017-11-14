@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Locale;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.json.JSONArray;
@@ -17,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.supporters.domain.LoginVO;
 import com.supporters.function.KISA_SHA256;
+import com.supporters.function.RandomName;
 import com.supporters.student.domain.StudentVO;
 import com.supporters.student.service.StudentService;
 
@@ -224,6 +226,38 @@ public class StudentController {
 		}
 		
 		}
+	
+	
+	//메일발송 테스트
+    @RequestMapping("/modifyprocess")
+    public String modify(StudentVO vo,Model model,
+    		String num,
+    		String password) throws Exception{
+         
+        	/*SHA-256 비밀번호 암호화*/
+    		StringBuffer hexString = new StringBuffer();
+    		  try{
+    			  
+    	            MessageDigest digest = MessageDigest.getInstance("SHA-256");
+    	            byte[] hash = digest.digest(password.getBytes("UTF-8"));
+    	            
+    	 
+    	            for (int i = 0; i < hash.length; i++) {
+    	                String hex = Integer.toHexString(0xff & hash[i]);
+    	                if(hex.length() == 1) hexString.append('0');
+    	                hexString.append(hex);
+    	            }
+    	        } catch(Exception ex){
+    	            throw new RuntimeException(ex);
+    	        }
+	    vo.setUser_num(num);	  
+    	vo.setUser_pw(hexString.toString());
+        studentService.pwUpdate(vo);
+        
+        model.addAttribute("pass",true);  // 등록된 회원임
+        
+        return "/student/student_modify";
+    }
 			
 	
 }
