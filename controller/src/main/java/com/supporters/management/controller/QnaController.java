@@ -135,6 +135,42 @@ public class QnaController {
 		return  "redirect:/management/qna/view?seq="+seq;
 	}
 	
+	/*qna 수정 페이지 이동*/
+	@RequestMapping(value="modify")
+	public String modify(String seq, Model model, QnaVO vo) throws Exception {
+		
+		try{
+			
+			vo.setQna_seq(seq);
+			List<QnaVO> list = qnaService.view(vo);
+			model.addAttribute("modify", list);
+			
+		}catch (Exception e) {
+			System.out.println("글없음");
+		}
+		
+		
+		return "management/qna/qna_modify";
+}
+	
+	/*qna 수정 페이지 이동*/
+	@RequestMapping(value="modify/process")
+	public String modifyProcess(String seq, String modify_content, Model model, QnaVO vo) throws Exception {
+		
+		try{
+			
+			vo.setQna_seq(seq);
+			vo.setQnasr_content(modify_content);
+			qnaService.update(vo);
+			
+		}catch (Exception e) {
+			System.out.println("글없음");
+		}
+		
+		
+		return "redirect:/management/qna/view?seq="+seq;
+}
+	
 	
 	/*
 	

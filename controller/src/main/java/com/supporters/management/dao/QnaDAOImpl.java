@@ -27,7 +27,7 @@ public class QnaDAOImpl implements QnaDAO {
 	@Override
 	public void update(QnaVO vo) throws Exception {
 		// TODO Auto-generated method stub
-
+		session.update(namespace+".modify", vo);
 	}
 
 	@Override

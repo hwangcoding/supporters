@@ -24,7 +24,7 @@ public class QnaServiceImpl implements QnaService {
 	@Override
 	public void update(QnaVO vo) throws Exception {
 		// TODO Auto-generated method stub
-
+		qnadao.update(vo);
 	}
 
 	@Override

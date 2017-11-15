@@ -105,11 +105,11 @@ $("input[name=delete_btn").click(function(){
     /*qna 답변 작성*/
     $("#qna_write_submit_button").click(function(){
     	
-    	$("#fr_write").attr("action", "/management/qna/write/process");
     	$("#fr_write").submit();
     	
     });
     
+    /*qna 답변 삭제*/
     $("#qna_delete_button").click(function(){
     	
     	var qna_confirm_delete = confirm('정말 삭제하시겠습니까?');
@@ -126,6 +126,20 @@ $("input[name=delete_btn").click(function(){
     	
     });
     
+    /*qna 답변 수정 페이지로 이동*/
+    $("#qna_modify_button").click(function(){
+    	
+    	$("#qna_frm_delete").attr("action", "/management/qna/modify");
+    	$("#qna_frm_delete").submit();
+    	
+    });
+    
+    /*qna 수정 작성*/
+    $("#qna_modify_submit_button").click(function(){
+    	
+    	$("#fr_modify_submit").submit();
+    	
+    });
     
     
     

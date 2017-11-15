@@ -10,10 +10,10 @@
 			<div class="content_view">
 				<div class="content_view_depth"><h3>QnA > QnA 관리</h3></div>
 				
-				<table width="100%"  id="user_list"  border="0">
+				<table width="100%" id="user_list"  border="0">
 									<thead align="center">
-										<tr style="text-align:right; background:#fff; height:50px; border-top:0px; ">
-											<td colspan="5">
+										<tr style="text-align:right; background:#fff; height:50px; border-top:0px;">
+											<td colspan="6">
 											<form method="post" action="/management/qna/list?pageseq=1">
 											<select name="searchFiled" class="search_select" style="width: 75px;">
 												 <option value="0">제목</option>
@@ -88,7 +88,7 @@
 													<tr>
 													<!-- 페이징을 위한 녀석 -->
 													
-														<td colspan="5" class="table_paging">
+														<td colspan="6" class="table_paging">
 															<jsp:include page="../../include/paging.jsp" flush="true">
 															    <jsp:param name="firstPageNo" value="${paging.firstPageNo}" />
 															    <jsp:param name="prevPageNo" value="${paging.prevPageNo}" />

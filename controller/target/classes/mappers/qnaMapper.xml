@@ -17,7 +17,8 @@
 		<where> 
         	<choose> 
         	<when test="searchFiled == ''"> AND 1=1 </when>
-        	<when test="searchFiled == 'qna_title'"> AND qna_title like CONCAT('%', #{searchValue} , '%') </when> 
+        	<when test="searchFiled == 'qna_title'"> AND qna_title like CONCAT('%', #{searchValue} , '%') </when>
+        	<when test="searchFiled == 'user_num'"> AND user_num like CONCAT('%', #{searchValue} , '%') </when> 
 	    	<when test="searchFiled == 'qna_content'"> AND qna_content like CONCAT('%', #{searchValue} , '%')</when>
         	 </choose>
         	  </where>
@@ -93,23 +94,16 @@
 	
 	</update>
 	
-	<!-- FAQ삭제 -->
+	<!-- qna 수정 -->
+	<update id="modify" parameterType="QnaVO">
 	
-<!-- 	<delete id="delete" parameterType="FaqVO">
-	<![CDATA[
-		Delete From faq where faq_seq=#{faq_seq}
-		]]> 
-	</delete>
+		<![CDATA[
+			UPDATE qna_ansr
+		    SET qnasr_content = #{qnasr_content}
+		    WHERE qna_seq = #{qna_seq}
+		]]>
 	
-	<insert id="write" parameterType="FaqVO">
-	<![CDATA[
-		Insert into faq (faq_title,faq_content) Values (#{faq_title},#{faq_content})
-
-		]]> 
-	</insert>
-	 -->
-	
-	
+	</update>
 	
 	
 </mapper>
