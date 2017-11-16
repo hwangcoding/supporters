@@ -1,31 +1,49 @@
 @charset "UTF-8";
-		/* 게시글작성 */
-		#write_table{ background-color:#F8F8F8; height:33px; font-size:15px; }
-		#write_table>tbody>tr{height:0px; }
-		#write_table>tbody>tr>td{height:50px;}
+ /*  게시글작성 */ 
+  #write_table{background-color:#ffffff;font-size:15px;}
+  #write_table>tbody>tr{height:0px;}
+  #write_table>tbody>tr>td{height:50px;}
+  #write_table .titletop{
+   background-color:#efefef;
+  }
 
 
-		
-		
-		#contents{width: 100%;border:none; border-left:1px solid #c1c1c1; border-right:1px solid #c1c1c1;resize: none;overflow-y: hidden;padding: 1.1em; padding-bottom: 0.2em;line-height: 1.6; }
-		#title{height:30px; width:100%; border:none; border-bottom:1px solid #c1c1c1; color:#666666; vertical-align: center;}
-		#writer{height:30px;width:90%;border:none; border-bottom:1px solid #c1c1c1; color:#666666;}
+  
+  
+  #contents{width: 100%;border:none; border-left:1px solid #c1c1c1; border-right:1px solid #c1c1c1;resize: none;overflow-y: hidden;padding: 1.1em; padding-bottom: 0.2em;line-height: 1.6; }
+  /*제목 텍스트박스*/
+  #title{
+   height:30px;
+   width:100%;
+   border:none;
+   color:#666666;
+   vertical-align: center;
+   padding-left:10px;
+  }
+  /*작성자 텍스트박스*/
+  #writer{
+   height:30px;
+   width:90%;
+   border:none;
+   color:#666666; 
+   padding-left:10px;
+  }
 
-/* 맛집 리스트(내용) */
-		.restaurant_list{border-collapse:collapse;}
-		.restaurant_list>thead>tr>th{background-color:#F8F8F8; height:33px; font-size:16px; text-align:center; border:1px solid #c1c1c1; font-weight:500;}
-		/* #restaurant_list>tbody>tr{ height:45px; font-size:15px;border-bottom:1px solid #c1c1c1;border-top:1px solid #c1c1c1;} */
-		.restaurant_list>tbody>tr>td{height:45px; font-size:15px; border:1px solid #c1c1c1;}
-	/* 문의사항 css */
-
-		.complain_write{border-collapse:collapse;}
-		.complain_write>thead>tr>th{background-color:#F8F8F8; height:33px; font-size:16px; text-align:center; border:1px solid #c1c1c1; font-weight:500;}
-		/* #restaurant_list>tbody>tr{ height:45px; font-size:15px;border-bottom:1px solid #c1c1c1;border-top:1px solid #c1c1c1;} */
-		.complain_write>tbody>tr>td{font-size:10px; border:1px solid #c1c1c1;}
-		.complain_write>tfoot>tr>td{background-color:#F8F8F8; height:33px; font-size:16px; text-align:center; border:1px solid #c1c1c1;}	
-		
-		
-		
-		/* FAQ */
-		#faq_write{border:;width:100%; height:200px; margin-bottom:.8em;}
-		.faqHeader >input[type=button]{width:100px;}
+ /*  맛집 리스트(내용) */ 
+  .restaurant_list{border-collapse:collapse;}
+  .restaurant_list>thead>tr>th{background-color:#F8F8F8; height:33px; font-size:16px; text-align:center; border:1px solid #c1c1c1; font-weight:500;}
+  /* #restaurant_list>tbody>tr{ height:45px; font-size:15px;border-bottom:1px solid #c1c1c1;border-top:1px solid #c1c1c1;}  */
+  .restaurant_list>tbody>tr>td{height:45px; font-size:15px; border:1px solid #c1c1c1;}
+ 
+  /* 문의사항 css  */
+  .complain_write{border-collapse:collapse;}
+  .complain_write>thead>tr>th{background-color:#F8F8F8; height:33px; font-size:16px; text-align:center; border:1px solid #c1c1c1; font-weight:500;}
+  /* / #restaurant_list>tbody>tr{ height:45px; font-size:15px;border-bottom:1px solid #c1c1c1;border-top:1px solid #c1c1c1;} / */
+  .complain_write>tbody>tr>td{font-size:10px; border:1px solid #c1c1c1;}
+  .complain_write>tfoot>tr>td{background-color:#F8F8F8; height:33px; font-size:16px; text-align:center; border:1px solid #c1c1c1;} 
+  
+  
+  
+ /* / FAQ / */
+  #faq_write{border:;width:100%; height:200px; margin-bottom:.8em;}
+  .faqHeader >input[type=button]{width:100px;}

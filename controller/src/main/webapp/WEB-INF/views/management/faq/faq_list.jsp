@@ -46,7 +46,7 @@
 													<c:forEach items="${faq}" var="fa">
 														<li class="article" id='a${ fa.faq_seq }' >
 															<p class="q"  value="${ fa.faq_title }"><a href="#a${ fa.faq_seq }">Q: ${ fa.faq_title }</a>
-															 <input type="button" class="faq_delete" value="삭제"></p>
+															 <input type="button" class="faq_delete" value="삭제" style="margin:0px;" ></p>
 															<p class="a" style="padding-left:30px;" value="${ fa.faq_content }">A: ${ fa.faq_content }</p>
 														</li>
 													</c:forEach>

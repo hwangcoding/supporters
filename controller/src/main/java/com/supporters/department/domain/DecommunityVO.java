@@ -10,7 +10,11 @@ public class DecommunityVO extends Paging {
 	private String community_user_id;					//	varchar(20)	예 	null 	 	작성자 
 	private String community_title;						//	varchar(100)	예 	null 	 	제목 
 	private String community_content;				//	varchar(800)	예 	null 	 	내용 
-	private String community_img;						//	varchar(50)	예 	null 	 	이미지 
+	private String community_img1;						//	varchar(50)	예 	null 	 	이미지
+	private String community_img2;						//	varchar(50)	예 	null 	 	이미지
+	private String community_img3;						//	varchar(50)	예 	null 	 	이미지
+	private String community_img4;						//	varchar(50)	예 	null 	 	이미지
+	private String community_img5;						//	varchar(50)	예 	null 	 	이미지
 	private String community_write_datetime;		//	timestamp	예 	current_timestamp 	 	작성날짜 
 	private String community_revise_datetime;		//	timestamp	예 	null 	 	수정날짜 
 	private String community_lookupcnt;				//	int(4)	예 	0 	 	조회수 
@@ -20,6 +24,36 @@ public class DecommunityVO extends Paging {
 	
 	
 	
+	public String getCommunity_img1() {
+		return community_img1;
+	}
+	public void setCommunity_img1(String community_img1) {
+		this.community_img1 = community_img1;
+	}
+	public String getCommunity_img2() {
+		return community_img2;
+	}
+	public void setCommunity_img2(String community_img2) {
+		this.community_img2 = community_img2;
+	}
+	public String getCommunity_img3() {
+		return community_img3;
+	}
+	public void setCommunity_img3(String community_img3) {
+		this.community_img3 = community_img3;
+	}
+	public String getCommunity_img4() {
+		return community_img4;
+	}
+	public void setCommunity_img4(String community_img4) {
+		this.community_img4 = community_img4;
+	}
+	public String getCommunity_img5() {
+		return community_img5;
+	}
+	public void setCommunity_img5(String community_img5) {
+		this.community_img5 = community_img5;
+	}
 	public String getCommunity_seq() {
 		return community_seq;
 	}
@@ -49,12 +83,6 @@ public class DecommunityVO extends Paging {
 	}
 	public void setCommunity_content(String community_content) {
 		this.community_content = community_content;
-	}
-	public String getCommunity_img() {
-		return community_img;
-	}
-	public void setCommunity_img(String community_img) {
-		this.community_img = community_img;
 	}
 	public String getCommunity_write_datetime() {
 		return community_write_datetime;

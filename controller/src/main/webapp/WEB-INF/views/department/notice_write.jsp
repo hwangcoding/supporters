@@ -15,7 +15,7 @@
 									<table width="100%"  id="write_table"  border="0">
 																	
 									<tbody>
-						                <tr height="50px">
+						                <tr height="50px" class="titletop">
 						                    <td align="center" width="10%">제목</td>
 						                    <td width="60%"><input type="text" id="title" name="title"></input></td>
 						                    <td width="10%" align="center">작성자</td>

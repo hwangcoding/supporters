@@ -14,11 +14,11 @@
 									<tbody align="center">
 									<!-- 반복되는부분 -->
 										<tr>
-											<td style="background-color:#FF9000; height:150px; width:8%;">
+											<td style="background-color:#ffac3f; height:150px; width:8%;">
 											<i class="material-icons"  style="padding-left:10%; font-size:80px; float:left;   z-index:10;">account_box</i>
 											</td>
 											
-											<td style="background-color:#FF9000; width:28%;">
+											<td style="background-color:#ffac3f; width:28%;">
 												<span style="font-size:16px; float:left; line-height:0px; font-weight:500;">총 회원수 :
 												<font style="font-size:21px; line-height:0px; font-weight:500;">${all_join}</font></span>
 												<br>

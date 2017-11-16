@@ -13,13 +13,13 @@
 						
 
 						<c:forEach items="${view}" var="view" varStatus="status">
-						<input type="hidden" value=' ${ view.community_content} 'id="tx_value">
+						<input type="hidden" value=' ${ view.department_notice_content} 'id="tx_value">
 								<form action="/department/notice/modifyprocess" method="post" id="frm">
 									<table width="100%"  id="write_table"  border="0">
 									<tbody>
-						                <tr height="50px">
+						                <tr height="50px" class="titletop">
 						                    <td align="center" width="10%">제목</td>
-						                    <td width="60%">${ view.community_title}</td>
+						                    <td width="60%"><input type="text" id="title" name="title" value="${ view.department_notice_title}"/></td>
 						                    <td width="10%" align="center">작성자</td>
 						                    <td width="20%"><input type="text" readonly id="writer" name="user_id" value="${ADMIN_ID}"></input></td>
 						                </tr>

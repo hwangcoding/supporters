@@ -331,7 +331,6 @@
      * @return
      */
     function html5Upload() {
-    	alert("01");
     	var tempFile,
     		sUploadURL;
     	
@@ -362,7 +361,6 @@
 					//성공 시에  responseText를 가지고 array로 만드는 부분.
 					
 					makeArrayFromString(res._response.responseText);
-					alert(res._response.responseText);
 				}
 			},
 			timeout : 3,

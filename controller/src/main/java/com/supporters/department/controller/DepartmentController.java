@@ -87,6 +87,25 @@ public class DepartmentController {
 			
 		}
 		
+		/*학과공지  클릭시 안드로이드 보여지는곳*/
+		@RequestMapping(value = "notice/android_view")
+		public String android_view(@RequestParam String seq,
+				Model model,NoticeVO paging) throws Exception {
+			try {
+				/*게시물의 시퀀스를 가져와 설정 함*/
+				paging.setDepartment_notice_seq(seq);
+				/*설정한 시퀀스를 파라미터로 넘겨 줘서 원하는 값을 가져옴*/
+		        List<NoticeVO> list = departmentService.read(paging);
+				model.addAttribute("view", list);
+		        
+		    } catch (Exception e) {
+		    	System.out.println("파일이없떠요");
+		    }
+	
+			return "department/android_view";
+			
+		}
+		
 		
 		/*학과공지 수정하기*/
 		@RequestMapping(value = "notice/modify")
