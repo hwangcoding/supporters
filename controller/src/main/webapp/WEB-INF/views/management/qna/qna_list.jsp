@@ -31,7 +31,7 @@
 											<th width="12%">질문 종류</th>
 											<th width="30%">제목</th>
 											<th width="15%">작성자</th>	
-											<th width="25%">작성일</th>
+											<th width="25%">질문일</th>
 										</tr>									
 									</thead>
 									

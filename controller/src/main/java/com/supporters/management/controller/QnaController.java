@@ -3,6 +3,7 @@ package com.supporters.management.controller;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
@@ -153,7 +154,7 @@ public class QnaController {
 		return "management/qna/qna_modify";
 }
 	
-	/*qna 수정 페이지 이동*/
+	/*qna 수정 이동*/
 	@RequestMapping(value="modify/process")
 	public String modifyProcess(String seq, String modify_content, Model model, QnaVO vo) throws Exception {
 		
@@ -161,8 +162,13 @@ public class QnaController {
 			
 			vo.setQna_seq(seq);
 			vo.setQnasr_content(modify_content);
-			qnaService.update(vo);
 			
+			SimpleDateFormat mSimpleDateFormat = new SimpleDateFormat ( "yyyy-MM-dd HH:mm:ss", Locale.KOREA );
+			Date currentTime = new Date ();
+			String mTime = mSimpleDateFormat.format ( currentTime );
+			vo.setQnasr_revise_datetime(mTime);
+			
+			qnaService.update(vo);
 		}catch (Exception e) {
 			System.out.println("글없음");
 		}

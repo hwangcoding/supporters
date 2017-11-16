@@ -67,6 +67,31 @@
 										
 										</tr>
 										
+										<tr>
+										
+											<td>답변날짜</td>
+											<td colspan="6"  align="left">
+											
+												<c:choose>
+					
+															<c:when test="${view.qnasr_write_datetime < view.qnasr_revise_datetime}">
+															
+																 ${view.qnasr_revise_datetime}
+																 
+															</c:when>
+																
+															<c:otherwise>
+															
+																  ${view.qnasr_write_datetime}
+																  
+															</c:otherwise>
+					
+														</c:choose>
+											
+											</td>
+										
+										</tr>
+										
 										</c:when>
 									
 									</c:choose>

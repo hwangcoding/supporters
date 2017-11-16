@@ -99,7 +99,8 @@
 	
 		<![CDATA[
 			UPDATE qna_ansr
-		    SET qnasr_content = #{qnasr_content}
+		    SET qnasr_content = #{qnasr_content},
+		    qnasr_revise_datetime = #{qnasr_revise_datetime}
 		    WHERE qna_seq = #{qna_seq}
 		]]>
 	
