@@ -50,7 +50,7 @@
 										<th width="10%" colspan="5">${write.qna_write_datetime}</th>
 									</tr>
 									<tr >
-										<td>내 용</td>
+										<td>질문내용</td>
 										<td colspan="6" height="300px" style="text-align:left;">${write.qna_content }</td>
 									</tr>
 

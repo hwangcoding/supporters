@@ -25,7 +25,7 @@
 		    	<when test="searchFiled == 'minor_nm'">AND minor_nm like CONCAT('%', #{searchValue} , '%')</when>
 	        	 </choose>
 	  </where>
-			order by restaurant_write_datetime desc
+			order by RESTAURANT_SEQ desc
 		limit #{limitNo},#{pageSize}				
 	</select>
 	

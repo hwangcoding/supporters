@@ -50,7 +50,7 @@
 										<th width="10%" colspan="5">${view.qna_write_datetime}</th>
 									</tr>
 									<tr >
-										<td>내 용</td>
+										<td>질문내용</td>
 										<td colspan="6" height="300px" style="text-align:left;">${view.qna_content }</td>
 									</tr>
 																				
@@ -112,7 +112,18 @@
 												</c:otherwise>
 											</c:choose>
 												<input type="button" class="total_btn"  id="qna_list_btn" value="목록" style="margin-left: 5px; margin-right: 5px;">
-												<input type="button" class="total_btn"  id="qna_delete_button" value="답변삭제">
+											<c:choose>
+												<c:when test="${view.qna_state eq '2'}">
+												
+													<input type="button" class="total_btn"  id="qna_delete_button" value="답변삭제">
+													
+												</c:when>
+												
+												<c:otherwise>
+													
+												</c:otherwise>
+											</c:choose>
+											
 						 				</td>
 						 				</tr>
 									</tfoot>

@@ -30,7 +30,7 @@
 				<div id="container">
 							<form name="frm_tabs" method="post" action="/contents/restaurant/list?pageseq=1">
 								<ul class="tabs">
-								<c:forEach items="${rest }" var="tabs" begin="0" end="0" varStatus="status">
+								<c:forEach begin="0" end="0" varStatus="status">
 								
 										<li rel="tab1" ${page.searchValue eq "" ? 'class="active"' : '' } value="0">전체</li>
 									

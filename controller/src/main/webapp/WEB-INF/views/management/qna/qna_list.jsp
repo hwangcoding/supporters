@@ -9,22 +9,42 @@
 		<div id="mid">
 			<div class="content_view">
 				<div class="content_view_depth"><h3>QnA > QnA 관리</h3></div>
+									
+									<div style="text-align:right; background:#fff; height:50px; border-top:0px;">
 				
-				<table width="100%" id="user_list"  border="0">
-									<thead align="center">
-										<tr style="text-align:right; background:#fff; height:50px; border-top:0px;">
-											<td colspan="6">
-											<form method="post" action="/management/qna/list?pageseq=1">
+										<form method="post" action="/management/qna/list?pageseq=1">
+											
 											<select name="searchFiled" class="search_select" style="width: 75px;">
+											
 												 <option value="0">제목</option>
 												 <option value="1">작성자</option>
-												 <option value="3">답변상태</option>
-												</select>
+												 <option value="2">질문종류</option>
+												 
+											</select>
+											
 												<input type="text" name="searchValue" class="search_text">
 												<input type="submit" class="search_button" value="검색">
-												</form>
-											</td>
-										</tr>
+										</form>
+				
+									</div>
+					<div>
+						<form name="frm_tabs" method="post" action="/management/qna/list?pageseq=1">
+								<ul class="tabs">
+								<c:forEach begin="0" end="0" varStatus="status">
+								
+										<li rel="tab1" ${page.searchValue eq "" ? 'class="active"' : '' } value="0">전체</li>
+										<li rel="tab2" ${page.searchValue eq "1" ? 'class="active"' : '' } value="1">답변 대기</li>
+										<li rel="tab3" ${page.searchValue eq "2" ? 'class="active"' : '' } value="2">답변 완료</li>
+										
+								</c:forEach>
+								</ul>
+								
+								<input type="hidden" id="tabs_ch" name="tabs_ch">
+						
+						</form>
+					</div>			
+								<table width="100%" id="user_list"  border="0">
+									<thead align="center">
 										<tr width="100%" >
 											<th width="5%">글번호</th>
 											<th width="13%">답변 상태</th>
@@ -43,7 +63,7 @@
 									<c:if test="${empty qna}">
 										
 										<tr width="100%" >	<!-- db에 따로 시퀀스가 없어 jstl 을 이용 -->
-												<td width="10%" colspan="5">질문이 없습니다.</td>
+												<td width="10%" colspan="6">글이 없습니다.</td>
 										</tr>
 										
 									</c:if>

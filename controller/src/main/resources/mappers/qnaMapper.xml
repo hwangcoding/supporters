@@ -19,10 +19,11 @@
         	<when test="searchFiled == ''"> AND 1=1 </when>
         	<when test="searchFiled == 'qna_title'"> AND qna_title like CONCAT('%', #{searchValue} , '%') </when>
         	<when test="searchFiled == 'user_num'"> AND user_num like CONCAT('%', #{searchValue} , '%') </when> 
-	    	<when test="searchFiled == 'qna_content'"> AND qna_content like CONCAT('%', #{searchValue} , '%')</when>
+	    	<when test="searchFiled == 'qna_type'"> AND qna_type like CONCAT('%', #{searchValue} , '%')</when>
+	    	<when test="searchFiled == 'qna_state'"> AND qna_state like CONCAT('%', #{searchValue} , '%')</when>
         	 </choose>
         	  </where>
-		order by a.qna_seq
+		order by a.qna_seq desc
 		limit #{limitNo},#{pageSize}
 	</select>
 	

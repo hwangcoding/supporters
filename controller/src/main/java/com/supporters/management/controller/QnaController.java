@@ -35,7 +35,8 @@ public class QnaController {
 			Model model,
 			QnaVO paging,
 			String searchFiled,
-			String searchValue
+			String searchValue,
+			String tabs_ch
 			) throws Exception {
 		try {
 			if(searchValue==null) {searchValue="";}
@@ -43,8 +44,24 @@ public class QnaController {
 			switch(searchFiled) {
 			case "0": searchFiled="qna_title"; break;
 			case "1":searchFiled="user_num"; break;
-			case "2":searchFiled="qna_state"; break;
+			case "2":searchFiled="qna_type"; break;
 			}
+			
+			if(tabs_ch == null) {
+				tabs_ch="";
+				}else if(tabs_ch == "0") {
+				tabs_ch="";
+				}
+			/*System.out.println("진짜 테스트 합니다 : " + tabs_ch);*/
+			switch (tabs_ch) {
+			case "1": searchFiled = "qna_state";
+			searchValue = tabs_ch;
+			break;
+			case "2": searchFiled = "qna_state";
+			searchValue = tabs_ch;
+			break;
+			}
+			
 			/*System.out.println(searchFiled);*/
 			paging.setSearchValue(searchValue);
 			paging.setSearchFiled(searchFiled);
