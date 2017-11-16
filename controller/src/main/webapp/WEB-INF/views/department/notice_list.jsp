@@ -17,7 +17,7 @@
 										<tr style="text-align:right; background:#fff; height:50px; border-top:0px; ">
 											<td colspan="5">
 											<form method="post" action="/department/notice?pageseq=1">
-											<select name="searchFiled" class="search_select">
+											<select name="searchFiled" style="width: 65px;" class="search_select">
 												 <option value="0">제목</option>
 												 <option value="1">작성자</option>
 												</select>

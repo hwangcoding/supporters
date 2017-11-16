@@ -147,6 +147,12 @@ $("input[name=delete_btn").click(function(){
     	alert("처리 되었습니다.");
     });
     
+    $("#notice_list_sub").click(function(){
+    	
+    	location.href="/department/notice?pageseq=1";
+    	
+    });
+    
     
     
     

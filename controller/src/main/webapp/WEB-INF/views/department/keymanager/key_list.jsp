@@ -16,7 +16,7 @@
 										<tr style="text-align:right; background:#fff; height:50px; border-top:0px; ">
 											<td colspan="8">
 											<form id="submit_key_ch" method="post" action="/department/keymanager/list?pageseq=1">
-											<select name="searchFiled" class="search_select" style="width: 90px;">
+											<select name="searchFiled" class="search_select" style="width: 95px;">
 												 <option value="0">강의실 호수</option>
 												 <option value="1">대여자</option>
 												</select>
