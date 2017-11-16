@@ -15,9 +15,18 @@
 
  	<div id = login_background>
         <form method="post" action="/loginProcess" name="login" id="login">
-        <h2>재 능 마 당</h2>
-			 	<div class="wrapper">
+        		
+        		<div class="con_wrapper">
+        			<div class="wrapper_img"></div>
+        			
+       			 
+			 	<div class="wrapper" style=" 
+							    margin-left: 100px;
+							    border-left-width: 5px;
+							    padding-left: 90px;">
+			 	
 			        <div class="wrap-input">
+			        <h2>재능마당 관리자</h2>  
 			        	<!-- ID 를 입력하는 칸  -->
 			            <input class="login_text" type="text" name="adminId" id="adminId" placeholder="username"></input>
 			        </div>
@@ -26,6 +35,7 @@
 			            <input class="login_text" type="password" name="adminPw" id="adminPw" placeholder="password"></input>
 			        </div>
 			        <button class="btn" id="loginBtn">로그인</button>
+			    </div>
 			    </div>
 		</form>
 	</div>
