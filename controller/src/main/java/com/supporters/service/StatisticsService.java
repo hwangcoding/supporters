@@ -19,4 +19,6 @@ public interface StatisticsService {
 	
 	public int day_join() throws Exception;
 	
+	public int qna_select() throws Exception;
+	
 }

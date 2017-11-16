@@ -158,7 +158,20 @@ public class StatisticsController {
 
 		}
 	
-	/*통계용 Mapping 추가*/
+	@RequestMapping(value="qna")
+	public String qna_select(Model model) {
+		try {
+			String a = Integer.toString(statisticsService.qna_select());
+			model.addAttribute("qna",a);
+			return "statistics/qna_select";
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			model.addAttribute("qna","0");
+			return "statistics/qna_select";
+		}
+	}
+	
 	
 	
 }

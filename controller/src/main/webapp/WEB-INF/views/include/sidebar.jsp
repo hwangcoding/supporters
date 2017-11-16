@@ -8,7 +8,7 @@
 				<div class="sidebar_user alert">
 					<ul>
 					
-						<li>문의 사항 :<span>10</span></li>
+						<li>문의 사항 :<span id = "qna_value">0</span></li>
 						<li>최근 로그인 :${date } </li>
 					</ul>
 				</div>

@@ -19,5 +19,7 @@ public interface StatisticsDAO {
 	
 	public int day_join() throws Exception;
 	
+	public int qna_select() throws Exception;
+	
 	
 }

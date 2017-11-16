@@ -1,5 +1,13 @@
 $(document).ready(function(){
+	$.ajax({
+		type : "POST",
+		url : "/statistics/qna",
+		dataType : "text",
+		success : function response(data) {
+				$("#qna_value").text(data);
 	
+		}
+	});
 	 function a(){
 		 var domainUrl=$(location).attr('pathname');
 		 var value = domainUrl.split("/"); // 슬러쉬로 된 부분 다 끊어 가져옴 /department/notice   

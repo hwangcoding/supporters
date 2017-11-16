@@ -17,6 +17,15 @@ public class StatisticsServiceImpl implements StatisticsService{
 	@Inject
     private	StatisticsDAO statisticsDAO;
 	
+	
+	
+
+	@Override
+	public int qna_select() throws Exception {
+		// TODO Auto-generated method stub
+		return statisticsDAO.qna_select();
+	}
+
 
 	@Override
 	public List<StatisticsVO>  visited_week(StatisticsVO vo) throws Exception {

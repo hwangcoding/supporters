@@ -70,7 +70,13 @@
 					  ]]> 
 	</select>
 	
-
+	<!-- 답변 대기 수 -->
+	<select id="qna_select" resultType="int">
+		<![CDATA[
+			SELECT count(*) FROM `qna` WHERE `QNA_STATE`='1'
+					  ]]> 
+	</select>
+	
 	
 	
 	

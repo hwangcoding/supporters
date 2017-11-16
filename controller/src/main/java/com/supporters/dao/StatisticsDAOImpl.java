@@ -22,6 +22,14 @@ public class StatisticsDAOImpl implements StatisticsDAO {
 	
 
 	@Override
+	public int qna_select() throws Exception {
+		// TODO Auto-generated method stub
+		
+		return session.selectOne(namespace+".qna_select");
+	}
+
+
+	@Override
 	public List<StatisticsVO>  visited_week(StatisticsVO vo) throws Exception {
 		// TODO Auto-generated method stub
 		return session.selectList(namespace+".visited_week",vo);
