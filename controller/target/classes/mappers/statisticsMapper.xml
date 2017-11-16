@@ -13,7 +13,7 @@
 		SELECT substring(`user_joindate`,1,10) as  date , count(substring(`user_joindate`,1,10)) as week_cnt
 		FROM student 
 		WHERE 
-				 user_joindate >=#{date}	AND user_joindate <=(select curdate())
+				 substring(`user_joindate`,1,10) >=#{date}	AND substring(`user_joindate`,1,10) <=(select curdate())
 		GROUP BY substring(`user_joindate`,1,10)
 				 ]]> 
 	</select> 
@@ -22,7 +22,7 @@
 	<!-- 일주일치 방문자 수 -->
 	<select id="visited_week" parameterType="StatisticsVO" resultType="StatisticsVO">
 		<![CDATA[
-		SELECT date_cnt_date as date , date_cnt_d_cnt as week_cnt
+		SELECT date_cnt_date AS date , date_cnt_d_cnt AS week_cnt
 		FROM date_cnt 
 		WHERE 
 					date_cnt_date >=#{date} AND date_cnt_date <=(select curdate()) 

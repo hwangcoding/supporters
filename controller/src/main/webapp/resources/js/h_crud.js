@@ -21,6 +21,18 @@ $(document).ready(function(){
 	});
 	
 	
+	/*통계 버튼 일주일 , 1개월 , 3개월*/
+	
+	$("#week").click(function(){
+		location.href="/statistics/view?dateValue=week";
+	});
+	$("#1m").click(function(){
+		location.href="/statistics/view?dateValue=one";
+	});
+	$("#3m").click(function(){
+		location.href="/statistics/view?dateValue=three";
+	});
+	
 
 });
 

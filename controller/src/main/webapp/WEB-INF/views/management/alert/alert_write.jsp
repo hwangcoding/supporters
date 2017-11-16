@@ -8,7 +8,7 @@
 		<!-- 컨텐츠 크기 맞추기 -->
 		<div id="mid">
 			<div class="content_view">
-				<div class="content_view_depth"><h3>관리 > FAQ</h3></div>
+				<div class="content_view_depth"><h3>관리 > 알림 관리</h3></div>
 												
 												
 												<div id= "alert_write" >

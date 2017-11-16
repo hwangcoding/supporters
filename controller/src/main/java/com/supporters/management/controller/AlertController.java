@@ -48,6 +48,7 @@ public class AlertController {
 	    
 	    
 	    for(int a =0; a<st.size();a++) {
+	    	System.out.println(st.get(a).getUser_token().toString());
 	    	token.add(st.get(a).getUser_token().toString()); //저장된 토큰을 가져와 ArrayList에 저장합니다.
 	    }
 	    

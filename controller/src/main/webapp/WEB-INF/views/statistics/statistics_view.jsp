@@ -10,75 +10,53 @@
 		<!-- 컨텐츠 크기 맞추기 -->
 		<div id="mid">
 			<div class="content_view">
-				<div class="content_view_depth"><h3>통계보기</h3></div>
-				
+				<div class="content_view_depth"><h3>통계>통계보기</h3></div>
+				<input type="button" id="week" value="일주일">
+				<input type="button" id="1m" value="1개월">
+				<input type="button" id="3m" value="3개월">
 				<div id="container" style="min-width: 310px; width:100%;height: 400px; margin: 0 auto"></div>
 								
-								<table width="100%" class="restaurant_list" border="0" style="margin-top: 60px;">
+								<table width="100%" class="restaurant_list" border="0" style="margin-top:500px;">
 								
 								<thead align="center">
+										<tr>
+											<td colspan="3" align="left" height="90px"><h3>  상세 통계</h3></td>
+										</tr>
+								
+								
 										<!-- 작성된 글을 담아 디비로 보내 데이터를 가져와 해당 검색에 맞는 데이터를 뿌려준다 -->
 										<tr width="100%">
 											<th width="10%">날짜</th>
 											<th width="45%">방문자수</th>
-											<th width="45%">조회수</th>
+											<th width="45%">회원수</th>
 										</tr>
-										
 								</thead>
-								
 								<tbody align="center">
-									
-									<%-- <c:if test="${empty student}">
-										
+									<c:if test="${empty join}">
 										<tr width="100%" >	<!-- db에 따로 시퀀스가 없어 jstl 을 이용 -->
-												<td width="10%" colspan="8">회원정보가 없습니다.</td>
+												<td width="10%" colspan="8">통계정보가 없습니다.</td>
 										</tr>
 										</tbody>
 										<tfoot align="center">
-											
 											<tr>
 												<td colspan="8" class="table_paging"> </td>
 											</tr>
 										</tfoot>
-										
-									</c:if> --%>
-									
-									
-									<%-- <c:if test="${student!= '' || student ne null}">
+									</c:if> 
+									<c:if test="${join!= '' || join ne null}">
 									<!-- 반복되는부분 -->
-									<c:forEach items="${student}" var="st"> --%>
-									
+									<c:forEach items="${join}" var="join"> 
 										<!-- 반복해서 리스트로 값을 받아와 뿌려줘야함 -->
 										<tr height="50px">
-											<td>2017-10-14</td>
-											<td>3</td>
-											<td>4</td>
-											<%-- <td>ICON<i class="material-icons" id="drop_button" style="cursor:pointer;" name="${st.user_num }">close</i></td> --%>
+											<td>${ join.date}</td>
+											<td>${ join.week_cnt}</td>
+											<td>${ join.join}</td>
 										</tr>
-										<tr height="50px">
-											<td>2017-10-15</td>
-											<td>2</td>
-											<td>3</td>
-											<%-- <td>ICON<i class="material-icons" id="drop_button" style="cursor:pointer;" name="${st.user_num }">close</i></td> --%>
-										</tr>
-										<tr height="50px">
-											<td>2017-10-16</td>
-											<td>1</td>
-											<td>1</td>
-											<%-- <td>ICON<i class="material-icons" id="drop_button" style="cursor:pointer;" name="${st.user_num }">close</i></td> --%>
-										</tr>
-										<tr height="50px">
-											<td>2017-10-17</td>
-											<td>2</td>
-											<td>1</td>
-											<%-- <td>ICON<i class="material-icons" id="drop_button" style="cursor:pointer;" name="${st.user_num }">close</i></td> --%>
-										</tr>
-									
-									<%-- </c:forEach>	 --%>
+									</c:forEach>	
 									<!-- 반복되는부분 -->											
 									</tbody>
 									
-								<%-- </c:if> --%>
+								</c:if> 
 								
 								</table>
 								
@@ -93,6 +71,18 @@ var datax= new Array(); // 날짜값
 var datay= new Array(); // 방문자수
 $(document).ready(function() {
 	
+	function getQuerystring(key, default_)
+	{
+	  if (default_==null) default_=""; 
+	  key = key.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");
+	  var regex = new RegExp("[\\?&]"+key+"=([^&#]*)");
+	  var qs = regex.exec(window.location.href);
+	  if(qs == null)
+	    return default_;
+	  else
+	    return qs[1];
+	}
+	var valuUrl = getQuerystring("dateValue");
 			// define the options
 			options = {
 			chart: {
@@ -143,17 +133,18 @@ $(document).ready(function() {
 			}
 			$.ajax({
 			type : "POST",
-			url : "/statistics/join_week",
+			url : "/statistics/join_week?dateValue="+valuUrl,
 			dataType : "json",
 			success : function response(data) {
 				 $.each(data, function(index, item){
-				
+					
+					
 					 join.push(Number(data[index].count));  //회원수 파싱 
 				       
 				      })
-				      $.ajax({
+				      $.ajax({ 
 							type : "POST",
-							url : "/statistics/visited_week",
+							url : "/statistics/visited_week?dateValue="+valuUrl,
 							dataType : "json",
 							success : function response(data) {
 								 $.each(data, function(index, item){

@@ -1,12 +1,23 @@
 package com.supporters.domain;
 
-public class StatisticsVO {
+import com.supporters.function.Paging;
+
+public class StatisticsVO  extends Paging{
 	
 	private String date;        // 날짜 값
 	private String week_cnt; // 일주일 치 값
 	private String all_cnt;     // 총 카운트 값
+	private String join;			// 회원수값
 	
 	
+	
+	
+	public String getJoin() {
+		return join;
+	}
+	public void setJoin(String join) {
+		this.join = join;
+	}
 	public String getDate() {
 		return date;
 	}

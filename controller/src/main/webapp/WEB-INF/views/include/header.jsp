@@ -25,10 +25,11 @@
 	<script src="/js/h_crud.js"></script>
 	<script src="/js/jquery-syaku.lightbox.js"></script>
 	<script src="/js/HuskyEZCreator.js"></script>
-	<%-- <jsp:include page="../sub_menu/complain/complain_write.jsp" flush="false"/> --%>
+	 
 	
 </head>
 <body >
+							<%-- <jsp:include page="../sub_menu/complain/complain_write.jsp" flush="false"/> --%>  
 
 
 <div id = "header">

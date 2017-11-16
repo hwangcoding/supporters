@@ -36,12 +36,19 @@ public class StatisticsController {
 	@RequestMapping(value = "join_week")		
 	public String join_week( 
 			Model model,
+			String dateValue,
 			StatisticsVO statisticVO ) throws Exception {
-		statisticVO.setDate(dc.getDateAgo(-6));
+		if(dateValue==null) {dateValue="week";}
+		switch(dateValue) {
+		case "week": statisticVO.setDate(dc.getDateAgo(-6)); break;
+		case "one":statisticVO.setDate(dc.getDateAgo(-29));break;
+		case "three":statisticVO.setDate(dc.getDateAgo(-87));break;
+		default:statisticVO.setDate(dc.getDateAgo(-6));break;
+		}
 		List<StatisticsVO> join_week= statisticsService.join_week(statisticVO);  //일주일 가입자 수
-		
+		System.out.println("내가날린값!!"+statisticVO.getDate());
 		List<StatisticsVO> visited_week = statisticsService.visited_week(statisticVO); //일주일 방문자 수
-		
+		System.out.println("내가날린값!!"+statisticVO.getDate());
 		
 		
 		
@@ -77,8 +84,15 @@ public class StatisticsController {
 	@RequestMapping(value = "visited_week")			
 	public String visited_week(
 			Model model,
+			String dateValue,
 			StatisticsVO statisticVO) throws Exception {
-		statisticVO.setDate(dc.getDateAgo(-6));
+		if(dateValue==null) {dateValue="week";}
+		switch(dateValue) {
+		case "week": statisticVO.setDate(dc.getDateAgo(-6)); break;
+		case "one":statisticVO.setDate(dc.getDateAgo(-29));break;
+		case "three":statisticVO.setDate(dc.getDateAgo(-87));break;
+		default:statisticVO.setDate(dc.getDateAgo(-6));break;
+		}
 		List<StatisticsVO> visited_week = statisticsService.visited_week(statisticVO); //일주일 방문자 수
 		
 		JSONObject jsonResponse; /* Json 선언 부분 */
@@ -100,8 +114,45 @@ public class StatisticsController {
 	
 	@RequestMapping(value = "view")
 	public String view(
-			Model model
+			String dateValue,
+			Model model,StatisticsVO statisticVO
+	
 			) throws Exception {
+		if(dateValue==null) {dateValue="6";}
+		if(dateValue==null) {dateValue="week";}
+		switch(dateValue) {
+		case "week": statisticVO.setDate(dc.getDateAgo(-6)); break;
+		case "one":statisticVO.setDate(dc.getDateAgo(-29));break;
+		case "three":statisticVO.setDate(dc.getDateAgo(-87));break;
+		default:statisticVO.setDate(dc.getDateAgo(-6));break;
+		}
+		
+		List<StatisticsVO> join_week= statisticsService.join_week(statisticVO);  //일주일 가입자 수
+		
+		List<StatisticsVO> visited_week = statisticsService.visited_week(statisticVO); //일주일 방문자 수
+		
+		
+		
+		int b= 0; // join_week 인덱스 값 돌면서 확인
+		// 통계 부분  , 날짜 별 회원의 데이터가 없으면 0 을 찍도록 하는 알고리즘
+	    for (StatisticsVO str : visited_week) {
+	    	int a= 0; // join_week 인덱스 값 돌면서 확인
+	    	
+			boolean fa = true;
+			for (StatisticsVO str2 : join_week) {
+				
+				if(str.getDate().equals(str2.getDate())) {
+					visited_week.get(b).setJoin(str2.getWeek_cnt());// 카운트 값
+					fa=false;
+				}
+				a++;
+			}
+			if(fa==true) {
+				visited_week.get(b).setJoin("0");// 카운트 값
+			}
+			b++;
+		}
+		model.addAttribute("join",visited_week);
 		
 		return "statistics/statistics_view";
 

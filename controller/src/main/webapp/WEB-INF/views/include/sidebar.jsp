@@ -34,7 +34,7 @@
 							<li><a href="/contents/fictiongame/fiction_list?pageseq=1">끝말잇기</a></li>
 						</ul>
 					</li>		
-					<li><a href="/statistics/view">통계</a></li>
+					<li><a href="/statistics/view?dateValue=week">통계</a></li>
 					<li><a href="#"><span>관리</span><i class="material-icons">add</i></a>
 						<ul>
 							<li><a href="/management/faq/list?pageseq=1">FAQ</a></li>
