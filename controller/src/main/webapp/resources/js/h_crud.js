@@ -1,7 +1,19 @@
 $(document).ready(function(){
 
-	/*FAQ 삭제 처리 버튼*/
+/*커뮤니티 삭제*/
+	$("#community_list_delete_btn").click(function(){
+		var result = confirm('정말 삭제 하시겠습니까?');
+		if(result) { 
+			var vali = $("#community_seq").val();
+			location.href="/department/community/delete?seq="+vali;
+			alert("삭제 되었습니다.");
+		}else { 
+		
+			
+		}
+	});
 	
+	/*FAQ 삭제 처리 버튼*/	
 	$(".faq_delete").click(function(){
 		var result = confirm('정말 삭제 하시겠습니까?');
 		if(result) { 

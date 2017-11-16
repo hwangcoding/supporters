@@ -8,7 +8,7 @@
 		<!-- 컨텐츠 크기 맞추기 -->
 		<div id="mid">
 			<div class="content_view">
-				<div class="content_view_depth"><h3>QnA > QnA 관리</h3></div>
+				<div class="content_view_depth"><h3>관리 > QnA </h3></div>
 									
 									<div style="text-align:right; background:#fff; height:50px; border-top:0px;">
 				

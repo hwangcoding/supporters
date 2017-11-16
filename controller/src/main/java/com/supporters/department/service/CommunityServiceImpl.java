@@ -16,7 +16,15 @@ public class CommunityServiceImpl implements CommunityService{
 
 	@Inject
 	private CommunityDAO communityDAO;
+
 	
+	
+	@Override
+	public List<DecommunityVO> read(DecommunityVO vo) throws Exception {
+		// TODO Auto-generated method stub
+		return communityDAO.read(vo);
+	}
+
 	@Override
 	public int count(DecommunityVO vo) throws Exception {
 		// TODO Auto-generated method stub
@@ -37,7 +45,9 @@ public class CommunityServiceImpl implements CommunityService{
 
 	@Override
 	public void delete(DecommunityVO vo) throws Exception {
-		// TODO Auto-generated method stub
+
+		communityDAO.delete(vo);
+
 		
 	}
 

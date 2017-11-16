@@ -41,9 +41,9 @@
 									<tr>
 										<td>이미지</td>
 										<td colspan="6"  class="img_sort" width="33%" style=" text-align:left; ">
-										<img src="/resources/img/${ view.used_img1 }">
-										<img src="/resources/img/${ view.used_img2 }">
-										<img src="/resources/img/${ view.used_img1 }">
+										<img src="/resources/img/${ view.used_img1 }" style="width:300px;height:300px;">
+										<img src="/resources/img/${ view.used_img2 }" style="width:300px;height:300px;">
+										<img src="/resources/img/${ view.used_img3 }" style="width:300px;height:300px;">
 										</td>
 									</tr>
 									</c:forEach>

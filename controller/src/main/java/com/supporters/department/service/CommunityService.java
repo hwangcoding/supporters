@@ -21,4 +21,7 @@ public interface CommunityService {
 	
 	// 커뮤니티 수정하기
 	public void update() throws Exception;
+	
+	//게시글 읽기
+		public List<DecommunityVO>  read(DecommunityVO vo) throws Exception;
 }

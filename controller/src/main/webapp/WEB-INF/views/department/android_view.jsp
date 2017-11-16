@@ -1,35 +1,55 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
+<!DOCTYPE html>
+<html>
+<head>
+	<title>재능마당 관리자페이지</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	 <style>
+		@media screen and (max-width: 478px) {
+		    h1 { font-size: 70px; padding: 1px; }
+		    h2 { font-size: 13px; padding: 1px; }
+		    body { font-size: 13px; }
+		    		    img {
+		    max-width: 100%;
+		    height: 30%;
+		    width: 30%; /* ie8 */
+		}
+		}
+		 
+		@media screen and (max-width: 740px) {
+		    .left-col { width: 100%; }
+		    .sidebar { width: 100%; }
+		    img {
+		    max-width: 100%;
+		    height: 30%;
+		    width: 30%; /* ie8 */
+		}
+		}
+		 
 		
-		<!-- <div id = "content"> -->
+		
+		</style>
+	
+</head>
+<body >
+		
+		
 		<!-- 컨텐츠 크기 맞추기 -->
 		<div id="mid">
 			<div class="content_view">
-				<div class="content_view_depth"><h3>학과관리 > 학과공지 글 확인</h3></div>
 						
 							<form name="fr_write" id="fr_write" method="post" enctype="multipart/form-data" action="/department/notice/modify" >
-								<table width="100%"  id="user_list"  border="1">
+								<table width="100%"  id="user_list"  border="0">
 								<c:forEach items="${view}" var="view" varStatus="status">
-									<!-- 히든으로 게시물의 고유 번호를 숨겨 놨다가 수정하거나 삭제 할 때 값을 넘겨줌 -->
-									<input type="hidden" value=${ view.department_notice_seq} name="seq">
-									<tbody align="center">
+									<tbody align="left">
 									<!-- 반복되는부분 --> 
 									
-									<tr>
-										<td width="15%">제목</td>
-										<td align="left" style="padding-left:20px;"width="40%" >${view.department_notice_title}</td>
-										<td width="10%">작성자</td>
-										<td  width="20%" colspan="2">${view. department_notice_user_id}</td>
-										<td >조회수</td>
-										<td width="10%"> ${view.department_notice_lookupcnt } </td>
+									<tr> 
+										<td width="15%"><h2>제목 :</h2></td> 
+										<td align="left" style="padding-left:5%;"width="40%" ><h2>${view.department_notice_title}</h2></td>
 									</tr> 
-									<tr>
-										<td colspan="4"  align="left" style="padding-left:20px;"></td>
-										<td colspan="2" >작성일</td>  
-										<td width="10%">${view. department_notice_write_datetime}</td>
-										  
-									</tr>
 									<tr >
 										<td colspan="7" height="400px" style="text-align:left;">${ view.department_notice_content }</td>
 									</tr>

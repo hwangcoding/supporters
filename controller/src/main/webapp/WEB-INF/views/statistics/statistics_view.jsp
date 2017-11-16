@@ -10,8 +10,8 @@
 		<!-- 컨텐츠 크기 맞추기 -->
 		<div id="mid">
 			<div class="content_view">
-				<div class="content_view_depth"><h3>통계>통계보기</h3></div>
-				<input type="button" id="week" value="일주일">
+				<div class="content_view_depth"><h3>통계 > 통계보기</h3></div>
+				<input type="button" id="week" value="일주일" >
 				<input type="button" id="1m" value="1개월">
 				<input type="button" id="3m" value="3개월">
 				<div id="container" style="min-width: 310px; width:100%;height: 400px; margin: 0 auto"></div>

@@ -1,9 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
-<jsp:include page="../../include/header.jsp" flush="false"/>
+<jsp:include page="../include/header.jsp" flush="false"/>
 
-<jsp:include page="../../include/sidebar.jsp" flush="false"/>
+<jsp:include page="../include/sidebar.jsp" flush="false"/>
 		
 		<!-- <div id = "content"> -->
 		<!-- 컨텐츠 크기 맞추기 -->
@@ -70,30 +70,6 @@
 											</tbody>
 											
 											
-										
-											<tfoot align="center">
-											<!-- 글쓰기 버튼을 누르면 제이쿼리로 정의 해 놓은 이벤트가 발생합니다 -->
-												<tr  style="text-align:right;">
-													<td colspan="5" class="table_paging" > 
-													</td>
-												</tr>
-												
-													<tr>
-													<!-- 페이징을 위한 녀석 -->
-													
-														<td colspan="5" class="table_paging">
-															<jsp:include page="../../include/paging.jsp" flush="true">
-															    <jsp:param name="firstPageNo" value="${paging.firstPageNo}" />
-															    <jsp:param name="prevPageNo" value="${paging.prevPageNo}" />
-															    <jsp:param name="startPageNo" value="${paging.startPageNo}" />
-															    <jsp:param name="pageNo" value="${paging.pageNo}" />
-															    <jsp:param name="endPageNo" value="${paging.endPageNo}" />
-															    <jsp:param name="nextPageNo" value="${paging.nextPageNo}" />
-															    <jsp:param name="finalPageNo" value="${paging.finalPageNo}" />
-															</jsp:include>
-														</td>
-													</tr>
-											</tfoot>
 										
 								</table>
 							</div>

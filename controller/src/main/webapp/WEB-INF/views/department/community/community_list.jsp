@@ -12,7 +12,7 @@
 				<div class="content_view_depth"><h3>학과관리 > 커뮤니티 관리</h3></div>
 						
 							
-								<table width="100%"  id="user_list"  border="0">
+								<table width="100%"  id="user_list"  border="0" >
 									<thead align="center">
 										<tr style="text-align:right; background:#fff; height:50px; border-top:0px; ">
 											<td colspan="5">
@@ -40,7 +40,7 @@
 										<!-- jstl을 이용하여 forEach 로 값이 있는 동안 계속 반복 됨. -->
 										
 										<!-- 값이없을때 -->
-									<c:if test="${empty notice}">
+									<c:if test="${empty cou}">
 										
 										<tr width="100%" >	<!-- db에 따로 시퀀스가 없어 jstl 을 이용 -->
 												<td width="10%" colspan="5">게시물이 없습니다.</td>
@@ -49,14 +49,16 @@
 									</c:if>
 										
 										<!-- 값이있을때-->
-										<c:if test="${notice!= '' || notice ne null}">
-												<c:forEach items="${notice}" var="no" varStatus="status"> 
+										<c:if test="${cou!= '' || cou ne null}">
+												<c:forEach items="${cou}" var="cou" varStatus="status"> 
 													<tr width="100%">	<!-- db에 따로 시퀀스가 없어 jstl 을 이용 -->
-														<td width="10%">${fn:length(notice)-status.index}</td>
-														<td width="45%"><a href="/department/community/view?seq=${no.community_seq}">${no.community_title}</a></td>
-														<td width="10%">${no.community_lookupcnt}</td>
-														<td width="15%">${no.community_user_id}</td>
-														<td width="20%">${no.community_write_datetime}</td>
+														<td width="10%">${cou.community_seq}</td>
+
+														<td width="45%" >
+														<a href="/department/community/view?seq=${cou.community_seq}">${cou.community_content}</a></td>
+														<td width="10%">${cou.community_lookupcnt}</td>
+														<td width="15%">${cou.community_user_id}</td>
+														<td width="20%">${cou.community_write_datetime}</td>
 													</tr>
 												</c:forEach>
 											</c:if>	
@@ -70,7 +72,6 @@
 											<!-- 글쓰기 버튼을 누르면 제이쿼리로 정의 해 놓은 이벤트가 발생합니다 -->
 												<tr  style="text-align:right;">
 													<td colspan="5" class="table_paging" > 
-														<input type="button" id="community_write_btn" value="글쓰기">
 													</td>
 												</tr>
 												

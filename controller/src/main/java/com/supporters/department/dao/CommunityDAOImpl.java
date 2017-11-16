@@ -20,6 +20,15 @@ public class CommunityDAOImpl implements  CommunityDAO{
 	@Inject
 	private SqlSession sqlsession;
 
+	
+	
+
+	@Override
+	public List<DecommunityVO> read(DecommunityVO vo) throws Exception {
+		// TODO Auto-generated method stub
+		return sqlsession.selectList(namespace+".view",vo);
+	}
+
 
 	@Override
 	public int count(DecommunityVO vo) throws Exception {

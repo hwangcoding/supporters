@@ -11,7 +11,7 @@
 	<select id="list" parameterType="DecommunityVO" resultType="DecommunityVO">
 		Select
 				`COMMUNITY_SEQ`, `MINOR_CD`, `COMMUNITY_USER_ID`, `COMMUNITY_TITLE`,
-				 `COMMUNITY_CONTENT`, `COMMUNITY_IMG1`,`COMMUNITY_IMG2`,`COMMUNITY_IMG3`,`COMMUNITY_IMG4`,`COMMUNITY_IMG5`, 
+				  substring(`COMMUNITY_CONTENT`,1,23) as COMMUNITY_CONTENT, `COMMUNITY_IMG1`,`COMMUNITY_IMG2`,`COMMUNITY_IMG3`,`COMMUNITY_IMG4`,`COMMUNITY_IMG5`, 
 				 `COMMUNITY_REVISE_DATETIME`, `COMMUNITY_LOOKUPCNT`, `COMMUNITY_DELETE_CH`,
 				   substring(`COMMUNITY_WRITE_DATETIME`,1,19) as COMMUNITY_WRITE_DATETIME, `COMMUNITY_REVISE_DATETIME`, `COMMUNITY_LOOKUPCNT`
 		From
@@ -27,7 +27,7 @@
 		limit #{limitNo},#{pageSize}				
 	</select>
 	
-	<!-- 학과 게시물 카운트 -->
+	<!-- 커뮤니티 게시물 카운트 -->
 	<select id="list_count" parameterType="DecommunityVO" resultType="int">
 		Select
 				 count(*) as totalCount
@@ -54,6 +54,10 @@
 			
 	</select>
 	
+		<delete id="delete" parameterType="DecommunityVO">
+		Delete From department_community where community_seq=#{community_seq}
+	</delete>
+	
 <!-- 	<insert id="fileInsert" parameterType="DecommunityVO">
     <![CDATA[
         INSERT INTO community_notice(minor_cd,community_user_id,community_title,community_content,community_img) 
@@ -72,11 +76,7 @@
 	</update>
 
 	
-	<delete id="delete" parameterType="DecommunityVO">
-	<![CDATA[
-		Delete From department_community where community_seq=#{community_seq}
-		]]> 
-	</delete> -->
+ -->
 	 
 	
 </mapper>

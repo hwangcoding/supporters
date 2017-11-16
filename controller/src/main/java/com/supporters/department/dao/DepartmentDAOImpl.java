@@ -23,6 +23,8 @@ public class DepartmentDAOImpl implements DepartmentDAO{
 	private SqlSession sqlsession;
 	
 	
+	
+	
 	@Override
 	public void create(NoticeVO vo) throws Exception {
 		// TODO Auto-generated method stub
