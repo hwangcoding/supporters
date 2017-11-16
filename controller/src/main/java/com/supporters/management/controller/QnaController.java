@@ -43,7 +43,7 @@ public class QnaController {
 			switch(searchFiled) {
 			case "0": searchFiled="qna_title"; break;
 			case "1":searchFiled="user_num"; break;
-			case "2":searchFiled="qna_state"; break;
+			case "2":searchFiled="qna_type"; break;
 			}
 			/*System.out.println(searchFiled);*/
 			paging.setSearchValue(searchValue);

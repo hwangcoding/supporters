@@ -18,7 +18,7 @@
 											<select name="searchFiled" class="search_select" style="width: 75px;">
 												 <option value="0">제목</option>
 												 <option value="1">작성자</option>
-												 <option value="3">답변상태</option>
+												 <option value="2">질문종류</option>
 												</select>
 												<input type="text" name="searchValue" class="search_text">
 												<input type="submit" class="search_button" value="검색">
