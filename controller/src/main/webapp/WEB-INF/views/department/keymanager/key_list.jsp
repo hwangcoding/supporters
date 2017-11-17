@@ -86,17 +86,24 @@
 														
 														<c:choose>
 														
-															<c:when test="${key.key_apply eq null }">
+															<c:when test="${key.key_state == '0' }">
 															
 																-
 															
 															</c:when>
-														
-															<c:otherwise>
+															
+															<c:when test="${key.key_state == '1' }">
+															
+																관리자
+															
+															</c:when>
+															
+															<c:when test="${key.key_state == '2' }">
 															
 																${key.key_apply}
 															
-															</c:otherwise>
+															</c:when>
+														
 														</c:choose>
 														
 														</td>

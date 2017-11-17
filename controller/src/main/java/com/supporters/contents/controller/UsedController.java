@@ -35,8 +35,9 @@ public class UsedController {
 				if(searchValue==null) {searchValue="";}
 				if(searchFiled==null) {searchFiled="";}
 				switch(searchFiled) {
-				case "0": searchFiled="community_title"; break;
-				case "1":searchFiled="community_user_id"; break;
+				case "0": searchFiled="used_title"; break;
+				case "1":searchFiled="used_user_id"; break;
+				default:searchFiled=""; break;
 				}
 				/*페이지 처리를 하기 위해 현재 몇 번째 페이지인지 파라미터 값을 받아와 Integer로 바꿔주는 작업*/
 				int seq = Integer.parseInt(pageseq);
@@ -109,67 +110,7 @@ public class UsedController {
 		
 		
 		
-		
-	/*	
-		중고장터 삭제하기 
-		@RequestMapping(value="notice/delete")
-		public String delete(UsedVO vo,String seq) throws Exception {
-			그 게시물의 시퀀스를 가져옴
-			vo.setCommunity_seq(seq);
-			서비스단에 설정 해 놓은 메소드를 실행 시켜 삭제
-			usedService.remove(vo);
-			
-			
-			return "redirect:/department/notice?pageseq=1";
-	}
-		
-	
-	글 작성하기 프로세스
-	@RequestMapping(value="notice/writeprocess",method={RequestMethod.GET, RequestMethod.POST})
-	public String writeProcess(HttpServletRequest request, HttpServletResponse response,UsedVO vo,
-			String user_id,
-			String title,
-			String smarteditor) throws Exception {
-System.out.println("들어옴");
 
-		
-		학과 공지사항 코드 DBB001을 기본으로 설정
-		vo.setMinor_cd("DEB001");
-		vo.setCommunity_title(title);
-		vo.setCommunity_content(smarteditor);
-		vo.setCommunity_user_id(user_id);
-		후에 등록해준다
-		departmentService.regist(vo);
-		
-		
-		return "redirect:/department/notice?pageseq=1";
-}
-	중고장터 수정 프로세스
-	@RequestMapping(value="notice/modifyprocess",method={RequestMethod.GET, RequestMethod.POST})
-	public String modifyProcess(HttpServletRequest request, HttpServletResponse response,UsedVO vo,
-			String seq,
-			String title,
-			String smarteditor) throws Exception {
-		
-		
-		
-		데이터베이스에 수정된 날짜 컬럼 부분에 넣기 위해 현재날짜와 시간을 구함
-		long time = System.currentTimeMillis(); 
-		SimpleDateFormat dayTime = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-		String str = dayTime.format(new Date());
-		
-		파라미터로 넘어온 값을 넣음
-		vo.setCommunity_seq(seq);
-		vo.setCommunity_title(title);
-		vo.setCommunity_content(smarteditor);
-		서비스단에 설정 해 놓은 메소드를 실행
-		vo.setCommunity_revise_datetime(str);
-		departmentService.modify(vo);
-		
-		
-		return "redirect:/department/notice?pageseq=1";
-}*/
-		
 			
 		}
 	
