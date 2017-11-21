@@ -32,7 +32,7 @@
 									<tfoot align="center">  
 									   <tr style="text-align:center;">
 											<td colspan="4" class="table_paging" > 
-												<input type="button"  id="savebutton" value="작성"><input type= "button" class="notice_list_btn" value="목록">
+												<input type="button"  id="savebutton" value="작성"><input type= "button" id="notice_list_sub" class="notice_list_btn" value="목록">
 											</td>
 										</tr>     
 									</tfoot>

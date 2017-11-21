@@ -141,6 +141,18 @@ $("input[name=delete_btn").click(function(){
     	
     });
     
+    $("#submit_key").click(function(){
+    	var seq = $(this).attr('rel')
+    	location.href="/department/keymanager/update?seq="+seq;
+    	alert("처리 되었습니다.");
+    });
+    
+    $("#notice_list_sub").click(function(){
+    	
+    	location.href="/department/notice?pageseq=1";
+    	
+    });
+    
     
     
     

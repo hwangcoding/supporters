@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+
+  
+  <mapper namespace="keymanagerMapper">
+
+	<!-- 커뮤니티 게시물 리스트 -->
+	<select id="list" parameterType="KeyManagerVO" resultType="KeyManagerVO">
+		SELECT `key_seq`,`key_num`,`key_state`,`key_have`,key_apply,substring(`key_date`,1,19) as `key_date`,substring(`key_return_date`,1,19) as  key_return_date
+		 FROM `department_key`
+
+		<where> 
+	        	<choose> 
+	        	<when test="searchFiled == ''">AND 1=1 </when> 
+	        	<when test="searchFiled == 'key_num'">AND key_num like CONCAT('%', #{searchValue} , '%') </when> 
+		    	<when test="searchFiled == 'key_have'">AND key_have like CONCAT('%', #{searchValue} , '%')</when>
+	        	 </choose>
+	  </where>
+			order by key_seq desc
+		limit #{limitNo},#{pageSize}	
+	</select>
+	
+	<!-- 학과 게시물 카운트 -->
+	<select id="count" parameterType="KeyManagerVO" resultType="int">
+		Select
+				 count(*) as totalCount
+		From
+				department_key
+		<where> 
+	        	<choose> 
+	        	<when test="searchFiled == ''">AND 1=1 </when> 
+	        	<when test="searchFiled == 'community_title'">minor_cd='DEB001'  AND community_title like CONCAT('%', #{searchValue} , '%') </when> 
+		    	<when test="searchFiled == 'community_user_id'"> minor_cd='DEB001'  AND community_user_id like CONCAT('%', #{searchValue} , '%')</when>
+	        	 </choose>
+	  </where>
+	  </select>
+	  
+	  <update id="update" parameterType="KeyManagerVO">
+	  
+	  <![CDATA[
+	UPDATE department_key
+      SET key_state = 1,
+          key_apply = '관리자',
+          key_return_date = #{key_return_date}
+       WHERE key_seq = #{key_seq}
+	]]>
+	  
+	  
+	  </update>
+
+</mapper>

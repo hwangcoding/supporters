@@ -40,12 +40,12 @@ public class CommunityController {
 				
 				
 				/*검색 조건 , 검색어 확인 하는 알고리즘*/
-				/*if(searchValue==null) {searchValue="";}
+				if(searchValue==null) {searchValue="";}
 				if(searchFiled==null) {searchFiled="";}
 				switch(searchFiled) {
-				case "0": searchFiled="user_title"; break;
+				case "0": searchFiled="community_content"; break;
 				case "1":searchFiled="community_user_id"; break;
-				}*/
+				}
 				
 				int seq = Integer.parseInt(pageseq);
 				paging.setPageNo(seq);

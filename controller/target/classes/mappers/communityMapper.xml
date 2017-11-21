@@ -18,9 +18,9 @@
 				department_community
 		<where> 
 	        	<choose> 
-	        	<when test="searchFiled == ''">minor_cd='DEB001'  AND 1=1 </when> 
-	        	<when test="searchFiled == 'community_title'">minor_cd='DEB001'  AND community_title like CONCAT('%', #{searchValue} , '%') </when> 
-		    	<when test="searchFiled == 'community_user_id'"> minor_cd='DEB001'  AND community_user_id like CONCAT('%', #{searchValue} , '%')</when>
+	        	<when test="searchFiled == ''">minor_cd='DEB002'  AND 1=1 </when> 
+	        	<when test="searchFiled == 'community_content'">minor_cd='DEB002'  AND community_content like CONCAT('%', #{searchValue} , '%') </when> 
+		    	<when test="searchFiled == 'community_user_id'"> minor_cd='DEB002'  AND community_user_id like CONCAT('%', #{searchValue} , '%')</when>
 	        	 </choose>
 	  </where>
 			order by community_write_datetime desc
@@ -35,9 +35,9 @@
 				department_community
 		<where> 
 	        	<choose> 
-	        	<when test="searchFiled == ''">minor_cd='DEB001'  AND 1=1 </when> 
-	        	<when test="searchFiled == 'community_title'">minor_cd='DEB001'  AND community_title like CONCAT('%', #{searchValue} , '%') </when> 
-		    	<when test="searchFiled == 'community_user_id'"> minor_cd='DEB001'  AND community_user_id like CONCAT('%', #{searchValue} , '%')</when>
+	        	<when test="searchFiled == ''">minor_cd='DEB002'  AND 1=1 </when> 
+	        	<when test="searchFiled == 'community_content'">minor_cd='DEB002'  AND community_content like CONCAT('%', #{searchValue} , '%') </when> 
+		    	<when test="searchFiled == 'community_user_id'"> minor_cd='DEB002'  AND community_user_id like CONCAT('%', #{searchValue} , '%')</when>
 	        	 </choose>
 	  </where>
 	  </select>

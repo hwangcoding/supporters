@@ -14,11 +14,11 @@
 								<table width="100%"  id="user_list"  border="0">
 									<thead align="center">
 										<tr style="text-align:right; background:#fff; height:50px; border-top:0px; ">
-											<td colspan="5">
-											<form method="post" action="/department/notice?pageseq=1">
-											<select name="searchFiled" class="search_select">
-												 <option value="0">제목</option>
-												 <option value="1">작성자</option>
+											<td colspan="8">
+											<form id="submit_key_ch" method="post" action="/department/keymanager/list?pageseq=1">
+											<select name="searchFiled" class="search_select" style="width: 95px;">
+												 <option value="0">강의실 호수</option>
+												 <option value="1">대여자</option>
 												</select>
 												<input type="text" name="searchValue" class="search_text">
 												<input type="submit" class="search_button" value="검색">
@@ -27,10 +27,13 @@
 										</tr>
 										<tr width="100%" >
 											<th width="10%">번호</th>
-											<th width="45%">강의실 호수</th>
-											<th width="10%">학번</th>
-											<th width="15%">신청일</th>
-											<th width="20%">반납일</th>
+											<th width="11%">강의실 호수</th>
+											<th width="14%">키 상태</th>
+											<th width="15%">대여자</th>
+											<th width="15%">인계자</th>
+											<th width="12%">대여일</th>
+											<th width="12%">반납 및 인계일</th>
+											<th width="10%">반납처리</th>
 										</tr>									
 									</thead>
 									
@@ -39,23 +42,109 @@
 										<!-- jstl을 이용하여 forEach 로 값이 있는 동안 계속 반복 됨. -->
 										
 										<!-- 값이없을때 -->
-									<c:if test="${empty notice}">
+									<c:if test="${empty key}">
 										
 										<tr width="100%" >	<!-- db에 따로 시퀀스가 없어 jstl 을 이용 -->
-												<td width="10%" colspan="5">게시물이 없습니다.</td>
+												<td width="10%" colspan="7">관리할 키가 없습니다</td>
 										</tr>
 										
 									</c:if>
 										
 										<!-- 값이있을때-->
-										<c:if test="${notice!= '' || notice ne null}">
-												<c:forEach items="${notice}" var="no" varStatus="status"> 
+										<c:if test="${key!= '' || key ne null}">
+												<c:forEach items="${key}" var="key" varStatus="status"> 
 													<tr width="100%">	<!-- db에 따로 시퀀스가 없어 jstl 을 이용 -->
-														<td width="10%">${ no.department_notice_seq }</td>
-														<td width="45%"><a href="/department/notice/view?seq=${no.department_notice_seq}">${no.department_notice_title}</a></td>
-														<td width="10%"> ${no.department_notice_lookupcnt}</td>
-														<td width="15%">${no.department_notice_user_id}</td>
-														<td width="20%">${no.department_notice_write_datetime}</td>
+														<td width="10%">${key.key_seq }</td>
+														<td width="10%">${key.key_num }</td>
+														<td width="11%">
+														
+														<c:choose>
+														
+															<c:when test="${key.key_state == '0'}">
+															
+																대여중
+																
+															</c:when>
+															
+															<c:when test="${key.key_state == '1'}">
+															
+																반납완료
+															
+															</c:when>
+
+															<c:when test="${key.key_state == '2'}">
+															
+																학생에게 인계
+															
+															</c:when>
+														
+														</c:choose>
+														
+														</td>
+														<td width="15%">${key.key_have }</td>
+														<td width="15%">
+														
+														<c:choose>
+														
+															<c:when test="${key.key_state == '0' }">
+															
+																-
+															
+															</c:when>
+															
+															<c:when test="${key.key_state == '1' }">
+															
+																관리자
+															
+															</c:when>
+															
+															<c:when test="${key.key_state == '2' }">
+															
+																${key.key_apply}
+															
+															</c:when>
+														
+														</c:choose>
+														
+														</td>
+														<td width="12%">${key.key_date }</td>
+														<td width="12%">
+														
+															<c:choose>
+															
+																<c:when test="${key.key_return_date == '0000-00-00 00:00:00' }">
+																
+																	-
+																
+																</c:when>
+																
+																<c:otherwise>
+															
+																${key.key_return_date}
+															
+															</c:otherwise>
+															
+															</c:choose>
+
+														</td>
+														<td width="10%">
+														
+														<c:choose>
+														
+															<c:when test="${key.key_state == '0'}">
+															
+																<input type="button" style="width: 60px; height: 30px;" rel="${key.key_seq }" value="처리" id="submit_key" class="total_btn">
+																
+															</c:when>
+														
+															<c:otherwise>
+															
+																완료
+															
+															</c:otherwise>
+														
+														</c:choose>
+														</td>
 													</tr>
 												</c:forEach>
 											</c:if>	
@@ -66,17 +155,11 @@
 											
 										
 											<tfoot align="center">
-											<!-- 글쓰기 버튼을 누르면 제이쿼리로 정의 해 놓은 이벤트가 발생합니다 -->
-												<tr  style="text-align:right;">
-													<td colspan="5" class="table_paging" > 
-														<button class="write_button">글쓰기</button>
-													</td>
-												</tr>
 												
 													<tr>
 													<!-- 페이징을 위한 녀석 -->
 													
-														<td colspan="5" class="table_paging">
+														<td colspan="8" class="table_paging">
 															<jsp:include page="../../include/paging.jsp" flush="true">
 															    <jsp:param name="firstPageNo" value="${paging.firstPageNo}" />
 															    <jsp:param name="prevPageNo" value="${paging.prevPageNo}" />
