@@ -53,7 +53,6 @@
 									<tfoot align="center">  
 										<tr  style="text-align:center;">
 											<td colspan="7" class="table_paging" > 
-												<input type="button"  id="modify_button" value="수정">
 												<input type="button"  id="used_list_btn" value="목록">
 												<input type="button"  id="delete_button" value="삭제">
 						 
