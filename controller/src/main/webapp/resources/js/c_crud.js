@@ -15,6 +15,19 @@ $("input[name=delete_btn").click(function(){
 	}
 	});
 
+/*끝말잇기 삭제 */
+$(document).on('click', '#drop_button_fic', function () {
+	var result = confirm('정말 삭제 하시겠습니까?');
+	if(result) { 
+		var num = $(this).attr('name');
+    	location.href="/contents/fictiongame/list/delete?usernum="+num;
+		alert("삭제 되었습니다.");
+	}else { 
+	
+		
+	}
+});
+
 	$("input[name=modify_btn]").click(function(){
 		/*alert("뀨");*/
 		$("#frm_modify").attr("action", "/contents/restaurant/modify");

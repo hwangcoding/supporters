@@ -26,6 +26,8 @@ import com.google.android.gcm.server.Result;
 import com.google.android.gcm.server.Sender;
 import com.supporters.department.domain.NoticeVO;
 import com.supporters.department.service.DepartmentService;
+import com.supporters.domain.AlertLogVO;
+import com.supporters.service.AlertLogService;
 import com.supporters.student.domain.StudentVO;
 import com.supporters.student.service.StudentService;
 @Controller
@@ -39,6 +41,9 @@ public class DepartmentController {
 	
 	@Inject
 	private StudentService studentService;
+	
+	@Inject
+	private AlertLogService alertLogService;
 	
 	
 	/*학과공지 리스트*/
@@ -168,7 +173,8 @@ public class DepartmentController {
 			String user_id,
 			String title,
 			String smarteditor,
-			StudentVO stuvo) throws Exception {
+			StudentVO stuvo,
+			AlertLogVO log) throws Exception {
 		System.out.println("들어옴");
 
 		
@@ -179,6 +185,11 @@ public class DepartmentController {
 		vo.setDepartment_notice_user_id(user_id);
 		/*후에 등록해준다*/
 		departmentService.regist(vo);
+		
+		/*작성된 메세지의 로그를 테이블에 저장*/
+        log.setMinor_cd("ALET02");
+        log.setAlert_content(title);
+        alertLogService.log(log);
 		
 		/*작성과 동시에 전체 학생에게 메세지를 보냅니다*/
 		
@@ -229,8 +240,7 @@ public class DepartmentController {
                 System.out.println(result.getErrorCodeName()); 
             }
         }
-		
-		
+        
 		return "redirect:/department/notice?pageseq=1";
 }
 	/*학과공지 수정 프로세스*/

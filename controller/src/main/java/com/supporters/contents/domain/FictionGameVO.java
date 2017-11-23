@@ -8,6 +8,7 @@ public class FictionGameVO  extends Paging{
 	private String user_num	; //char(10)	아니오		작성자(학생 아이디)
 	private String fiction_content	; //varchar(500)	예	null	내용
 	private String fiction_write_datetime	; //timestamp	예	CURRENT_TIMESTAMP	작성날짜
+	private String fiction_delete_ch;
 	
 	
 	
@@ -34,6 +35,18 @@ public class FictionGameVO  extends Paging{
 	}
 	public void setFiction_write_datetime(String fiction_write_datetime) {
 		this.fiction_write_datetime = fiction_write_datetime;
+	}
+	/**
+	 * @return the fiction_delete_ch
+	 */
+	public String getFiction_delete_ch() {
+		return fiction_delete_ch;
+	}
+	/**
+	 * @param fiction_delete_ch the fiction_delete_ch to set
+	 */
+	public void setFiction_delete_ch(String fiction_delete_ch) {
+		this.fiction_delete_ch = fiction_delete_ch;
 	}
 	
 	
