@@ -110,7 +110,7 @@ public class AlertController {
 				/*paging 을 하기위해 설정 해줌*/
 				paging.setPageNo(seq);
 				/*페이지에서 보여줄 갯수*/
-				paging.setPageSize(8);
+				paging.setPageSize(10);
 				paging.setSearchValue(searchValue);
 				paging.setSearchFiled(searchFiled);
 				/*학과 공지 관련 게시물의 총 갯수를 가져와 페이징 처리를 어떻게 할 것인가 설정 하는것.*/

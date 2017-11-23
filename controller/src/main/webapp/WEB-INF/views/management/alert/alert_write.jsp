@@ -49,10 +49,10 @@
 			
 									<tr align="center">
 									
-										<th>알람번호</th>
-										<th>알람구분</th>
-										<th>알람내용</th>
-										<th>알람날짜</th>
+										<th width="10%">알람번호</th>
+										<th width="20%">알람구분</th>
+										<th width="40%">알람내용</th>
+										<th width="30%">알람날짜</th>
 									
 									</tr>
 									
@@ -62,8 +62,8 @@
 									<c:forEach items="${log }" var="log">
 										<tr align="center">
 										
-											<td>${log.alert_seq }</td>
-											<td>
+											<td width="10%">${log.alert_seq }</td>
+											<td width="15%">
 											
 												<c:choose>
 												
@@ -74,8 +74,8 @@
 												</c:choose>
 											
 											</td>
-											<td>${log.alert_content }</td>
-											<td>${log.alert_write_datetime }</td>
+											<td width="50%">${log.alert_content }</td>
+											<td width="25%">${log.alert_write_datetime }</td>
 										
 										</tr>
 										
