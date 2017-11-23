@@ -145,6 +145,7 @@ public class StudentController {
 	public String delete(@RequestParam String usernum,StudentVO vo) throws Exception {
 		
 		vo.setUser_num(usernum);
+		vo.setUser_secession("1");
 		studentService.remove(vo);
 		
 		

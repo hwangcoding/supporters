@@ -48,7 +48,7 @@ public class StudentDAOImpl  implements StudentDAO{
 
 	@Override
 	public void delete(StudentVO vo) throws Exception {
-		session.delete(namespace + ".delete",vo);
+		session.update(namespace + ".delete",vo);
 		
 	}
 

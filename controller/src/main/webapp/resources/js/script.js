@@ -4,7 +4,7 @@ $(document).ready(function(){
 		url : "/statistics/qna",
 		dataType : "text",
 		success : function response(data) {
-				$("#qna_value").text(data);
+				$(".qna_value").text(data);
 	
 		}
 	});
@@ -38,8 +38,14 @@ $(document).ready(function(){
 				 $(".sidebar_menu>ul>li:eq(4)").addClass("open"); /*통계*/
 			 }else if(value[1]=="management"){
 				 $(".sidebar_menu>ul>li:eq(5)").addClass("open"); /*관리*/
-				 if(value[2] =="fictiongame"){
-					 $(".sidebar_menu>ul>li:eq(5)>ul>li:eq(0)>a").css("color","#C9182B"); /*콘텐츠 > 끝말잇기*/
+				 if(value[2] =="faq"){
+					 $(".sidebar_menu>ul>li:eq(5)>ul>li:eq(0)>a").css("color","#C9182B"); /*관리 > FAQ*/
+					 }
+				 if(value[2] =="qna"){
+					 $(".sidebar_menu>ul>li:eq(5)>ul>li:eq(1)>a").css("color","#C9182B"); /*관리 > FAQ*/
+					 }
+				 if(value[2] =="alert"){
+					 $(".sidebar_menu>ul>li:eq(5)>ul>li:eq(2)>a").css("color","#C9182B"); /*관리 > FAQ*/
 					 }
 			 }
 			 

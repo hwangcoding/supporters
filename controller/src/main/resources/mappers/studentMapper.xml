@@ -47,11 +47,9 @@
 	</select>
 	
 	<!-- 회원삭제 -->
-	<delete id="delete" parameterType="StudentVO">
-	<![CDATA[
-		Delete From student where user_num=#{user_num}
-		]]> 
-	</delete>
+	<update id="delete" parameterType="StudentVO">
+		UPDATE student SET user_secession=#{user_secession} where user_num=#{user_num}
+	</update>
 	
 	
 	<!-- 회원가입 -->

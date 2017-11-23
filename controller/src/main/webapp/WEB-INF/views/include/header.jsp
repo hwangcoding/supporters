@@ -35,17 +35,13 @@
 <div id = "header">
 		<div class="header_intro">
 			<div class="header_intro background"></div>
-			<b>재능마당 관리자센터</b>
+			<b><a href="/" style="font-size:17px; color:#fff; " >재능마당 관리자센터</a></b>
 		</div> <!-- 이 부분에 로고 이미지 넣던지 글씨 이뿐거 만들던지  -->
 		
 		<div class= "header_setting"><!-- 버튼은 이미지 형식으로 만들 것 -->
 				<ul>
 					<li > <span><i class="material-icons">settings</i></span>
 						<ul>
-							<li><a href="#">내 계정 정보</a></li>
-							<li><a href="#" data-toggle='modal' data-target='#light_model' >문의하기</a></li>
-							<li><a href="#">FAQ</a></li>
-							<li><a href="#">공지사항</a></li>
 							<li><a href="/logout" class="logout">로그아웃</a></li>
 						</ul>
 					</li>

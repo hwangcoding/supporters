@@ -18,9 +18,15 @@ public class StudentVO extends Paging {
 	private String user_joindate;// 학생 가입 일자
 	private String user_lastlogin;// 학생 마지막 로그인
 	private String user_token; // 회원 토큰 정보
+	private String user_secession; // 회원 탈퇴여부 
 	
 	
-	
+	public String getUser_secession() {
+		return user_secession;
+	}
+	public void setUser_secession(String user_secession) {
+		this.user_secession = user_secession;
+	}
 	public String getUser_token() {
 		return user_token;
 	}
