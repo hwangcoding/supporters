@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.inject.Inject;
 
+import org.json.JSONObject;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -41,8 +42,6 @@ public class AlertController {
 	    		+ "_ctrYSC8c8noyOCm2h52CwP7yyKzUSnn5DMia2Lzf6UkH7SMyXOtwDzSJMPOgsNNDJu3Y0uRDkWbnxKSaaoqHHA"
 	    		+ "_AmEae1rfSSuKfZeP7rsrcQWT";
 	    String gcmURL = "https://android.googleapis.com/fcm/send";  
-
-		
 	    
 	    List<StudentVO> st = studentService.alert(vo);
 	    
@@ -52,7 +51,12 @@ public class AlertController {
 	    	token.add(st.get(a).getUser_token().toString()); //저장된 토큰을 가져와 ArrayList에 저장합니다.
 	    }
 	    
-        msg = new String(msg.getBytes("UTF-8"), "UTF-8");   //메시지 한글깨짐 처리
+        JSONObject jsonOb = new JSONObject();
+        jsonOb.put("group", "total");
+        jsonOb.put("title", "전체알람");
+        jsonOb.put("content", msg);
+	    
+        msg = new String(jsonOb.toString().getBytes("UTF-8"), "UTF-8");   //메시지 한글깨짐 처리
       
         
         Sender sender = new Sender(simpleApiKey);
@@ -60,8 +64,9 @@ public class AlertController {
 		.collapseKey(MESSAGE_ID)
         .delayWhileIdle(SHOW_ON_IDLE)
         .timeToLive(LIVE_TIME)
-        .addData("message",msg)
+        .addData("json",msg)
         .build();
+        
         MulticastResult result1 = sender.send(message,token,RETRY);
         if (result1 != null) {
             List<Result> resultList = result1.getResults();
