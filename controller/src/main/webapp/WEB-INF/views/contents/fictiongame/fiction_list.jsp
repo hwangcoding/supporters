@@ -56,7 +56,7 @@
 														<td width="50%">${fi.fiction_content}</td>
 														<td width="15%">${fi.user_num }</td>
 														<td width="15%">${fi.fiction_write_datetime}</td>
-														<td width="10%"><i class="material-icons" id="drop_button" style="cursor:pointer;" name="${fi.user_num }">close</i></td>
+														<td width="10%"><i class="material-icons" id="drop_button_fic" style="cursor:pointer;" name="${fi.fiction_seq }">close</i></td>
 													</tr>
 												
 												</c:forEach>

@@ -38,7 +38,7 @@ public class FictionGameServiceImpl implements FictionGameService{
 	@Override
 	public void delete(FictionGameVO vo) throws Exception {
 		// TODO Auto-generated method stub
-		
+		fictionGameDAO.delete(vo);
 	}
 
 	@Override

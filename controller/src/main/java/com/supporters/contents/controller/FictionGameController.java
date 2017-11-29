@@ -1,5 +1,4 @@
 package com.supporters.contents.controller;
-
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -69,6 +68,16 @@ public class FictionGameController {
 				return "contents/fictiongame/fiction_list";
 		
 				}
+			
+			@RequestMapping(value = "list/delete")
+			public String delete(String usernum, 
+					FictionGameVO paging)throws Exception{
+				
+				paging.setFiction_seq(usernum);
+				fictionGameService.delete(paging);
+				
+				return "redirect:/contents/fictiongame/fiction_list?pageseq=1";
+			}
 				
 		
 			

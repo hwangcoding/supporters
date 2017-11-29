@@ -17,10 +17,10 @@
 				 student 
 		<where> 
         	<choose> 
-        	<when test="searchFiled == ''"> AND 1=1 </when> 
-        	<when test="searchFiled == 'user_num'"> AND user_num like CONCAT('%', #{searchValue} , '%') </when> 
-	    	<when test="searchFiled == 'user_nm'"> AND user_nm like CONCAT('%', #{searchValue} , '%')</when>
-		    <when test="searchFiled == 'user_atten'"> AND user_atten like CONCAT('%', #{searchValue} , '%') </when> 
+        	<when test="searchFiled == ''"> AND user_secession = 0 </when> 
+        	<when test="searchFiled == 'user_num'"> user_secession = 0 AND user_num like CONCAT('%', #{searchValue} , '%') </when> 
+	    	<when test="searchFiled == 'user_nm'"> user_secession = 0 AND user_nm like CONCAT('%', #{searchValue} , '%')</when>
+		    <when test="searchFiled == 'user_atten'"> user_secession = 0 AND user_atten like CONCAT('%', #{searchValue} , '%') </when> 
         	 </choose>
         	  </where>
 		order by user_num

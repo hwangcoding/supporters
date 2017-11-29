@@ -40,7 +40,7 @@ public class FictionGameDAOImpl implements FictionGameDAO{
 
 	@Override
 	public void delete(FictionGameVO vo) throws Exception {
-		sqlsession.delete(namespace+".delete",vo);		
+		sqlsession.update(namespace+".delete",vo);		
 	}
 
 

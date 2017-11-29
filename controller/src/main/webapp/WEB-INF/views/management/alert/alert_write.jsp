@@ -28,11 +28,82 @@
 													</form>
 												</div>
 												
+												<h3 style="margin-top: 60px;">알림 기록</h3>
 												
+												<div style="float: right; margin-bottom: 10px;">
 												
-												
-											
+													<form method="post" action="/management/alert/write?pageseq=1">
+													
+													<select name="searchFiled" style="width: 65px;" class="search_select">
+														 <option value="0">제목</option>
+														</select>
+														<input type="text" name="searchValue" class="search_text">
+														<input type="submit" class="total_btn" style="width: 60px; height: 30px;" value="검색">
+														
+													</form>
+													
+												</div>
+								<table class="alert_tbl" width="100%" border="0">
+								
+								<thead>
+			
+									<tr align="center">
+									
+										<th width="10%">알람번호</th>
+										<th width="20%">알람구분</th>
+										<th width="40%">알람내용</th>
+										<th width="30%">알람날짜</th>
+									
+									</tr>
+									
+								</thead>
+								
+								<tbody>
+									<c:forEach items="${log }" var="log">
+										<tr align="center">
 										
+											<td width="10%">${log.alert_seq }</td>
+											<td width="15%">
+											
+												<c:choose>
+												
+													<c:when test="${log.minor_cd eq 'ALET01' }">일반 알람</c:when>
+													
+													<c:otherwise>학과공지 알림</c:otherwise>
+												
+												</c:choose>
+											
+											</td>
+											<td width="50%">${log.alert_content }</td>
+											<td width="25%">${log.alert_write_datetime }</td>
+										
+										</tr>
+										
+									</c:forEach>
+								</tbody>
+								
+								<tfoot>
+								
+									<tr>
+														<!-- 페이징을 위한 녀석 -->
+														
+															<td colspan="4" class="table_paging">
+																<jsp:include page="../../include/paging.jsp" flush="true">
+																    <jsp:param name="firstPageNo" value="${paging.firstPageNo}" />
+																    <jsp:param name="prevPageNo" value="${paging.prevPageNo}" />
+																    <jsp:param name="startPageNo" value="${paging.startPageNo}" />
+																    <jsp:param name="pageNo" value="${paging.pageNo}" />
+																    <jsp:param name="endPageNo" value="${paging.endPageNo}" />
+																    <jsp:param name="nextPageNo" value="${paging.nextPageNo}" />
+																    <jsp:param name="finalPageNo" value="${paging.finalPageNo}" />
+																</jsp:include>
+															</td>
+									</tr>
+									
+								</tfoot>
+								
+								</table>
+							
 							</div>
 						<!-- </div> -->
 		

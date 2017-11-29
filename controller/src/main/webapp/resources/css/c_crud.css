@@ -9,10 +9,21 @@
 /* #restaurant_list>tbody>tr{ height:45px; font-size:15px;border-bottom:1px solid #c1c1c1;border-top:1px solid #c1c1c1;} */
 .restaurant_comment_list>tbody>tr>td{height:45px; font-size:15px; border-bottom:1px solid #c1c1c1;}
 
+
+
 /* 맛집 없어진부분 추가 */
 
 .res_text{height:30px; width:50%; border:none; border-bottom:1px solid #c1c1c1; color:#666666; vertical-align: center;}
 .res_text_addr{height:90%; width:100%; border:none; color:#666666; overflow: hidden;}
+
+/* 알람부분 테이블 */
+
+.alert_tbl{border-collapse:collapse; margin: 0px auto;}
+.alert_tbl>thead>tr>th{background-color:#F8F8F8; height:33px; font-size:16px; text-align:center; border:1px solid #c1c1c1; font-weight:500;}
+.alert_tbl>thead>tr>td{height:33px; font-size:18px; text-align:left; border:0px; font-weight:500; padding-bottom: 20px;}
+/* #restaurant_list>tbody>tr{ height:45px; font-size:15px;border-bottom:1px solid #c1c1c1;border-top:1px solid #c1c1c1;} */
+.alert_tbl>tbody>tr>td{height:45px; font-size:15px; border-bottom:1px solid #c1c1c1;}
+
 
 /* 탭부분 css */
 

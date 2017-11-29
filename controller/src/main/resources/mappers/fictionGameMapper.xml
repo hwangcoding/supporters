@@ -15,9 +15,9 @@
 				fictiongame
 		<where> 
         	<choose> 
-        	<when test="searchFiled == ''"> AND 1=1 </when> 
-        	<when test="searchFiled == 'fiction_content'"> AND fiction_content like CONCAT('%', #{searchValue} , '%') </when> 
-	    	<when test="searchFiled == ''user_num"> AND user_num like CONCAT('%', #{searchValue} , '%')</when>
+        	<when test="searchFiled == ''"> AND fiction_delete_ch = 0 </when> 
+        	<when test="searchFiled == 'fiction_content'">fiction_delete_ch = 0 AND fiction_content like CONCAT('%', #{searchValue} , '%') </when> 
+	    	<when test="searchFiled == ''user_num">fiction_delete_ch = 0 AND user_num like CONCAT('%', #{searchValue} , '%')</when>
         	 </choose>
         	  </where>
 		order by fiction_write_datetime desc
@@ -52,11 +52,11 @@
 
 
 	<!-- 댓글 삭제하기 -->
-	<delete id="delete" parameterType="CommunityVO">
+	<update id="delete" parameterType="CommunityVO">
 	<![CDATA[
-		Delete From fictiongame where fiction_seq=#{fiction_seq}
+		update fictiongame set fiction_delete_ch = 1 where fiction_seq=#{fiction_seq}
 		]]> 
-	</delete>
+	</update>
 	
 	
 	 <!-- 댓글 수정하기 -->
