@@ -11,6 +11,20 @@ Gilt - 후보돈관리
 Boar - 웅돈관리
 Piglet - 자돈관리
 
+###############################################
+
+	일반 파일 바로 적용 방법: 
+	Servers -> Tomcat x.x Server at ..... 더블 클릭(설정) -> Server Options -> Server modules without publishing 체크, Module auto reload by default 체크 나머지 비체크
+
+
+	그리고 Class 파일 수정 시 서버가 리스트하여 클레스를 로드 합니다.
+	 이것도 재시작 없이 적용 하는 방법이 있습니다.
+	Class파일 변경 후 재시작 없이 적용 방법: 
+	1단계. Servers -> Tomcat x.x Server at ..... 더블 클릭(설정) -> Publishing -> Automatically publish after a bulid event 체크
+	2단계. Servers -> Tomcat x.x Server at ..... 더블 클릭(설정) -> 하단 Modules -> 배포된 모듈 더블 클릭(적용을 원하는) -> Auto reloading enabled 해제 -> 서버 실행 시 Debug모드로 실행
+
+################################################
+
 
 
 ## 모돈관리
@@ -94,5 +108,65 @@ Piglet - 자돈관리
 	 3. 체중정보 입력 
 	 
 	 
-	 
-	
+  =============================================
+  18.03.30
+## Monthly Close
+ # 월마감
+ - 월마감 상태 등록(T_DAILY_CLOSING_STS) => S 
+ 
+  =============================================
+  18.04.02
+## GP Farm
+ # Vaildator Check
+  - Mating, Gilt> Estrus, Boar> Collect semen, use Semen
+   , Move> Transfer Request, Sales > Sales Request
+   , Cull> cull, Diseased pig List
+   수정 삭제가 없음. 부장님께 여쭤보고 작업 진행.  ---> 작업 진행 하기로 함.
+   
+  - Vaccine 날짜 기준일 뭘로 해야하는지..? 백신접종일 , 기준일
+  
+  =============================================
+  18.04.03
+## GET , POST
+ # GET은 URL hwangman.ga?id=hwang 이런 식으로 URL 에 포함되어 전송 하는 방식이다. 보안에 취약하고 전송할 수 있는 용량이 적음. 또한 GET방식은 Select 하는 개념이 크다.
+
+ # POST는 Form 안에 내용을 submit 하는 것이다. GET 방식 보다 보안에 강한편이고 GET 식 보다 더 많은 데이터를 보낼 수 있다. 
+ 
+  
+## GP Farm
+ # Vaildator Check	
+ - 개체 > OK
+   발정 > OK
+   수정 > OK
+   체크 > OK
+   분만 > OK
+   이유 > OK
+  
+ - Asset Sales 그리드 없음.  해결.
+ 
+ Sales 안에 Validator 확인해야함.
+ Send 버튼 Validator 만들어야하는지../
+  "assetSalesUpdateForm" : formData,
+                "add" : addedRowItems,
+                "update" : editedRowItems,
+                "remove" : removedRowItems
+  =============================================
+  18.04.05
+## Servelet 
+ # Servelet 
+ - 정의클라이언트클라이언트 요청을 처리하고 그 결과를 다시 클라이언트에게 전송하는 Servlet 클래스의 구현 규칙을 지킨 자바 프로그램.
+ 
+ - 내가 궁금해 하는 것들 http://wiki.gurubee.net/pages/viewpage.action?pageId=26739216 꼭 보기.
+ 
+ - 내일 와서 Sales Ft 중복검사 확인.
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+		
